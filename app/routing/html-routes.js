@@ -7,20 +7,44 @@ module.exports = function (app){
 	// In each of the below cases the user is shown an HTML page of content
 	// ---------------------------------------------------------------------------
 
-	app.get('/tables', function(req, res){
-		console.log(index_plus(tdata));
-		tdata.forEach(function(tdata, index, array){ //for each item in the tables array you are added a number property
-			tdata.number = index + 1;
-		});
-
-		wdata.forEach(function(wdata, index, array){
-			wdata.number = index + 1;
-		});
-		res.render('tables', {table_data: tdata, waiting_data: wdata});
+	app.get('/about', function(req, res){
+		res.render('about');
 	});
 
-	app.get('/reserve', function(req, res){
-		res.sendFile(path.join(__dirname + '/../public/reserve.html'));
+	app.get('/admin', function(req, res){
+		res.render('admin');
+	});
+
+	app.get('/admincreate', function(req, res){
+		res.render('admincreate');
+	});
+
+	app.get('/crisis', function(req, res){
+		res.render('crisis');
+	});
+
+	app.get('/friends', function(req, res){
+		res.render('friends');
+	});
+
+	app.get('/profile', function(req, res){
+		res.render('profile');
+	});
+
+	app.get('/resources', function(req, res){
+		res.render('resources');
+	});
+
+	app.get('/signin', function(req, res){
+		res.render('signin');
+	});
+
+	app.get('/signup', function(req, res){
+		res.render('signup');
+	});
+
+	app.get('/tasks', function(req, res){
+		res.render('tasks');
 	});
 
 	// If no matching route is found default to home
@@ -28,5 +52,5 @@ module.exports = function (app){
 		// res.sendFile(path.join(__dirname + '/../public/home.html'));
 		res.render('home');
 	});
-	
+
 }
