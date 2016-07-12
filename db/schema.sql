@@ -28,7 +28,8 @@ CREATE TABLE AvailableTasks (
 	 ContactName varchar(30) NOT NULL,
 	 ContactNum INTEGER(11),
 	 TaskAddress varchar(30) NOT NULL,
-	 TaskTime INTEGER(11), 
+	 TaskTime INTEGER(11),
+	 VolunteersNeeded(30), 
 	 primary key (TaskID)
 );
 
