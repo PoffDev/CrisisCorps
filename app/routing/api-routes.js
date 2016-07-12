@@ -2,6 +2,7 @@
 
 var hospitalArray = require('../data/resources.js');
 var bloodArray = require('../data/blood.js');
+
 //actually routing
 
 module.exports = function(app){
