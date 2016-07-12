@@ -6,8 +6,8 @@ CREATE TABLE members (
 	 ItemiD INTEGER(11) AUTO_INCREMENT NOT NULL,
 	 MemberName varchar(30) NOT NULL,
 	 EmailAddress varchar(30) NOT NULL,
-	 TwitterHandle varchar(30) NOT NULL,
 	 ContactNum INTEGER(11),
+	 TwitterHandle varchar(30) NOT NULL,
 	 BloodType varchar(30) NOT NULL,
 	 primary key (ItemID)
 );
