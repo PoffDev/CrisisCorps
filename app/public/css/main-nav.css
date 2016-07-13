@@ -1,0 +1,28 @@
+/* nav */
+img.nav-brand-symbol {
+  width: 50%;
+  margin-top: -16px; }
+
+/* jumbotron 
+.video-container {
+		height: 650px;
+		position: relative;
+		overflow: hidden;
+	}
+
+		video {
+			width: 100%;
+			position: absolute;
+		}
+
+		.video-overlay {
+			position: absolute;
+			z-index: 99;
+			width: 70%;
+			margin: 100px 15%;
+			padding: 50px;
+			color: #fff;
+			text-align: center;
+			background: rgba(0,0,0, .5);
+		}
+		*/
