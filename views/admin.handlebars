@@ -1,68 +1,88 @@
 {{>admin-nav}}
 
-
 <!-- admin body -->
 <div class="admin-body">
 
-	<!-- Form Document -->
-	<form>
+	<!-- create task module -->
+	<div class="conatiner">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="module-header">
+					<h4>Create Task</h4>
+				</div>
+				<div class='module'>
 
-		<div class = 'container'>
+					<!-- Form Document -->
+					<form>
+						<div class="form-group">
+							<div id = "title">
+						    	<label for="createTask">Description</label>
+						    	<input type="text" class="form-control" id="description" placeholder="description">
+					    		
+					    		<br>
+						    	
+						    	<label for="description">Contact Name</label>
+						    	<input type="text" class="form-control" id="contactName" placeholder="Contact Name">
 
-			<!-- Create Tasks -->
-			<div class="form-group">
-				<div id = "title">
-			    	<label for="createTask">Description</label>
-			    	<input type="text" class="form-control" id="description" placeholder="description">
-		    		
-		    		<br>
-			    	
-			    	<label for="description">Contact Name</label>
-			    	<input type="text" class="form-control" id="contactName" placeholder="Contact Name">
+						    	<br>
 
-			    	<br>
+						    	<label for="createTask">Contact Number</label>
+						    	<input type="text" class="form-control" id="contactNumber" placeholder="Contact Number">
+					    		
+					    		<br>
 
-			    	<label for="createTask">Contact Number</label>
-			    	<input type="text" class="form-control" id="contactNumber" placeholder="Contact Number">
-		    		
-		    		<br>
+						    	<label for="description">Address</label>
+						    	<input type="text" class="form-control" id="address" placeholder="Address">
 
-			    	<label for="description">Address</label>
-			    	<input type="text" class="form-control" id="address" placeholder="Address">
+						    	<br>
 
-			    	<br>
+						    	<label for="createTask">Members Needed</label>
+						    	<input type="text" class="form-control" id="membersNeeded" placeholder="Members Needed">
+					    		<br>
 
-			    	<label for="createTask">Members Needed</label>
-			    	<input type="text" class="form-control" id="membersNeeded" placeholder="Members Needed">
-		    		<br>
+					    	</div>
+					  	</div>
+					  	<div class="module-footer">
+					  		<!--Button -->
+							<button type="submit" class="btn btn-primary">Create Task</button>
+					  	</div> <!-- end module-footer -->
+					</form>
+				</div> <!-- end module -->
+			</div> <!-- end col-md-6 -->
 
-		    	</div>
-		    	
-		  	</div>
-			
-			<!--Button -->
-			<button type="submit" class="btn btn-default">Create Task</button>
+			<div class="col-md-6">
+				<div class="module-header">
+					<h4>Text Blast</h4>
+				</div> <!-- end module-header -->
+				<div class="module">
+					
+					<!-- Form Document -->
+					<form>
+						<div class="form-group">
+							<div id = "title">
+						    	<label for="createTask">Content</label>
+						    	<textarea class="form-control" id="description" placeholder="content to text"></textarea>
+						    </div>
+						</div>
 
-			<!-- On button click move information to active crisis div -->
+							<!-- On button click move information to active crisis div -->
+							<!-- Crisis Div-->
+							<div class = "form-group">
+								<div id = "active-crisis"></div>
+							</div>
 
-			<!-- Crisis Div-->
-			<div class = "form-group">
-				<div id = "active-crisis"></div>
-			</div>
+						<div class="module-footer">
+							<button type="submit" class="btn btn-primary">Text Blast!</button>
+						</div>
+					</form>
 
-		</div>
+				</div> <!-- end module -->
+			</div> <!-- end col-md-6 -->
 
-	</form>
+		</div> <!-- end row -->
+	</div> <!-- end container -->
 
-	<div class = "container">
-
-		<button type="submit" class="btn btn-default">Text Blast!</button>
-
-	</div>
-
-</div>
-
-
+</div> <!-- end admin-body -->
 
 <script type="text/javascript">
 
