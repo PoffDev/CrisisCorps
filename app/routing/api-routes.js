@@ -18,4 +18,8 @@ module.exports = function(app){
 		hospitalArray.push(req.body);
 		bloodArray.push(req.body);
 	})
+
+	app.post('/newTask', function (req, res){
+		console.log(req.body);
+	})
 };
