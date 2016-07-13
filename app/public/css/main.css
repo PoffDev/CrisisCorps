@@ -23,21 +23,58 @@ img.nav-brand-symbol {
   width: 50%;
   margin-top: -16px; }
 
-/* admin nav */
+/* admin nav main left */
 .admin-nav-container {
+  position: absolute;
   height: 100%;
   width: 12%;
   float: left;
-  background: #000; }
+  background: #11191C; }
 
 .nav-logo {
-  height: 60px; }
+  height: 60px;
+  padding: 5px;
+  background: #212d33; }
 
 img.admin-logo {
   max-width: 100%;
-  max-height: 60px; }
+  max-height: 50px; }
+
+.admin-nav ul {
+  list-style-type: none;
+  padding: 0; }
+
+.admin-nav .glyphicon {
+  margin-right: 10px; }
+
+.admin-nav li a {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  color: #ddd; }
+
+.admin-nav li a:hover, .admin-nav li a:focus {
+  text-decoration: none;
+  background: #212D33; }
+
+/* admin nav top */
+.admin-nav-top {
+  position: absolute;
+  height: 60px;
+  width: 88%;
+  margin-left: 12%;
+  background: #fff; }
+
+.username-container {
+  float: right;
+  padding: 20px 50px 0 0; }
+
+.username {
+  font-size: 1.1em; }
 
 /* admin body */
 .admin-body {
   width: 88%;
-  float: left; }
+  margin-left: 12%;
+  float: left;
+  background: #F0F7FA; }
