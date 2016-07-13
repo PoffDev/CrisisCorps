@@ -24,9 +24,10 @@ img.nav-brand-symbol {
   margin-top: -16px; }
 
 /* admin nav */
-.admin-nav-conatiner {
-  width: 12%;
+.admin-nav-container {
   height: 100%;
+  width: 12%;
+  float: left;
   background: #000; }
 
 .nav-logo {
@@ -37,3 +38,6 @@ img.admin-logo {
   max-height: 60px; }
 
 /* admin body */
+.admin-body {
+  width: 88%;
+  float: left; }
