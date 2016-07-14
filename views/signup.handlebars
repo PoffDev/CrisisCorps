@@ -13,32 +13,32 @@
 		<div class="form-group">
 			
 			<div id = "Name">
-		    	<label for="createTask">Member Name</label>
+		    	<label for="memberName">Member Name</label>
 		    	<input type="text" class="form-control" id="memberName" placeholder="Member Name">
 	    		
 	    		<br>
 		    	
-		    	<label for="description">Email Address</label>
+		    	<label for="emailAddress">Email Address</label>
 		    	<input type="email" class="form-control" id="emailAddress" placeholder="JohnSmith@google.com">
 
 		    	<br>
 
-		    	<label for="createTask">Contact Number</label>
+		    	<label for="contactNumber">Contact Number</label>
 		    	<input type="text" class="form-control" id="contactNumber" placeholder="Contact Number">
 	    		
 	    		<br>
 
-		    	<label for="description">Twitter Handle</label>
+		    	<label for="twitterHandle">Twitter Handle</label>
 		    	<input type="text" class="form-control" id="twitterHandle" placeholder="Twitter Handle">
 
 		    	<br>
 
-		    	<label for="createTask">Blood Type</label>
+		    	<label for="bloodType">Blood Type</label>
 		    	<input type="text" class="form-control" id="bloodType" placeholder="Blood Type">
 	    		<br>
 
 	    		<!--Button -->
-				<button type="submit" class="btn btn-default">Create Task</button>
+				<button type="submitMember" class="btn btn-default">Create Task</button>
 
 	    	</div>
 	    </div>
@@ -50,8 +50,32 @@
 	
 </body>
 
-
 <script type="text/javascript">
+
+$('#SubmitMember').on('click', function () {
+	//pull values from form input
+	var newMember = {
+		memberName: $('#memberName').val().trim(),
+		emailAddress: $('#emailAddress').val().trim(),
+		contactNumber: $('#contactNumber').val().trim(),
+		twitterHandle: $('#twitterHandle').val().trim(),
+		bloodType: $('#bloodType').val().trim()
+
+	}
+	//push those values to database
+	$.post('/newMember', newMember, function() {
+
+	})
+	//refresh data base information. 
+
+});
+
+
+//display my sql data into a form document.
+
+//look up npm package to send out e-mail/text
+
+//attach package to button
 
 
 </script>
