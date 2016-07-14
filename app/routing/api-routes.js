@@ -20,14 +20,12 @@ module.exports = function(app){
 	})
 
 	app.post('/newTask', function (req, res){
-		if err throw err;
 		orm.AvailableTasks(req.body.description, req.body.contactName, req.body.contactNumber, req.body.Address, req.body.TaskTime, req.body.membersNeeded);
 		res.send(function() {
 			alert("Task Created successfully!");
 	})
 
 	app.post('/newMember', function (req, res){
-		if err throw err;
 		orm.AvailableTasks(req.body.memberName, req.body.emailAddress, req.body.contactNumber, req.body.twitterHandle, req.body.bloodType);
 		res.send(function() {
 			alert("User added successfully!");
@@ -35,7 +33,6 @@ module.exports = function(app){
 	})
 
 	app.post('/newCorpMember', function (req, res){
-		if err throw err;
 		orm.AvailableTasks(req.body.description, req.body.contactName, req.body.contactNumber, req.body.Address, req.body.TaskTime, req.body.membersNeeded);
 		res.send(function() {
 			alert("Corporate Member Added successfully!");
