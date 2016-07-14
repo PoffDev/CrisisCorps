@@ -4,6 +4,8 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
+var useref = require('gulp-useref');
+var concat = require('gulp-concat');
 
 
 //gulp
@@ -31,11 +33,53 @@ gulp.task('sass', function () {
 
 });
 
+
+// the two tasks below build our js files into one. the reason we're using two is so that we don't load unnecessary scripts on the public view pages and the admin pages. They will require their own logic, so best not to load large files sizes that aren't necessary.
+// same principle as before. scriptsWeb and scriptsAdmin are the names to call on the command line, so gulp scriptsWeb is how you would concatenate your js files into the main-web.js file. 
+gulp.task('scriptsWeb', function() {
+
+    // the *.js allows us to grab all the js files in the website folder. This way we can work on our own js files without overriding each other
+    return gulp.src('./app/public/javascript/website/*.js')
+
+        // the final name of the concatenated file. this is what is called at the bottom of the footer.handlebars file
+        .pipe(concat('main-web.js'))
+
+        // the destination for the concatenated file
+        .pipe(gulp.dest('./app/public/javascript'));
+
+});
+
+gulp.task('scriptsAdmin', function() {
+
+    // the *.js allows us to grab all the js files in the admin folder. This way we can work on our own js files without overriding each other
+    return gulp.src('./app/public/javascript/admin/*.js')
+
+        // the final name of the concatenated file. this is what is called at the bottom of the footer-admin.handlebars file
+        .pipe(concat('main-admin.js'))
+
+        // the destination for the concatenated file
+        .pipe(gulp.dest('./app/public/javascript'));
+
+});
+
+
+
+/* ========================== This is not working yet ========================== */
+
+// gulp.task('useref', function(){
+//   return gulp.src('views/partials/footer.handlebars')
+//     .pipe(useref())
+//     .pipe(gulp.dest('app/public/javascript'))
+// });
+
 // this gulp task is run also in the command line as gulp watch and what it does is compiles a css file each time we save a .scss file. It allows us to not have to run gulp sass each time a .scss file is saved. It does it for us!!! Again, thanks Gulp! Gulp reallly does some heavy lifting.
 gulp.task('watch', /*['browserSync', 'sass'],*/ function() {
 
-	// gulp.watch is the directory path and the types of files to watch for. In this case .scss files
+	// gulp.watch is the directory path and the types of files to watch for. In this case .scss files, the .js files in javascript/website and the js files in javascript/admin.
+    // the ['sass'] is the name of the gulp task gulp watch is automatically running. It's basically looking for saved changes to these files and running gulp sass, or gulp scripsWeb, or gulp scriptsAdmin for us so we don't need to write it into the command line.
     gulp.watch('app/public/sass/**/*.scss',['sass']);
+    gulp.watch('app/public/javascript/website**/*.js', ['scriptsWeb']);
+    gulp.watch('app/public/javascript/admin**/*.js', ['scriptsAdmin']);
     
 });
 
