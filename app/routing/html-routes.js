@@ -47,6 +47,10 @@ module.exports = function (app){
 		res.render('tasks');
 	});
 
+	app.get('/dashboard', function(req, res){
+		res.render('dashboard');
+	});
+
 	// If no matching route is found default to home
 	app.use(function(req, res){
 		// res.sendFile(path.join(__dirname + '/../public/home.html'));
