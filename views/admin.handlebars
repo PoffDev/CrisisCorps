@@ -88,15 +88,24 @@
 
 <script type="text/javascript">
 
-//$('#id').on('click', function () {
-
+$('#SubmitTask').on('click', function () {
 	//pull values from form input
+	var newTask = {
+		description: $('#description').val().trim(),
+		contactName: $('#contactName').val().trim(),
+		contactNumber: $('#contactNumber').val().trim(),
+		Address: $('#Address').val().trim(),
+		TaskTime: $('#TaskTime').val().trim(),
+		membersNeeded: $('#membersNeeded').val().trim()
 
+	}
 	//push those values to database
-
+	$.post('/newTask', newTask, function() {
+		console.log("New Task Created");
+	})
 	//refresh data base information. 
 
-// });
+});
 
 
 //display my sql data into a form document.
@@ -104,6 +113,3 @@
 //look up npm package to send out e-mail/text
 
 //attach package to button
-
-
-</script>
