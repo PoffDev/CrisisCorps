@@ -23,18 +23,21 @@ module.exports = function(app){
 		orm.AvailableTasks(req.body.description, req.body.contactName, req.body.contactNumber, req.body.Address, req.body.TaskTime, req.body.membersNeeded);
 		res.send(function() {
 			alert("Task Created successfully!");
-	})
+		});
+	});
+
 
 	app.post('/newMember', function (req, res){
 		orm.AvailableTasks(req.body.memberName, req.body.emailAddress, req.body.contactNumber, req.body.twitterHandle, req.body.bloodType);
 		res.send(function() {
 			alert("User added successfully!");
-		})
-	})
+		});
+	});
 
 	app.post('/newCorpMember', function (req, res){
 		orm.AvailableTasks(req.body.description, req.body.contactName, req.body.contactNumber, req.body.Address, req.body.TaskTime, req.body.membersNeeded);
 		res.send(function() {
 			alert("Corporate Member Added successfully!");
-	})
-};
+		})
+	});
+}
