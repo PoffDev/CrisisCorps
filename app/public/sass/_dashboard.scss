@@ -1,0 +1,66 @@
+.dashboard .row {
+	margin-bottom: 20px;
+}
+
+	.dashboard canvas {
+		width: 200px;
+		margin-left: 30%;
+	}
+
+	.percent-circle {
+		margin: 10px auto;
+	    border-radius: 50%;
+	    width: 100px;
+	    height: 100px;
+	    padding: 23px 10px 25px 10px;
+	    border: 12px solid #db0a6d;
+	    color: #1f2631;
+	    text-align: center;
+	    font-size: 1.7em;
+	    font-style: italic;
+	    font-weight: bold;
+	}
+
+	.dashboard .col-md-7 {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+		.dashboard .col-md-7 .col-md-4 {
+			margin-bottom: 20px;
+		}
+
+	#vol-filled, #tasks-filled {
+		margin-top: 26px;
+	}
+
+	h2.db-num {
+		margin-bottom: 20px;
+		color: #fff;
+		text-align: center;
+	}
+
+	/* dashboard numbers sections */
+	#db-cv {
+		background: #96deea;
+	}
+
+	#db-uv {
+		background: #5bbfd6;
+	}
+
+	#db-tv {
+		background: #2faacc;
+	}
+
+	#db-ct {
+		background: #96deea;
+	}
+
+	#db-ot {
+		background: #5bbfd6;
+	}
+
+	#db-tt {
+		background: #2faacc;
+	}

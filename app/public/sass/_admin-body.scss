@@ -1,0 +1,25 @@
+/* admin body */
+.admin-body {
+	width: 88%;
+	margin-left: 12%;
+	padding: 80px 20px 20px 20px;
+	float: left;
+	background: #edf0f5;
+}
+
+	.module-header {
+		padding: 5px 20px;
+		box-shadow: 0 1px 2px #ccc;
+		border-bottom: 1px solid #eee;
+		background: #F7F9FC;
+	}
+
+	.module {
+		padding: 20px;
+		box-shadow: 0 1px 2px #ccc;
+		background: #fff;
+	}
+
+		.module-footer {
+			padding: 0 0 20px 0;
+		}

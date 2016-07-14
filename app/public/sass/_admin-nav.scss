@@ -1,0 +1,73 @@
+/* admin nav main left */
+.admin-nav-container {
+	position: fixed;
+	height: 100%;
+	width: 12%;
+	float: left;
+	background: #11191C;
+}
+
+	.nav-logo {
+		height: 60px;
+		padding: 5px;
+		background: #212d33;
+	}
+
+	img.admin-logo {
+		max-width: 100%;
+		max-height: 50px;
+	}
+
+	.admin-nav ul {
+		list-style-type: none;
+		padding: 0;
+	}
+
+		.admin-nav .glyphicon {
+			margin-right: 10px;
+		}
+
+		.admin-nav li a {
+			display: block;
+			width: 100%;
+			padding: 20px;
+			color: #ddd;
+		}
+
+		.admin-nav li a:hover, .admin-nav li a:focus {
+			text-decoration: none;
+			background: #212D33;
+		}
+
+
+/* admin nav top */
+.admin-nav-top {
+	position: fixed;
+	z-index: 99;
+	height: 60px;
+	width: 88%;
+	margin-left: 12%;
+	background: #fff;
+	box-shadow: 1px 1px 20px #ddd;
+}
+
+	.breadcrumbs-container {
+		width: 50%;
+		float: left;
+		padding: 12px 0 0 20px;
+	}
+
+		ol.breadcrumb {
+			background: #fff;
+		}
+
+	.username-container {
+		width: 50%;
+		float: right;
+		padding: 20px 50px 0 0;
+		text-align: right;
+	}
+
+		.username {
+			font-size: 1.1em;
+		}
