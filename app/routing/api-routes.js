@@ -32,7 +32,7 @@ module.exports = function(app){
 		res.send(function() {
 			alert("User added successfully!");
 		});
-	})
+	});
 
 	app.post('/newCorpMember', function (req, res){
 		orm.AvailableTasks(req.body.description, req.body.contactName, req.body.contactNumber, req.body.Address, req.body.TaskTime, req.body.membersNeeded);
