@@ -20,7 +20,7 @@ function locationCanvases() {
 		// 	days = 0;
 		// };
 	
-		// var the_percentage = 2 * ((100 - days) / 100);
+		var the_percentage = 2 * ((100 - 32) / 100);
 		
 		// if (days > 100) {
 		// 	the_percentage = 0.01;
@@ -53,7 +53,7 @@ function locationCanvases() {
 		context.stroke();
 		context.font = "43px arial";
 		context.textAlign="center";
-		context.fillText(days, 56, 82);
+		context.fillText(20, 56, 82);
 	
 };
 

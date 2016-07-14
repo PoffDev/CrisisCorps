@@ -2,6 +2,11 @@
 	margin-bottom: 20px;
 }
 
+	.dashboard canvas {
+		width: 200px;
+		margin-left: 30%;
+	}
+
 	.percent-circle {
 		margin: 10px auto;
 	    border-radius: 50%;
@@ -26,7 +31,7 @@
 		}
 
 	#vol-filled, #tasks-filled {
-		margin-top: 0;
+		margin-top: 26px;
 	}
 
 	h2.db-num {
