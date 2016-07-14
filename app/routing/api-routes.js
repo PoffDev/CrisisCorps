@@ -1,5 +1,5 @@
 //data we need to serve via ajax.
-
+var orm = require('../../config/orm.js');
 var hospitalArray = require('../data/resources.js');
 var bloodArray = require('../data/blood.js');
 
@@ -20,6 +20,6 @@ module.exports = function(app){
 	})
 
 	app.post('/newTask', function (req, res){
-		console.log(req.body);
+		orm.AvailableTasks(req.body.description, req.body.contactName, req.body.contactNumber, req.body.Address, req.body.TaskTime, req.body.membersNeeded);
 	})
 };
