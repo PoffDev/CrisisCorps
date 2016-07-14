@@ -44,7 +44,7 @@
 					  	</div>
 					  	<div class="module-footer">
 					  		<!--Button -->
-							<button type="submit" class="btn btn-primary">Create Task</button>
+							<a type="submit" class="btn btn-primary">Create Task</a>
 					  	</div> <!-- end module-footer -->
 					</form>
 				</div> <!-- end module -->
@@ -101,7 +101,7 @@ $('#SubmitTask').on('click', function () {
 	}
 	//push those values to database
 	$.post('/newTask', newTask, function() {
-		console.log("New Task Created");
+
 	})
 	//refresh data base information. 
 

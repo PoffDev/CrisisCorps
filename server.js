@@ -10,6 +10,7 @@
 //Port
 var app = express();
 var PORT = process.env.PORT || 8000;
+// var orm = require('./config/orm.js');
 
 app.use(express.static('app/public'));
 
