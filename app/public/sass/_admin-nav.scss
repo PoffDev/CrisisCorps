@@ -1,6 +1,6 @@
 /* admin nav main left */
 .admin-nav-container {
-	position: absolute;
+	position: fixed;
 	height: 100%;
 	width: 12%;
 	float: left;
@@ -42,16 +42,30 @@
 
 /* admin nav top */
 .admin-nav-top {
-	position: absolute;
+	position: fixed;
+	z-index: 99;
 	height: 60px;
 	width: 88%;
 	margin-left: 12%;
 	background: #fff;
+	box-shadow: 1px 1px 20px #ddd;
 }
 
+	.breadcrumbs-container {
+		width: 50%;
+		float: left;
+		padding: 12px 0 0 20px;
+	}
+
+		ol.breadcrumb {
+			background: #fff;
+		}
+
 	.username-container {
+		width: 50%;
 		float: right;
 		padding: 20px 50px 0 0;
+		text-align: right;
 	}
 
 		.username {

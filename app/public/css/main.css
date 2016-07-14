@@ -25,7 +25,7 @@ img.nav-brand-symbol {
 
 /* admin nav main left */
 .admin-nav-container {
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 12%;
   float: left;
@@ -59,15 +59,27 @@ img.admin-logo {
 
 /* admin nav top */
 .admin-nav-top {
-  position: absolute;
+  position: fixed;
+  z-index: 99;
   height: 60px;
   width: 88%;
   margin-left: 12%;
+  background: #fff;
+  box-shadow: 1px 1px 20px #ddd; }
+
+.breadcrumbs-container {
+  width: 50%;
+  float: left;
+  padding: 12px 0 0 20px; }
+
+ol.breadcrumb {
   background: #fff; }
 
 .username-container {
+  width: 50%;
   float: right;
-  padding: 20px 50px 0 0; }
+  padding: 20px 50px 0 0;
+  text-align: right; }
 
 .username {
   font-size: 1.1em; }
@@ -84,7 +96,7 @@ img.admin-logo {
   padding: 5px 20px;
   box-shadow: 0 1px 2px #ccc;
   border-bottom: 1px solid #eee;
-  background: #fff; }
+  background: #F7F9FC; }
 
 .module {
   padding: 20px;
@@ -93,3 +105,14 @@ img.admin-logo {
 
 .module-footer {
   padding: 0 0 20px 0; }
+
+/* admin footer */
+.admin-footer {
+  padding: 100px 0 20px 0; }
+
+.admin-footer img {
+  width: 100px;
+  margin: -5px 10px 0 0;
+  float: left;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%); }
