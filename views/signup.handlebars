@@ -29,12 +29,25 @@
 
 		    	<br>
 
-		    	<label for="bloodType">Blood Type</label>
-		    	<input type="text" class="form-control" id="bloodType" placeholder="Blood Type">
+		    	<div class="dropdown">
+
+					<button class="btn btn-default dropdown-toggle" type="button" id="bloodType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				    Blood Type<span class="caret"></span></button>
+				  		
+				  		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				    		<li><a href="#">A</a></li>
+				    		<li><a href="#">B</a></li>
+				    		<li><a href="#">AB</a></li>
+				    		<li><a href="#">O</a></li>
+				    		<li role="separator" class="divider"></li>
+				    		<li><a href="#">I Don't Know</a></li>
+				  		</ul>
+
+				</div>
 	    		<br>
 
 	    		<!--Button -->
-				<a type="submitMember" class="btn btn-default">Create Task</a>
+				<a type="submitMember" class="btn btn-primary btn-lg btn-block">Sign Up</a>
 
 		    	</div>
 		    </div>
