@@ -1,55 +1,256 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	
+{{>admin-nav}}
 
-</head>
-<body>
+<!-- admin body -->
+<div class="admin-body">
 
-<!-- Alerted Jumbotron -->
-<div class = "container">
-	
-	<div class="jumbotron">
+	<!-- create task module -->
+	<div class="conatiner">
 
-	  	<h1>Crisis Alert!!!</h1>
-	  	
-	  		<div id = 'crisis_info'>
-	  			<p>insert crisis information here</p>
-	  		</div>
+		<div class="crisis">
+			<div class="row">
+			
+				<div class="col-md-6">
 
-	  	<div class = "row">
-	  		<div class = "col-md-10 col-md-offset-1">
-	  		<p><a class="btn btn-danger btn-lg btn-block" href="#" role="button">Learn more</a></p>
-	  		</div>
-	  	</div>
+					<div class="module-header">
+						<h5>Create Crisis Manager</h5>
+					</div>
+					<div class='module'>
 
-	  	<br>
+						<form>
+						<!-- Inputs -->
+						  <!-- Crisis Name -->
+						  <div class="form-group">
+						    <label for="inputCrisisName">Crisis Name</label>
+						    <input type="text" class="form-control" id="inputCrisisName">
+						  </div>
+						  <!-- Crisis Description -->
+						  <div class="form-group">
+						    <label for="inputDescription">Crisis Description</label>
+						    <textarea class="form-control" rows="3" id="inputDescription"></textarea>
+						  </div>
+						  <!-- Submit Button -->
+						  <button type="submit" class="btn btn-danger">Create Crisis</button>
+						</form>
+						<!-- Form Document End -->
+					</div> <!-- end module -->
 
-	  	<div class = "row">
+					<!-- text blast -->
+					<div class="module-header">
+						<h5>Text Blast</h5>
+					</div> <!-- end module-header -->
+					<div class="module">
+						<!-- Form Document -->
+						<form>
+							<div class="form-group">
+								<div id = "title">
+							    	<label for="createTask">Content</label>
+							    	<textarea class="form-control" id="description" placeholder="content to text"></textarea>
+							    </div>
+							</div>
+							<div class="module-footer">
+								<button type="submit" class="btn btn-primary">Text Blast!</button>
+							</div>
+						</form>
+					</div> <!-- end module -->
 
-	  		<div class = 'col-md-3 col-md-offset-3'>
-	  			<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-	  		</div>
+					<!-- text blast by blood type -->
+					<div class="module-header">
+						<h5>Text Blast by Blood Type</h5>
+					</div> <!-- end module-header -->
+					<div class="module">
+						<!-- Form Document -->
+						<form>
+							<div class="form-group">
+								<label for="bloodType">Blood Type</label>
+							    <select class="form-control" id="blood-type">
+									<option>A</option>
+									<option>B</option>
+									<option>AB</option>
+									<option>O</option>
+									<option>I Don't Know / NA</option>
+								</select>
+								<br />
+							</div>
+							<div class="form-group">
+							    <label for="inputDescription">Blood Type Text Description</label>
+							    <textarea class="form-control" rows="3" id="bt-text-description"></textarea>
+							</div>
+							<div class="module-footer">
+								<button type="submit" class="btn btn-primary">Blood Type Text Blast!</button>
+							</div>
+						</form>
+					</div> <!-- end module -->
 
-	  		<div class = "col-md-3 col-md-offset-1">
-	  			<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-	  		</div>
+					<!-- list of corporate volunteers -->
+					<div class="module-header">
+						<h5>List of Corporate Volunteers</h5>
+					</div> <!-- end module-header -->
+					<div class="module">
+						<a href="corp" class="btn btn-primary">List of Corporate Volunteers</a>
+					</div> <!-- end module -->
 
-	  	</div>
-	  	
-	</div>
+				</div> <!-- end col-md-6 -->
 
-</div>
-	
-</body>
 
+<!-- ****************** this is where the new column starts ********************* -->
+
+
+				<div class="col-md-6">
+					
+					<!-- create task -->
+					<div class="module-header">
+						<h5>Create Task</h5>
+					</div>
+					<div class='module'>
+						<!-- Form Document -->
+						<form>
+							<div class="form-group">
+								<div id="create-task">
+							    	<label for="createTask">Title</label>
+							    	<input type="text" class="form-control" id="title" placeholder="description">
+						    		<br>
+
+								    <label for="inputDescription">Crisis Description</label>
+								    <textarea class="form-control" rows="3" id="crisis-description"></textarea>
+								    <br />
+
+								    <label for="inputDescription">Number of Volunteers</label>
+								    <input type="text" class="form-control" id="num-vols" placeholder="100">
+								    <br />
+							    	
+							    	<label for="description">Contact Name</label>
+							    	<input type="text" class="form-control" id="contactName" placeholder="Contact Name">
+							    	<br>
+
+							    	<label for="createTask">Contact Number</label>
+							    	<input type="text" class="form-control" id="contactNumber" placeholder="Contact Number">		    		
+						    		<br>
+
+							    	<label for="description">Address</label>
+							    	<input type="text" class="form-control" id="address" placeholder="Address">
+							    	<br>
+
+							    	<label for="description">Address 2</label>
+							    	<input type="text" class="form-control" id="address-2" placeholder="Address 2">
+							    	<br>
+
+							    	<label for="description">City</label>
+							    	<input type="text" class="form-control" id="city" placeholder="Address 2">
+							    	<br>
+
+							    	<label for="description">State</label>
+							    	<select class="form-control" id="state">
+										<option value="AA" >AA</option>
+										<option value="AE" >AE</option>
+										<option value="AK" >AK</option>
+										<option value="AL" >AL</option>
+										<option value="AP" >AP</option>
+										<option value="AR" >AR</option>
+										<option value="AS" >AS</option>
+										<option value="AZ" >AZ</option>
+										<option value="CA" >CA</option>
+										<option value="CO" >CO</option>
+										<option value="CT" >CT</option>
+										<option value="DC" >DC</option>
+										<option value="DE" >DE</option>
+										<option value="FL" selected>FL</option>
+										<option value="FM" >FM</option>
+										<option value="GA" >GA</option>
+										<option value="GU" >GU</option>
+										<option value="HI" >HI</option>
+										<option value="IA" >IA</option>
+										<option value="ID" >ID</option>
+										<option value="IL" >IL</option>
+										<option value="IN" >IN</option>
+										<option value="KS" >KS</option>
+										<option value="KY" >KY</option>
+										<option value="LA" >LA</option>
+										<option value="MA" >MA</option>
+										<option value="MD" >MD</option>
+										<option value="ME" >ME</option>
+										<option value="MH" >MH</option>
+										<option value="MI" >MI</option>
+										<option value="MN" >MN</option>
+										<option value="MO" >MO</option>
+										<option value="MP" >MP</option>
+										<option value="MS" >MS</option>
+										<option value="MT" >MT</option>
+										<option value="NC" >NC</option>
+										<option value="ND" >ND</option>
+										<option value="NE" >NE</option>
+										<option value="NH" >NH</option>
+										<option value="NJ" >NJ</option>
+										<option value="NM" >NM</option>
+										<option value="NV" >NV</option>
+										<option value="NY" >NY</option>
+										<option value="OH" >OH</option>
+										<option value="OK" >OK</option>
+										<option value="OR" >OR</option>
+										<option value="PA" >PA</option>
+										<option value="PR" >PR</option>
+										<option value="PW" >PW</option>
+										<option value="RI" >RI</option>
+										<option value="SC" >SC</option>
+										<option value="SD" >SD</option>
+										<option value="TN" >TN</option>
+										<option value="TX" >TX</option>
+										<option value="UT" >UT</option>
+										<option value="VA" >VA</option>
+										<option value="VI" >VI</option>
+										<option value="VT" >VT</option>
+										<option value="WA" >WA</option>
+										<option value="WI" >WI</option>
+										<option value="WV" >WV</option>
+										<option value="WY" >WY</option>
+									</select>
+							    	<br>
+
+							    	<label for="description">Zip</label>
+							    	<input type="text" class="form-control" id="city" placeholder="32809">
+							    	<br>
+
+						    	</div>
+						  	</div>
+						  	<div class="module-footer">
+						  		<!--Button -->
+								<a type="submit" class="btn btn-primary">Create Task</a>
+						  	</div> <!-- end module-footer -->
+						</form>
+					</div> <!-- end module -->
+					
+				</div> <!-- end col-md-6 -->
+			</div> <!-- end row -->
+		</div> <!-- crisis -->
+	</div> <!-- end container -->
+
+	{{>admin-footer}}
+
+</div> <!-- end admin-body -->
 
 <script type="text/javascript">
 
-//pull information from admin page concerning crisis
+$('#SubmitTask').on('click', function () {
+	//pull values from form input
+	var newTask = {
+		description: $('#description').val().trim(),
+		contactName: $('#contactName').val().trim(),
+		contactNumber: $('#contactNumber').val().trim(),
+		Address: $('#Address').val().trim(),
+		TaskTime: $('#TaskTime').val().trim(),
+		membersNeeded: $('#membersNeeded').val().trim()
 
-//push information 
+	}
+	//push those values to database
+	$.post('/newTask', newTask, function() {
+
+	})
+	//refresh data base information. 
+
+});
 
 
-</script>
-</html>
+//display my sql data into a form document.
+
+//look up npm package to send out e-mail/text
+
+//attach package to button

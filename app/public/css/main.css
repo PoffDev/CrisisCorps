@@ -78,11 +78,14 @@ ol.breadcrumb {
 .username-container {
   width: 50%;
   float: right;
-  padding: 20px 50px 0 0;
+  padding: 20px 20px 0 0;
   text-align: right; }
 
 .username {
   font-size: 1.1em; }
+
+.username-container a.btn-sm {
+  margin: -5px 0 0 10px; }
 
 /* admin body */
 .admin-body {
@@ -187,3 +190,11 @@ h2.db-num {
 
 #db-tt {
   background: #2faacc; }
+
+/* crisis */
+.crisis .module {
+  margin-bottom: 20px; }
+
+/* task */
+h3.task-title {
+  margin-top: 0; }
