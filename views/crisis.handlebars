@@ -21,15 +21,15 @@
 						  <!-- Crisis Name -->
 						  <div class="form-group">
 						    <label for="inputCrisisName">Crisis Name</label>
-						    <input type="text" class="form-control" id="inputCrisisName">
+						    <input type="text" class="form-control" id="input-crisis-name">
 						  </div>
 						  <!-- Crisis Description -->
 						  <div class="form-group">
 						    <label for="inputDescription">Crisis Description</label>
-						    <textarea class="form-control" rows="3" id="inputDescription"></textarea>
+						    <textarea class="form-control" rows="3" id="input-description"></textarea>
 						  </div>
-						  <!-- Submit Button -->
-						  <button type="submit" class="btn btn-danger">Create Crisis</button>
+						  <!-- Submit -->
+						  <a href="#" class="btn btn-danger" id="create-crisis" data-toggle="modal" data-target="#createCrisisModal">Creaate Crisis</a>
 						</form>
 						<!-- Form Document End -->
 					</div> <!-- end module -->
@@ -42,14 +42,11 @@
 						<!-- Form Document -->
 						<form>
 							<div class="form-group">
-								<div id = "title">
-							    	<label for="createTask">Content</label>
-							    	<textarea class="form-control" id="description" placeholder="content to text"></textarea>
-							    </div>
+						    	<label for="createTask">Content</label>
+						    	<textarea class="form-control" id="text-description" placeholder="content to text"></textarea>
 							</div>
-							<div class="module-footer">
-								<button type="submit" class="btn btn-primary">Text Blast!</button>
-							</div>
+							<!-- Submit -->
+						  	<a href="#" class="btn btn-primary" id="text-blast" data-toggle="modal" data-target="#textBlastModal">Text Blast</a>
 						</form>
 					</div> <!-- end module -->
 
@@ -75,9 +72,8 @@
 							    <label for="inputDescription">Blood Type Text Description</label>
 							    <textarea class="form-control" rows="3" id="bt-text-description"></textarea>
 							</div>
-							<div class="module-footer">
-								<button type="submit" class="btn btn-primary">Blood Type Text Blast!</button>
-							</div>
+							<!-- Submit -->
+						  	<a href="#" class="btn btn-primary" id="bt-text-blast" data-toggle="modal" data-target="#bloodTypetextBlastModal">Blood Type Text Blast</a>
 						</form>
 					</div> <!-- end module -->
 
@@ -105,116 +101,112 @@
 						<!-- Form Document -->
 						<form>
 							<div class="form-group">
-								<div id="create-task">
-							    	<label for="createTask">Title</label>
-							    	<input type="text" class="form-control" id="title" placeholder="description">
-						    		<br>
+						    	<label for="createTask">Title</label>
+						    	<input type="text" class="form-control" id="task-title" placeholder="description">
+					    		<br>
 
-								    <label for="inputDescription">Crisis Description</label>
-								    <textarea class="form-control" rows="3" id="crisis-description"></textarea>
-								    <br />
+							    <label for="inputDescription">Task Description</label>
+							    <textarea class="form-control" rows="3" id="task-description"></textarea>
+							    <br />
 
-								    <label for="inputDescription">Number of Volunteers</label>
-								    <input type="text" class="form-control" id="num-vols" placeholder="100">
-								    <br />
-							    	
-							    	<label for="description">Contact Name</label>
-							    	<input type="text" class="form-control" id="contactName" placeholder="Contact Name">
-							    	<br>
+							    <label for="inputDescription">Number of Volunteers</label>
+							    <input type="text" class="form-control" id="num-vols" placeholder="100">
+							    <br />
+						    	
+						    	<label for="description">Contact Name</label>
+						    	<input type="text" class="form-control" id="contact-name" placeholder="Contact Name">
+						    	<br>
 
-							    	<label for="createTask">Contact Number</label>
-							    	<input type="text" class="form-control" id="contactNumber" placeholder="Contact Number">		    		
-						    		<br>
+						    	<label for="createTask">Contact Number</label>
+						    	<input type="text" class="form-control" id="contact-number" placeholder="Contact Number">		    		
+					    		<br>
 
-							    	<label for="description">Address</label>
-							    	<input type="text" class="form-control" id="address" placeholder="Address">
-							    	<br>
+						    	<label for="description">Address</label>
+						    	<input type="text" class="form-control" id="address" placeholder="Address">
+						    	<br>
 
-							    	<label for="description">Address 2</label>
-							    	<input type="text" class="form-control" id="address-2" placeholder="Address 2">
-							    	<br>
+						    	<label for="description">Address 2</label>
+						    	<input type="text" class="form-control" id="address-2" placeholder="Address 2">
+						    	<br>
 
-							    	<label for="description">City</label>
-							    	<input type="text" class="form-control" id="city" placeholder="Address 2">
-							    	<br>
+						    	<label for="description">City</label>
+						    	<input type="text" class="form-control" id="city" placeholder="Address 2">
+						    	<br>
 
-							    	<label for="description">State</label>
-							    	<select class="form-control" id="state">
-										<option value="AA" >AA</option>
-										<option value="AE" >AE</option>
-										<option value="AK" >AK</option>
-										<option value="AL" >AL</option>
-										<option value="AP" >AP</option>
-										<option value="AR" >AR</option>
-										<option value="AS" >AS</option>
-										<option value="AZ" >AZ</option>
-										<option value="CA" >CA</option>
-										<option value="CO" >CO</option>
-										<option value="CT" >CT</option>
-										<option value="DC" >DC</option>
-										<option value="DE" >DE</option>
-										<option value="FL" selected>FL</option>
-										<option value="FM" >FM</option>
-										<option value="GA" >GA</option>
-										<option value="GU" >GU</option>
-										<option value="HI" >HI</option>
-										<option value="IA" >IA</option>
-										<option value="ID" >ID</option>
-										<option value="IL" >IL</option>
-										<option value="IN" >IN</option>
-										<option value="KS" >KS</option>
-										<option value="KY" >KY</option>
-										<option value="LA" >LA</option>
-										<option value="MA" >MA</option>
-										<option value="MD" >MD</option>
-										<option value="ME" >ME</option>
-										<option value="MH" >MH</option>
-										<option value="MI" >MI</option>
-										<option value="MN" >MN</option>
-										<option value="MO" >MO</option>
-										<option value="MP" >MP</option>
-										<option value="MS" >MS</option>
-										<option value="MT" >MT</option>
-										<option value="NC" >NC</option>
-										<option value="ND" >ND</option>
-										<option value="NE" >NE</option>
-										<option value="NH" >NH</option>
-										<option value="NJ" >NJ</option>
-										<option value="NM" >NM</option>
-										<option value="NV" >NV</option>
-										<option value="NY" >NY</option>
-										<option value="OH" >OH</option>
-										<option value="OK" >OK</option>
-										<option value="OR" >OR</option>
-										<option value="PA" >PA</option>
-										<option value="PR" >PR</option>
-										<option value="PW" >PW</option>
-										<option value="RI" >RI</option>
-										<option value="SC" >SC</option>
-										<option value="SD" >SD</option>
-										<option value="TN" >TN</option>
-										<option value="TX" >TX</option>
-										<option value="UT" >UT</option>
-										<option value="VA" >VA</option>
-										<option value="VI" >VI</option>
-										<option value="VT" >VT</option>
-										<option value="WA" >WA</option>
-										<option value="WI" >WI</option>
-										<option value="WV" >WV</option>
-										<option value="WY" >WY</option>
-									</select>
-							    	<br>
+						    	<label for="description">State</label>
+						    	<select class="form-control" id="state">
+									<option value="AA" >AA</option>
+									<option value="AE" >AE</option>
+									<option value="AK" >AK</option>
+									<option value="AL" >AL</option>
+									<option value="AP" >AP</option>
+									<option value="AR" >AR</option>
+									<option value="AS" >AS</option>
+									<option value="AZ" >AZ</option>
+									<option value="CA" >CA</option>
+									<option value="CO" >CO</option>
+									<option value="CT" >CT</option>
+									<option value="DC" >DC</option>
+									<option value="DE" >DE</option>
+									<option value="FL" selected>FL</option>
+									<option value="FM" >FM</option>
+									<option value="GA" >GA</option>
+									<option value="GU" >GU</option>
+									<option value="HI" >HI</option>
+									<option value="IA" >IA</option>
+									<option value="ID" >ID</option>
+									<option value="IL" >IL</option>
+									<option value="IN" >IN</option>
+									<option value="KS" >KS</option>
+									<option value="KY" >KY</option>
+									<option value="LA" >LA</option>
+									<option value="MA" >MA</option>
+									<option value="MD" >MD</option>
+									<option value="ME" >ME</option>
+									<option value="MH" >MH</option>
+									<option value="MI" >MI</option>
+									<option value="MN" >MN</option>
+									<option value="MO" >MO</option>
+									<option value="MP" >MP</option>
+									<option value="MS" >MS</option>
+									<option value="MT" >MT</option>
+									<option value="NC" >NC</option>
+									<option value="ND" >ND</option>
+									<option value="NE" >NE</option>
+									<option value="NH" >NH</option>
+									<option value="NJ" >NJ</option>
+									<option value="NM" >NM</option>
+									<option value="NV" >NV</option>
+									<option value="NY" >NY</option>
+									<option value="OH" >OH</option>
+									<option value="OK" >OK</option>
+									<option value="OR" >OR</option>
+									<option value="PA" >PA</option>
+									<option value="PR" >PR</option>
+									<option value="PW" >PW</option>
+									<option value="RI" >RI</option>
+									<option value="SC" >SC</option>
+									<option value="SD" >SD</option>
+									<option value="TN" >TN</option>
+									<option value="TX" >TX</option>
+									<option value="UT" >UT</option>
+									<option value="VA" >VA</option>
+									<option value="VI" >VI</option>
+									<option value="VT" >VT</option>
+									<option value="WA" >WA</option>
+									<option value="WI" >WI</option>
+									<option value="WV" >WV</option>
+									<option value="WY" >WY</option>
+								</select>
+						    	<br>
 
-							    	<label for="description">Zip</label>
-							    	<input type="text" class="form-control" id="city" placeholder="32809">
-							    	<br>
+						    	<label for="description">Zip</label>
+						    	<input type="text" class="form-control" id="zip" placeholder="32809">
+						    	<br>
 
-						    	</div>
 						  	</div>
-						  	<div class="module-footer">
-						  		<!--Button -->
-								<a type="submit" class="btn btn-primary">Create Task</a>
-						  	</div> <!-- end module-footer -->
+							<!-- Submit -->
+						  	<a href="#" class="btn btn-primary" id="create-task" data-toggle="modal" data-target="#createTastModal">Create Task</a>
 						</form>
 					</div> <!-- end module -->
 					
@@ -224,6 +216,80 @@
 	</div> <!-- end container -->
 
 	{{>admin-footer}}
+
+	<!-- ******************************** modals ********************************** -->
+
+	<!-- create crisis manager Modal -->
+	<div class="modal fade" id="createCrisisModal" tabindex="-1" role="dialog" aria-labelledby="createCrisisModalLabel">
+	    <div class="modal-dialog">
+	    	<div class="modal-content">
+	      		<div class="modal-header">
+	        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        		<h4 class="modal-title">Crisis Manager Created</h4>
+	      		</div>
+	      		<div class="modal-body">
+	        		<p>You can now begin creating tasks.</p>
+	      		</div>
+	      		<div class="modal-footer">
+	        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      		</div>
+	    	</div><!-- /.modal-content -->
+	  	</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!-- text blast Modal -->
+	<div class="modal fade" id="textBlastModal" tabindex="-1" role="dialog" aria-labelledby="textBlastModalLabel">
+	    <div class="modal-dialog">
+	    	<div class="modal-content">
+	      		<div class="modal-header">
+	        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        		<h4 class="modal-title">Text Blast Sent</h4>
+	      		</div>
+	      		<div class="modal-body">
+	        		<p>Texts have been sent to all volunteers</p>
+	      		</div>
+	      		<div class="modal-footer">
+	        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      		</div>
+	    	</div><!-- /.modal-content -->
+	  	</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!-- blood type text blast Modal -->
+	<div class="modal fade" id="bloodTypetextBlastModal" tabindex="-1" role="dialog" aria-labelledby="bloodTypetextBlastModalLabel">
+	    <div class="modal-dialog">
+	    	<div class="modal-content">
+	      		<div class="modal-header">
+	        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        		<h4 class="modal-title">Blood Type Text Blast Sent</h4>
+	      		</div>
+	      		<div class="modal-body">
+	        		<p>Texts have been sent to all volunteers with the specified blood type.</p>
+	      		</div>
+	      		<div class="modal-footer">
+	        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      		</div>
+	    	</div><!-- /.modal-content -->
+	  	</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!-- create task Modal -->
+	<div class="modal fade" id="createTastModal" tabindex="-1" role="dialog" aria-labelledby="createTastModalLabel">
+	    <div class="modal-dialog">
+	    	<div class="modal-content">
+	      		<div class="modal-header">
+	        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        		<h4 class="modal-title">Task Created</h4>
+	      		</div>
+	      		<div class="modal-body">
+	        		<p>Volunteers can now begin signing up.</p>
+	      		</div>
+	      		<div class="modal-footer">
+	        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      		</div>
+	    	</div><!-- /.modal-content -->
+	  	</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 
 </div> <!-- end admin-body -->
 
