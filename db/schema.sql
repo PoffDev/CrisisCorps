@@ -33,6 +33,16 @@ CREATE TABLE AvailableTasks (
 	 primary key (TaskID)
 );
 
+CREATE TABLE partners (
+	 PartiD INTEGER(11) AUTO_INCREMENT NOT NULL,
+	 PartnerName varchar(30) NOT NULL,
+	 ContactName varchar(30) NOT NULL,
+	 EmailAddress varchar(30) NOT NULL,
+	 ContactNum varchar(30),
+	 ParnterDesc varchar(30) NOT NULL,
+	 primary key (PartID)
+);
+
 CREATE TABLE CurrentMemTasks (
 	TaskID INTEGER(11) AUTO_INCREMENT NOT NULL,
     MemberName varchar(30) NOT NULL,
