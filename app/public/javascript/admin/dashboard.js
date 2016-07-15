@@ -1,7 +1,7 @@
 function volCanvas(total_vol_positions) {
 
 	// get number of commited volunteers from what's displayed on the dashboard	
-	var committed_vols = document.getElementById('db-num').textContent;
+	var committed_vols = document.getElementById('db-cv').childNodes[1].textContent;
 
 	// need the percentage to be dipslayed in relation to 2. Meaning the higher the percentage the closer the value needs to be to 2.
 	var the_percentage = 2 * (committed_vols / total_vol_positions);
@@ -52,10 +52,46 @@ function volCanvas(total_vol_positions) {
 	context.textAlign="center";
 	context.fillText(num_vols_needed, 56, 82); // 10 is the actual number displayed. 56 and 82 represent the positioning of the number on the circle
 	
-};
+} // volCanvas()
 
 // ************************* this needs to be removed once the get method runs
 var total_vol_positions = 1260;
 
 // we need to pass the total_vol_positions from get method, so that is where this function call should go
 volCanvas(total_vol_positions);
+
+function totalVolsTasks(committed, uncommitted, el) {
+
+	// add the committed volunteers to uncommitted volunteers on first call and then completed tasks and open tasks on second call
+	var sum = parseInt(committed) + parseInt(uncommitted);
+
+	// update the text of each element passed
+	el.innerHTML = sum;
+
+} // end totalVolsTasks()
+
+function getCommittedUncommitted() {
+
+	// get the text (numbers) from committed volunteers and uncommitted volunteers
+	var num_commit = document.getElementById('db-cv').childNodes[1].textContent;
+	var num_uncommit = document.getElementById('db-uv').childNodes[1].textContent;
+
+	// get the h2 element that will be used to display the summed amount. We'll pass this in the function call
+	var vol_el_to_pass = document.getElementById('db-tv').children[0];
+
+	// call function to add and display the total on screen
+	totalVolsTasks(num_commit, num_uncommit, vol_el_to_pass);
+
+	// get the text (numbers) from completed tasks and open tasks
+	var num_comp_tasks = document.getElementById('db-ct').childNodes[1].textContent;
+	var num_opentasks = document.getElementById('db-ot').childNodes[1].textContent;
+
+	// get the h2 element that will be used to display the summed amount. We'll pass this in the function call
+	var tasks_el_to_pass = document.getElementById('db-tt').children[0];
+
+	// call function to add and display the total on screen
+	totalVolsTasks(num_comp_tasks, num_opentasks, tasks_el_to_pass);
+
+} // end getCommittedUncommitted()
+
+getCommittedUncommitted();

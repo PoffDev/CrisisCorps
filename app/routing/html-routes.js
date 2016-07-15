@@ -27,6 +27,10 @@ module.exports = function (app){
 		res.render('tasks');
 	});
 
+	app.get('/task', function(req, res){
+		res.render('task');
+	});
+
 	app.get('/dashboard', function(req, res){
 		res.render('dashboard');
 	});

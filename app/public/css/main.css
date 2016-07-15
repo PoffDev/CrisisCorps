@@ -167,7 +167,7 @@ img.sign-logo {
 #vol-filled, #tasks-filled {
   margin-top: 26px; }
 
-h2#db-num {
+h2.db-num {
   margin-bottom: 20px;
   color: #fff;
   text-align: center; }
@@ -194,3 +194,7 @@ h2#db-num {
 /* crisis */
 .crisis .module {
   margin-bottom: 20px; }
+
+/* task */
+h3.task-title {
+  margin-top: 0; }
