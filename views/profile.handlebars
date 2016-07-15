@@ -46,8 +46,8 @@
 								</select>
 								<br />
 
-					    		<!--Button -->
-								<button type="submit" class="btn btn-primary">Update Profile</button>
+								<!-- Submit -->
+						  		<a href="#" class="btn btn-primary" id="update-profile" data-toggle="modal" data-target="#updateProfileModal">Update Profile</a>
 					    	</div>
 					    </div>
 					</form>
@@ -63,13 +63,13 @@
 
 				<!-- corporate profile -->
 				<div class="module-header">
-					<h5>Corporate Profile</h5>
+					<h5>Corporate Contribution</h5>
 				</div>
 				<div class='module'>
 					<form>
 						<div class="checkbox">
 						    <label>
-						    	<input type="checkbox"> Corporate Volunteer
+						    	<input type="checkbox" id="corp-checkbox"> Corporate Volunteer
 						    </label>
 						    <br />
 						</div> <!-- checkbox -->
@@ -80,8 +80,8 @@
 						</div> <!-- form-group -->
 					    <br />
 
-					    <!--Button -->
-						<button type="submit" class="btn btn-primary">Update Corporate Profile</button>
+						<!-- Submit -->
+						<a href="#" class="btn btn-primary" id="update-corp-cont" data-toggle="modal" data-target="#updateCorpModal">Update Corporate Contribution</a>
 					</form>
 				</div> <!-- module -->
 
@@ -90,7 +90,45 @@
 		</div> <!-- end row -->
 	</div> <!-- end container -->
 
-{{>admin-footer}}
+	{{>admin-footer}}
+
+	<!-- ******************************** modals ********************************** -->
+
+	<!-- create crisis manager Modal -->
+	<div class="modal fade" id="updateCorpModal" tabindex="-1" role="dialog" aria-labelledby="updateCorpModalLabel">
+	    <div class="modal-dialog">
+	    	<div class="modal-content">
+	      		<div class="modal-header">
+	        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        		<h4 class="modal-title">Crisis Manager Created</h4>
+	      		</div>
+	      		<div class="modal-body">
+	        		<p>You can now begin creating tasks.</p>
+	      		</div>
+	      		<div class="modal-footer">
+	        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      		</div>
+	    	</div><!-- /.modal-content -->
+	  	</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!-- create crisis manager Modal -->
+	<div class="modal fade" id="updateProfileModal" tabindex="-1" role="dialog" aria-labelledby="updateProfileModalLabel">
+	    <div class="modal-dialog">
+	    	<div class="modal-content">
+	      		<div class="modal-header">
+	        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        		<h4 class="modal-title">Your Profile Has Been Updated!</h4>
+	      		</div>
+	      		<div class="modal-body">
+	        		<p>Thanksf for keeping us up to date with your info.</p>
+	      		</div>
+	      		<div class="modal-footer">
+	        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      		</div>
+	    	</div><!-- /.modal-content -->
+	  	</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 
 </div> <!-- end admin-body -->
 
