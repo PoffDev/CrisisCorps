@@ -60,6 +60,7 @@ var total_vol_positions = 1260;
 // we need to pass the total_vol_positions from get method, so that is where this function call should go
 volCanvas(total_vol_positions);
 
+
 function totalVolsTasks(committed, uncommitted, el) {
 
 	// add the committed volunteers to uncommitted volunteers on first call and then completed tasks and open tasks on second call
