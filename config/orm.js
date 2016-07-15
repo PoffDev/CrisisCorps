@@ -5,18 +5,18 @@ var connection = require('./connection.js');
 
 var orm = {
     //form data entry queries
-    members: function(MemberName, EmailAddress, ContactNum, TwitterHandle, BloodType) {
+    members: function(UserName, Password, MemberName, EmailAddress, ContactNum, TwitterHandle, BloodType) {
         var queryString = 'INSERT INTO members (MemberName, EmailAddress, ContactNum, TwitterHandle, BloodType) VALUES (?, ?, ?, ?, ?)';
-        var vals = [MemberName, EmailAddress, ContactNum, TwitterHandle, BloodType];
+        var vals = [UserName, Password, MemberName, EmailAddress, ContactNum, TwitterHandle, BloodType];
          connection.query(queryString, vals, function(err, result) {
                 if (err) throw err;
                 console.log(result);
             });
         },
 
-    corporateMembers: function(CompanyName, ContactName, EmailAddress, ContactNum, DonationDesc){ 
+    corporateMembers: function(UserName, Password, CompanyName, ContactName, EmailAddress, ContactNum, DonationDesc){ 
     var queryString = 'INSERT INTO corporateMembers (CompanyName, ContactName, EmailAddress, ContactNum, DonationDesc) VALUES (?, ?, ?, ?, ?)';
-    var vals = [CompanyName, ContactName, EmailAddress, ContactNum, DonationDesc];
+    var vals = [UserName, Password, CompanyName, ContactName, EmailAddress, ContactNum, DonationDesc];
 
          connection.query(queryString, vals, function(err, result) {
                 if (err) throw err;

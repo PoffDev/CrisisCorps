@@ -12,7 +12,15 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "cookie-parser": "*",
+    "express-session": "*",
+    "bcrypt-nodejs": "*",
+    "ejs": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "mysql": "*",
+    "bookshelf": "0.5"
   },
   "devDependencies": {
     "browser-sync": "^2.13.0",
