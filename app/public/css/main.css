@@ -78,11 +78,14 @@ ol.breadcrumb {
 .username-container {
   width: 50%;
   float: right;
-  padding: 20px 50px 0 0;
+  padding: 20px 20px 0 0;
   text-align: right; }
 
 .username {
   font-size: 1.1em; }
+
+.username-container a.btn-sm {
+  margin: -5px 0 0 10px; }
 
 /* admin body */
 .admin-body {

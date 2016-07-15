@@ -4,51 +4,37 @@
 	</div>
 	<div class="sign-up-in-container">
 		
-		<form action="dashboard">
-				
+		<form>
 			<div class="form-group">
-				
-				<div id = "Name">
-		    	<label for="memberName">Member Name</label>
-		    	<input type="text" class="form-control" id="memberName" placeholder="Member Name">
-	    		
-	    		<br>
-		    	
-		    	<label for="emailAddress">Email Address</label>
-		    	<input type="email" class="form-control" id="emailAddress" placeholder="JohnSmith@google.com">
+				<div id = "sign-up">
+			    	<label for="memberName">Member Name</label>
+			    	<input type="text" class="form-control" id="memberName" placeholder="Member Name"> 		
+		    		<br>
+			    	
+			    	<label for="emailAddress">Email Address</label>
+			    	<input type="email" class="form-control" id="emailAddress" placeholder="JohnSmith@google.com">
+			    	<br>
 
-		    	<br>
+			    	<label for="contactNumber">Contact Number</label>
+			    	<input type="text" class="form-control" id="contactNumber" placeholder="Contact Number">	
+		    		<br>
 
-		    	<label for="contactNumber">Contact Number</label>
-		    	<input type="text" class="form-control" id="contactNumber" placeholder="Contact Number">
-	    		
-	    		<br>
+			    	<label for="twitterHandle">Twitter Handle</label>
+			    	<input type="text" class="form-control" id="twitterHandle" placeholder="Twitter Handle">
+			    	<br>
+						
+					<label for="bloodType">Blood Type</label>
+				    <select class="form-control" id="blood-type">
+						<option>A</option>
+						<option>B</option>
+						<option>AB</option>
+						<option>O</option>
+						<option>I Don't Know / NA</option>
+					</select>
+					<br />
 
-		    	<label for="twitterHandle">Twitter Handle</label>
-		    	<input type="text" class="form-control" id="twitterHandle" placeholder="Twitter Handle">
-
-		    	<br>
-
-		    	<div class="dropdown">
-
-					<button class="btn btn-default dropdown-toggle" type="button" id="bloodType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-				    Blood Type<span class="caret"></span></button>
-				  		
-				  		<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				    		<li><a href="#">A</a></li>
-				    		<li><a href="#">B</a></li>
-				    		<li><a href="#">AB</a></li>
-				    		<li><a href="#">O</a></li>
-				    		<li role="separator" class="divider"></li>
-				    		<li><a href="#">I Don't Know</a></li>
-				  		</ul>
-
-				</div>
-	    		<br>
-
-	    		<!--Button -->
-				<a type="submitMember" class="btn btn-primary btn-lg btn-block">Sign Up</a>
-
+		    		<!--Button -->
+					<a href="dashboard" type="submitMember" class="btn btn-primary btn-lg btn-block">Sign Up</a>
 		    	</div>
 		    </div>
 		</form>

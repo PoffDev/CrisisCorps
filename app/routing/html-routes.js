@@ -7,14 +7,6 @@ module.exports = function (app){
 	// In each of the below cases the user is shown an HTML page of content
 	// ---------------------------------------------------------------------------
 
-	app.get('/admin', function(req, res){
-		res.render('admin');
-	});
-
-	app.get('/admincreate', function(req, res){
-		res.render('admincreate');
-	});
-
 	app.get('/crisis', function(req, res){
 		res.render('crisis');
 	});
@@ -37,6 +29,10 @@ module.exports = function (app){
 
 	app.get('/dashboard', function(req, res){
 		res.render('dashboard');
+	});
+
+	app.get('/corp', function(req, res){
+		res.render('corp');
 	});
 
 	// If no matching route is found default to home

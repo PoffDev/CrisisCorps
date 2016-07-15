@@ -6,12 +6,14 @@
 	<!-- create task module -->
 	<div class="conatiner">
 		<div class="row">
+
 			<div class="col-md-6">
+
+				<!-- profile -->
 				<div class="module-header">
 					<h5>Profile</h5>
 				</div>
 				<div class='module'>
-
 					<!-- Form Document -->
 					<form>
 						
@@ -19,37 +21,71 @@
 							
 							<div id = "Name">
 						    	<label for="createTask">Member Name</label>
-						    	<input type="text" class="form-control" id="memberName" placeholder="Edit Member Name">
-					    		
+						    	<input type="text" class="form-control" id="memberName" placeholder="Edit Member Name">					    		
 					    		<br>
 						    	
 						    	<label for="description">Email Address</label>
 						    	<input type="email" class="form-control" id="emailAddress" placeholder=" Edit JohnSmith@google.com">
-
 						    	<br>
 
 						    	<label for="createTask">Contact Number</label>
 						    	<input type="text" class="form-control" id="contactNumber" placeholder="Edit Contact Number">
-					    		
 					    		<br>
 
 						    	<label for="description">Twitter Handle</label>
 						    	<input type="text" class="form-control" id="twitterHandle" placeholder="Edit Twitter Handle">
-
 						    	<br>
 
-						    	<label for="createTask">Blood Type !!! Shouldn't this be a dropdown so we don't have to do error checking? Only a handlful of blood types</label>
-						    	<input type="text" class="form-control" id="bloodType" placeholder="Edit Blood Type">
-					    		<br>
+						    	<label for="bloodType">Blood Type</label>
+							    <select class="form-control" id="blood-type">
+									<option>A</option>
+									<option>B</option>
+									<option>AB</option>
+									<option>O</option>
+									<option>I Don't Know / NA</option>
+								</select>
+								<br />
 
 					    		<!--Button -->
-								<button type="submit" class="btn btn-primary">Create Task</button>
-
+								<button type="submit" class="btn btn-primary">Update Profile</button>
 					    	</div>
 					    </div>
 					</form>
 				</div> <!-- end module -->
+
 			</div> <!-- end col-md-6 -->
+
+
+<!-- ****************** this is where the new column starts ********************* -->
+
+
+			<div class="col-md-6">
+
+				<!-- corporate profile -->
+				<div class="module-header">
+					<h5>Corporate Profile</h5>
+				</div>
+				<div class='module'>
+					<form>
+						<div class="checkbox">
+						    <label>
+						    	<input type="checkbox"> Corporate Volunteer
+						    </label>
+						    <br />
+						</div> <!-- checkbox -->
+							
+						<div class="form-group">
+						    <label for="inputDescription">Contribution</label>
+						    <textarea class="form-control" rows="3" id="contribution"></textarea>
+						</div> <!-- form-group -->
+					    <br />
+
+					    <!--Button -->
+						<button type="submit" class="btn btn-primary">Update Corporate Profile</button>
+					</form>
+				</div> <!-- module -->
+
+			</div> <!-- col-md-6 -->
 
 		</div> <!-- end row -->
 	</div> <!-- end container -->
