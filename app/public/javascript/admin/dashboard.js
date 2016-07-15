@@ -1,60 +1,61 @@
-function locationCanvases() {
-		
-		// var complete_location_date_value = $("#complete-location-date-" + theIdArray[l]).html();
-		// var complete_location_date = new Date(complete_location_date_value);
-		// var current_date = new Date();
+function volCanvas(total_vol_positions) {
+
+	// get number of commited volunteers from what's displayed on the dashboard	
+	var committed_vols = document.getElementById('db-num').textContent;
+
+	// need the percentage to be dipslayed in relation to 2. Meaning the higher the percentage the closer the value needs to be to 2.
+	var the_percentage = 2 * (committed_vols / total_vol_positions);
 	
-		// /* Subtract the completion date from current date */
-		// var ms = complete_location_date - current_date;
+	// the number of volunteers needed. We'll pass this to the canvas text to display inside the circle
+	var num_vols_needed = total_vol_positions - committed_vols;
 	
-		//  // Convert into days from milliseconds 
-		// var x = ms / 1000;
-		// var seconds = x % 60;
-		// x /= 60;
-		// var minutes = x % 60;
-		// x /= 60;
-		// var hours = x % 24;
-		// x /= 24;
-		// var days = Math.ceil(x);
-		// if (days < 0) {
-		// 	days = 0;
-		// };
+	// set canvas variable to canvas element with id of my-canvas
+	var canvas = document.getElementById('my-canvas');
+
+
+	// canvas context declarations
+	// context_base is the grayish circle below that provides reference to context that's colored blue so it's easy to see how much more there is to go to reach goal of 0 volunteers needed
+	var context_base = canvas.getContext('2d');
+
+	// context is the main circle colored in blue
+	var context = canvas.getContext('2d');
 	
-		var the_percentage = 2 * ((100 - 32) / 100);
-		
-		// if (days > 100) {
-		// 	the_percentage = 0.01;
-		// };
-		
-		var canvas = document.getElementById('my-canvas');
-		var context_base = canvas.getContext('2d');
-		var context = canvas.getContext('2d');
-		
-		context_base.clearRect(0, 0, canvas.width, canvas.height);
-		context.clearRect(0, 0, canvas.width, canvas.height);
-	
-		var x = 55;
-		var y = 67;
-		var r = 50;
-		var s = 0 // 1.5 * Math.PI;
-	
-		context_base.beginPath();
-		context_base.lineWidth = 5;
-		context_base.arc(x, y, r, s, 2 * Math.PI, false);
-		context_base.strokeStyle = "#c9c9cf";
-		context_base.stroke();
-	
-		context.beginPath();
-		context.lineWidth = 5;
-		context.arc(x, y, r, s, the_percentage * Math.PI, false);
-		//context.closePath();
-		context.strokeStyle = "#3a92cb";
-		context.fillStyle = "#5f6a7c";
-		context.stroke();
-		context.font = "43px arial";
-		context.textAlign="center";
-		context.fillText(20, 56, 82);
+
+	// establishing the circle size for both context_base and context. They need to match so they perfectly overlap
+	context_base.clearRect(0, 0, canvas.width, canvas.height);
+	context.clearRect(0, 0, canvas.width, canvas.height);
+
+
+	// variable declarations for determining how much of the circle to fill in
+	var x = 55; // x coordinate in relation to the canvas element
+	var y = 67; // y coordinate in relation to the canvas element
+	var r = 50; // radius of the circle
+	var s = 0 // 1.5 * Math.PI;
+
+
+	// context base
+	// this one needs to be a full circle in a graying color
+	context_base.beginPath();
+	context_base.lineWidth = 10;
+	context_base.arc(x, y, r, s, 2 * Math.PI, false);
+	context_base.strokeStyle = "#c9c9cf"; // color of the circle
+	context_base.stroke();
+
+	context.beginPath();
+	context.lineWidth = 10;
+	context.arc(x, y, r, s, the_percentage * Math.PI, false);
+	//context.closePath();
+	context.strokeStyle = "#3a92cb"; // color of the circle
+	context.fillStyle = "#5f6a7c"; // color of the displayed number
+	context.stroke();
+	context.font = "43px arial"; // font and size of the number
+	context.textAlign="center";
+	context.fillText(num_vols_needed, 56, 82); // 10 is the actual number displayed. 56 and 82 represent the positioning of the number on the circle
 	
 };
 
-locationCanvases();
+// ************************* this needs to be removed once the get method runs
+var total_vol_positions = 1260;
+
+// we need to pass the total_vol_positions from get method, so that is where this function call should go
+volCanvas(total_vol_positions);

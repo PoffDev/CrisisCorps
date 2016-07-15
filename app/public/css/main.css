@@ -167,7 +167,7 @@ img.sign-logo {
 #vol-filled, #tasks-filled {
   margin-top: 26px; }
 
-h2.db-num {
+h2#db-num {
   margin-bottom: 20px;
   color: #fff;
   text-align: center; }
