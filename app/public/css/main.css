@@ -2,12 +2,12 @@
 .crisis {
   display: none; }
 
-.video-container {
+.pic-container {
   height: 650px;
   position: relative;
   overflow: hidden; }
 
-video {
+.picture {
   width: 100%;
   position: absolute; }
 
@@ -29,8 +29,7 @@ video {
   margin-top: 0%; }
 
 #aboutWell {
-  margin-top: 15%;
-  background: rgba(0, 0, 0, 0.5); }
+  margin-top: 15%; }
 
 .friends {
   height: 800px;
