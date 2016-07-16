@@ -143,12 +143,34 @@ ol.breadcrumb {
   filter: grayscale(100%); }
 
 /*Main Footer*/
+.main-footer {
+  background-color: #96deea;
+  height: 100px; }
+
+#logo {
+  float: right; }
+
 .main-footer img {
-  width: 100px;
-  margin: -5px 10px 0 0;
-  float: left;
+  width: 125px;
+  margin: 20px 5px 0 0;
+  float: right;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%); }
+
+.main-footer p {
+  padding-top: 25% !important;
+  color: #929495;
+  margin: 0 10px 0 0; }
+
+#team {
+  float: left; }
+
+#team h4 {
+  margin-top: 5%; }
+
+#team p {
+  display: inline;
+  color: #000; }
 
 /* sign-up */
 .sign-up-in-bg {
