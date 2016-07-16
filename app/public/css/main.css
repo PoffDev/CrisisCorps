@@ -153,6 +153,9 @@ ol.breadcrumb {
   filter: grayscale(100%); }
 
 /*Main Footer*/
+.main-footer {
+  padding: 2em 0 0 0; }
+
 .main-footer img {
   width: 100px;
   margin: -5px 10px 0 0;
@@ -162,9 +165,8 @@ ol.breadcrumb {
 
 /* sign-up */
 .sign-up-in-bg {
-  height: 100vh;
   width: 100%;
-  padding: 1em 0;
+  padding: 1em 0 30em 0;
   background: #212d33; }
 
 img.sign-logo {
@@ -232,7 +234,7 @@ h2.db-num {
   background: #2faacc; }
 
 /* crisis */
-.crisis .module {
+.crisis-view .module {
   margin-bottom: 20px; }
 
 /* task */
