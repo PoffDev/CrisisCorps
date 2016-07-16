@@ -4,13 +4,13 @@
 		display: none;
 	}
 
-	.video-container {
+	.pic-container {
 		height: 650px;
 		position: relative;
 		overflow: hidden;
 	}
 
-	video {
+	.picture {
 		width: 100%;
 		position: absolute;
 	}
@@ -37,7 +37,6 @@
 	#aboutWell {
 		margin-top: 15%;
 	}
-
 
 	.friends {
 		height: 800px;
