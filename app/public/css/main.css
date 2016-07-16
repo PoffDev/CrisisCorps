@@ -18,6 +18,28 @@ video {
   text-align: center;
   background: rgba(0, 0, 0, 0.5); }
 
+.about_me {
+  height: 550px;
+  position: relative;
+  overflow: hidden;
+  background-color: #2faacc;
+  margin-top: 0%; }
+
+#aboutWell {
+  margin-top: 15%;
+  background: rgba(0, 0, 0, 0.5); }
+
+.friends {
+  height: 800px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  margin-top: 0%;
+  border-color: #2faacc; }
+
+#friendsWell {
+  margin-top: 10%; }
+
 /* nav */
 img.nav-brand-symbol {
   width: 50%;
