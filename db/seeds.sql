@@ -41,7 +41,7 @@ INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Helen Ri
 INSERT INTO corporateMembers (userID, companyName, donationDesc) VALUES (LAST_INSERT_ID(), 'Builder Depot', 'We can provide building materials to places that need to reinforce and repair damaged buildings. We can also provide 500 bottled waters and 200 hot dogs. We can also send a food vending cart free of charge for 3 hours during any food drives or pantry efforts that happen.');
 
 -- TASKS
-INSERT INTO availableTasks (taskTitle, taskDescript, volsNeeded, volsRemaining contactName, contactNum, taskAddress, taskAddress2, taskCity, taskState, taskZip)
+INSERT INTO availableTasks (taskTitle, taskDescript, volsNeeded, volsRemaining, contactName, contactNum, taskAddress, taskAddress2, taskCity, taskState, taskZip)
 
 VALUES ('Blood Donation at ORMC', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose injected humour and the like.', 14, 14, 'Samantha Pierce', 4075555555, '232 N Orange Ave.', 'building 2 suite 100', 'Orlando', 'FL', 32807),
 
