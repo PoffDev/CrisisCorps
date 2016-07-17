@@ -5,18 +5,18 @@ var connection = require('./connection.js');
 
 var orm = {
     //form data entry queries
-    members: function(MemberName, EmailAddress, ContactNum, TwitterHandle, BloodType) {
-        var queryString = 'INSERT INTO members (MemberName, EmailAddress, ContactNum, TwitterHandle, BloodType) VALUES (?, ?, ?, ?, ?)';
-        var vals = [MemberName, EmailAddress, ContactNum, TwitterHandle, BloodType];
+    members: function(userName, emailAddress, password, contactNum, userType) {
+        var queryString = 'INSERT INTO Users (userName, emailAddress, password, contactNum, userType) VALUES (?, ?, ?, ?, ?)';
+        var vals = [userName, emailAddress, password, contactNum, userType];
          connection.query(queryString, vals, function(err, result) {
                 if (err) throw err;
                 console.log(result);
             });
         },
 
-    corporateMembers: function(CompanyName, ContactName, EmailAddress, ContactNum, DonationDesc){ 
-    var queryString = 'INSERT INTO corporateMembers (CompanyName, ContactName, EmailAddress, ContactNum, DonationDesc) VALUES (?, ?, ?, ?, ?)';
-    var vals = [CompanyName, ContactName, EmailAddress, ContactNum, DonationDesc];
+    corporateMembers: function(companyName, donationDesc){ 
+    var queryString = 'INSERT INTO corporateMembers (companyName, DonationDesc) VALUES (?, ?)';
+    var vals = [companyName, donationDesc];
 
          connection.query(queryString, vals, function(err, result) {
                 if (err) throw err;
@@ -26,9 +26,9 @@ var orm = {
 
     //admin panel task
 
-    AvailableTasks: function(TaskDescript, ContactName, ContactNum, TaskAddress, TaskTime, VolunteersNeeded){ 
-    var queryString = 'INSERT INTO AvailableTasks (TaskDescript, ContactName, ContactNum, TaskAddress, TaskTime, VolunteersNeeded) VALUES (?, ?, ?, ?, ?, ?)';
-    var vals = [TaskDescript, ContactName, ContactNum, TaskAddress, TaskTime, VolunteersNeeded];
+    AvailableTasks: function(taskTitle, taskDesc, volsNeeded, contactName, contactNum, taskAddress, taskAddress2, taskCity, taskState, taskZip){ 
+    var queryString = 'INSERT INTO AvailableTasks (taskTitle, taskDesc, volsNeeded, contactName, contactNum, taskAddress, taskAddress2, taskCity, taskState, taskZip) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    var vals = [taskTitle, taskDesc, volsNeeded, contactName, contactNum, taskAddress, taskAddress2, taskCity, taskState, taskZip];
 
             connection.query(queryString, vals, function(err, result) {
                 if (err) throw err;
