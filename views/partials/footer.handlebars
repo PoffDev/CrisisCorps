@@ -9,20 +9,41 @@
 			<p class="triggerModal" id="one">Robert Bethencourt</p>
 			<p class="triggerModal" id="two">Josh Cruey</p>
 			<p class="triggerModal" id="three">Emily Frazin</p>
-			<p class="triggerModal" id="four">Jennifer Hernandez</p>
-			<p class="triggerModal" id="five">Josh Poffenberger</p> 
-		
+			<p class="triggerModal" id="four">Jenn Hernandez</p>
+			<p class="triggerModal" id="five">Josh Poffenberger</p>
 	</div>
 
 	<div class="modal fade bs-example-modal-sm" id = "modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   		<div class="modal-dialog modal-sm">
     		<div class="modal-content">
-      			<div class="hiddenModalContent" data-id="one">hey</div>
-      			<div class="hiddenModalContent" data-id="two">hi</div>
-      			<div class="hiddenModalContent" data-id="three">hellp</div>
-      			<div class="hiddenModalContent" data-id="four">whats up</div>
-      			<div class="hiddenModalContent" data-id="five">bye</div>
-    		</div>
+    			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+      			<div class="hiddenModalContent" data-id="one">
+      				<h4>Robert Bethencourt</h4>
+      				<a href="https://github.com/robbethencourt"><i class="fa fa-github fa-2x"></i></a>
+                	<a href="http://www.twitter.com/rob_bethencourt"><i class="fa fa-twitter fa-2x"></i></a>
+      			</div>
+      			<div class="hiddenModalContent" data-id="two">
+      				<h4>Josh Cruey</h4>
+      				<a href="https://github.com/jcruey"><i class="fa fa-github fa-2x"></i></a>
+                	<a href="http://www.twitter.com/#"><i class="fa fa-twitter fa-2x"></i></a>
+                </div>
+      			<div class="hiddenModalContent" data-id="three">
+      				<h4>Emily Frazin</h4>
+      				<a href="https://github.com/emilysf"><i class="fa fa-github fa-2x"></i></a>
+                	<a href="http://www.twitter.com/emsems12"><i class="fa fa-twitter fa-2x"></i></a>
+      			</div>
+      			<div class="hiddenModalContent" data-id="four">
+      				<h4>Jenn Hernandez</h4>
+      				<a href="https://github.com/jennaroe"><i class="fa fa-github fa-2x"></i></a>
+                	<a href="http://www.twitter.com/jenesis15"><i class="fa fa-twitter fa-2x"></i></a>
+                </div>
+      			<div class="hiddenModalContent" data-id="five">
+      				<h4>Josh Poffenberger</h4>
+      				<a href="https://github.com/PoffDev"><i class="fa fa-github fa-2x"></i></a>
+                	<a href="http://www.twitter.com/PoffDev"><i class="fa fa-twitter fa-2x"></i></a>
+      			</div>
+      		</div>
     	</div>
 
     
@@ -31,12 +52,13 @@
 </footer>
 
 	<script>
-	     $(document).ready(function(){
+	    $(document).ready(function(){
 		    $(".triggerModal").click(function(e) {
 		    	$('.hiddenModalContent').attr('hidden', true);
 		    	var target = $(e.currentTarget).attr('id');
 		    	$('.hiddenModalContent[data-id="'+ target + '"]').attr('hidden', false)
-	           $('#modal').modal({
+		    	$('.modal-backdrop').appendTo('#team');
+	            $('#modal').modal({
 	        		show: true
 	    		});
 	        });
@@ -47,6 +69,9 @@
 	<!-- build:js main.min.js -->
 	<script src="javascript/main-web.js"></script>
 	<!-- endbuild -->
+	<!-- Font awesome -->
+	<script src="https://use.fontawesome.com/e70c307960.js"></script>
+
 
 </body>
 </html>
