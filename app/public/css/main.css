@@ -1,10 +1,17 @@
 /* jumbotron */
-.video-container {
+.crisis {
+  display: none; }
+
+.pic-container {
   height: 650px;
   position: relative;
   overflow: hidden; }
 
-video {
+.jumbotron {
+  padding: 0;
+  margin-bottom: 0; }
+
+.picture {
   width: 100%;
   position: absolute; }
 
@@ -12,22 +19,20 @@ video {
   position: absolute;
   z-index: 99;
   width: 70%;
-  margin: 100px 15%;
+  margin: 15%;
   padding: 50px;
   color: #fff;
   text-align: center;
   background: rgba(0, 0, 0, 0.5); }
 
 .about_me {
-  height: 550px;
   position: relative;
   overflow: hidden;
-  background-color: #2faacc;
+  background-color: #ffffff;
   margin-top: 0%; }
 
 #aboutWell {
-  margin-top: 15%;
-  background: rgba(0, 0, 0, 0.5); }
+  margin-top: 10%; }
 
 .friends {
   height: 800px;
@@ -35,10 +40,15 @@ video {
   overflow: hidden;
   text-align: center;
   margin-top: 0%;
-  border-color: #2faacc; }
+  border-color: #2faacc;
+  background-color: #2faacc; }
 
 #friendsWell {
-  margin-top: 10%; }
+  margin-top: 5%;
+  margin-bottom: 5%; }
+
+.panel.panel-primary {
+  background-color: rgba(245, 245, 245, 0); }
 
 /* nav */
 img.nav-brand-symbol {
@@ -144,11 +154,15 @@ ol.breadcrumb {
 
 /*Main Footer*/
 .main-footer {
+<<<<<<< HEAD
   background-color: #96deea;
   height: 110px; }
 
 #logo {
   float: right; }
+=======
+  padding: 2em 0 0 0; }
+>>>>>>> 81d49946ac094e82dee7355f169da027691a10bc
 
 .main-footer img {
   width: 125px;
@@ -199,9 +213,8 @@ i:hover {
 
 /* sign-up */
 .sign-up-in-bg {
-  height: 100vh;
   width: 100%;
-  padding: 1em 0;
+  padding: 1em 0 30em 0;
   background: #212d33; }
 
 img.sign-logo {
@@ -269,7 +282,7 @@ h2.db-num {
   background: #2faacc; }
 
 /* crisis */
-.crisis .module {
+.crisis-view .module {
   margin-bottom: 20px; }
 
 /* task */

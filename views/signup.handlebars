@@ -2,50 +2,75 @@
 	<div class="sign-logo">
 		<img src="/images/crisis-corps-logo.png" class="sign-logo" alt="Crisis Corps logo." />
 	</div>
-	<div class="sign-up-in-container">
+	<div class="sign-up-in-container clearfix">
+	
+	<!-- checkbox -->
+	<div class="checkbox">
+	    <label>
+	    	<input type="checkbox" id="corp-checkbox"> Please check if you are a Corporate Volunteer
+	    </label>
+	    <br />
+	</div>
 		
-		<form>
-			<div class="form-group">
-				<div id = "sign-up">
-			    	<label for="memberName">Member Name</label>
-			    	<input type="text" class="form-control" id="memberName" placeholder="Member Name"> 		
-		    		<br>
-			    	
-			    	<label for="emailAddress">Email Address</label>
-			    	<input type="email" class="form-control" id="emailAddress" placeholder="JohnSmith@google.com">
-			    	<br>
+	<form id="user-signup">
+		<div class="form-group">
+			<div id = "sign-up">
+		    	<label for="memberName">Member Name</label>
+		    	<input type="text" class="form-control" id="memberName" placeholder="Member Name"> 		
+	    		<br>
+		    	
+		    	<label for="emailAddress">Email Address</label>
+		    	<input type="email" class="form-control" id="emailAddress" placeholder="JohnSmith@google.com">
+		    	<br>
 
-			    	<label for="contactNumber">Contact Number</label>
-			    	<input type="text" class="form-control" id="contactNumber" placeholder="Contact Number">	
-		    		<br>
+		   		<label for="inputPassword">Password</label>
+		    	<input type="password" class="form-control" id="inputPassword">
+		    	<br />
 
-			    	<label for="twitterHandle">Twitter Handle ************************ Is this happening??????????????????????????/</label>
-			    	<input type="text" class="form-control" id="twitterHandle" placeholder="Twitter Handle">
-			    	<br>
-						
-					<label for="bloodType">Blood Type</label>
-				    <select class="form-control" id="blood-type">
-						<option>A</option>
-						<option>B</option>
-						<option>AB</option>
-						<option>O</option>
-						<option>I Don't Know / NA</option>
-					</select>
-					<br />
+				<!--
+		    	<label for="contactNumber">Contact Number</label>
+		    	<input type="text" class="form-control" id="contactNumber" placeholder="Contact Number">	
+	    		<br>
+				
+				<label for="bloodType">Blood Type</label>
+			    <select class="form-control" id="blood-type">
+					<option>A</option>
+					<option>B</option>
+					<option>AB</option>
+					<option>O</option>
+					<option>I Don't Know / NA</option>
+				</select>
+				<br />
+				-->
 
-					<div class="checkbox">
-					    <label>
-					    	<input type="checkbox" id="corp-checkbox"> Corporate Volunteer
-					    </label>
-					    <br />
-					</div> <!-- checkbox -->
-					<br />
+	    		<!--Button -->
+				<a href="dashboard" type="submitMember" class="btn btn-primary btn-lg btn-block" id="signup-user">Sign Up</a>
+	    	</div>
+	    </div>
+	</form>
 
-		    		<!--Button -->
-					<a href="dashboard" type="submitMember" class="btn btn-primary btn-lg btn-block" id="signup">Sign Up</a>
-		    	</div>
-		    </div>
-		</form>
+	<form id="corp-signup">
+		<div class="form-group">
+			<div id = "sign-up">
+		    	<label for="memberName">Company Name</label>
+		    	<input type="text" class="form-control" id="companyName" placeholder="Company Name"> 		
+	    		<br>
+		    	
+		    	<label for="emailAddress">Email Address</label>
+		    	<input type="email" class="form-control" id="emailAddress" placeholder="JohnSmith@google.com">
+		    	<br>
+
+		   		<label for="inputPassword">Password</label>
+		    	<input type="password" class="form-control" id="inputPassword">
+		    	<br />
+
+	    		<!--Button -->
+				<a href="dashboard" type="submitMember" class="btn btn-primary btn-lg btn-block" id="signup-corp">Sign Up</a>
+	    	</div>
+	    </div>
+	</form>
+	{{>footer}}
+</div>
 
 <script type="text/javascript">
 
