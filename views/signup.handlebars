@@ -78,7 +78,7 @@ $('#signup-user').on('click', function () {
 	var newMember = {
 		memberName: $('#memberName').val().trim(),
 		emailAddress: $('#emailAddress').val().trim(),
-		password: $('#contactNumber').val().trim(),
+		password: $('#inputPassword').val().trim(),
 		userType: 2
 	}
 	//push those values to database
@@ -91,15 +91,15 @@ $('#signup-user').on('click', function () {
 
 $('#signup-corp').on('click', function () {
 	//pull values from form input
-	var newMember = {
-		memberName: $('#memberName').val().trim(),
+	var newCorpMember = {
+		memberName: $('#companyName').val().trim(),
 		emailAddress: $('#emailAddress').val().trim(),
-		password: $('#contactNumber').val().trim(),
+		password: $('#inputPassword').val().trim(),
 		userType: 3
 	}
 	//push those values to database
-	$.post('/newMember', newMember, function() {
-
+	$.post('/newCorpMember', newMember, function() {
+		console.log(newMember);
 	})
 	//refresh data base information. 
 
