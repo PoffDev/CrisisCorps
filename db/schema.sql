@@ -2,50 +2,46 @@ CREATE DATABASE cc_db;
 
 USE cc_db;
 
+CREATE TABLE Users (
+	 userID INTEGER(11) AUTO_INCREMENT NOT NULL,
+	 userName varchar(30) NOT NULL,
+	 emailAddress varchar(30) NOT NULL,
+	 password varchar(30) NOT NULL,
+	 contactNum varchar(30) NOT NULL,
+	 userType INTEGER(11) NOT NULL,
+	 primary key (userID)
+);
+
 CREATE TABLE members (
-	 ItemiD INTEGER(11) AUTO_INCREMENT NOT NULL,
-	 MemberName varchar(30) NOT NULL,
-	 EmailAddress varchar(30) NOT NULL,
-	 ContactNum varchar(30),
-	 TwitterHandle varchar(30) NOT NULL,
-	 BloodType varchar(30) NOT NULL,
-	 primary key (ItemID)
+	 userID INTEGER(11) NOT NULL,
+	 bloodType varchar(30) NOT NULL,
+	 primary key (userID)
 );
 
 CREATE TABLE corporateMembers (
-	 ItemiD INTEGER(11) AUTO_INCREMENT NOT NULL,
-	 CompanyName varchar(30) NOT NULL,
-	 ContactName varchar(30) NOT NULL,
-	 EmailAddress varchar(30) NOT NULL,
-	 ContactNum varchar(30),
-	 DonationDesc varchar(30) NOT NULL,
-	 primary key (ItemID)
+	 userID INTEGER(11) AUTO_INCREMENT NOT NULL,
+	 companyName varchar(30) NOT NULL,
+	 donationDesc varchar(900) NOT NULL,
+	 primary key (userID)
 );
 
-CREATE TABLE AvailableTasks (
-	 TaskID INTEGER(11) AUTO_INCREMENT NOT NULL,
-	 TaskDescript varchar(30) NOT NULL,
-	 ContactName varchar(30) NOT NULL,
-	 ContactNum varchar(30),
-	 TaskAddress varchar(30) NOT NULL,
-	 TaskTime varchar(30),
-	 VolunteersNeeded INTEGER(11), 
-	 primary key (TaskID)
+CREATE TABLE availableTasks (
+	 taskID INTEGER(11) AUTO_INCREMENT NOT NULL,
+	 taskTitle varchar(90) NOT NULL,
+	 taskDescript varchar(900) NOT NULL,
+	 volsNeeded INTEGER(11) NOT NULL,
+	 contactName varchar(30) NOT NULL,
+	 contactNum varchar(30) NOT NULL,
+	 taskAddress varchar(30) NOT NULL,
+	 taskAddress2 varchar(30),
+	 taskCity varchar(30) NOT NULL,
+	 taskState varchar(30) NOT NULL,
+	 taskZip varchar(30) NOT NULL,
+	  
+	 primary key (taskID)
 );
 
-CREATE TABLE partners (
-	 PartiD INTEGER(11) AUTO_INCREMENT NOT NULL,
-	 PartnerName varchar(30) NOT NULL,
-	 ContactName varchar(30) NOT NULL,
-	 EmailAddress varchar(30) NOT NULL,
-	 ContactNum varchar(30),
-	 ParnterDesc varchar(30) NOT NULL,
-	 primary key (PartID)
-);
-
-CREATE TABLE CurrentMemTasks (
-	TaskID INTEGER(11) AUTO_INCREMENT NOT NULL,
-    MemberName varchar(30) NOT NULL,
-	TaskTime varchar(30), 
-	primary key (TaskID)
+CREATE TABLE activeCrisis (
+	crisisName VARCHAR(90) NOT NULL,
+	crisisDesc VARCHAR(900) NOT NULL
 );
