@@ -25,14 +25,16 @@ module.exports = function (app){
 	app.get('/crisis', function(req, res){
 		res.render('crisis', {
 			title: 'Crisis Manager',
-			link: 'crisis'
+			link: 'crisis',
+			active_crisis: true
 		});
 	});
 
 	app.get('/profile', function(req, res){
 		res.render('profile', {
 			title: 'Profile',
-			link: 'profile'
+			link: 'profile',
+			active_profile: true
 		});
 	});
 
@@ -53,28 +55,32 @@ module.exports = function (app){
 	app.get('/tasks', function(req, res){
 		res.render('tasks', {
 			title: 'Tasks List',
-			link: 'tasks'
+			link: 'tasks',
+			active_tasks: true
 		});
 	});
 
 	app.get('/task', function(req, res){
 		res.render('task', {
 			title: 'Task',
-			link: 'task'
+			link: 'task',
+			active_tasks: true
 		});
 	});
 
 	app.get('/dashboard', function(req, res){
 		res.render('dashboard', {
 			title: 'Dashboard',
-			link: 'dashboard'
+			link: 'dashboard',
+			active_dashboard: true
 		});
 	});
 
 	app.get('/corp', function(req, res){
 		res.render('corp', {
 			title: 'Corporation List',
-			link: 'corp'
+			link: 'corp',
+			active_crisis: true
 		});
 	});
 

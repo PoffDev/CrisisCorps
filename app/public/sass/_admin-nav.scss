@@ -34,7 +34,7 @@
 			color: #ddd;
 		}
 
-		.admin-nav li a:hover, .admin-nav li a:focus {
+		.admin-nav li a:hover, .admin-nav li a:focus, .admin-nav li a.active {
 			text-decoration: none;
 			background: #212D33;
 		}
