@@ -73,15 +73,29 @@
 
 <script type="text/javascript">
 
-$('#SubmitMember').on('click', function () {
+$('#signup-user').on('click', function () {
 	//pull values from form input
 	var newMember = {
 		memberName: $('#memberName').val().trim(),
 		emailAddress: $('#emailAddress').val().trim(),
-		contactNumber: $('#contactNumber').val().trim(),
-		twitterHandle: $('#twitterHandle').val().trim(),
-		bloodType: $('#bloodType').val().trim()
+		password: $('#contactNumber').val().trim(),
+		userType: 2
+	}
+	//push those values to database
+	$.post('/newMember', newMember, function() {
 
+	})
+	//refresh data base information. 
+
+});
+
+$('#signup-corp').on('click', function () {
+	//pull values from form input
+	var newMember = {
+		memberName: $('#memberName').val().trim(),
+		emailAddress: $('#emailAddress').val().trim(),
+		password: $('#contactNumber').val().trim(),
+		userType: 3
 	}
 	//push those values to database
 	$.post('/newMember', newMember, function() {
