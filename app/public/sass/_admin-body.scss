@@ -1,9 +1,7 @@
 /* admin body */
 .admin-body {
-	width: 88%;
-	margin-left: 12%;
-	padding: 80px 20px 20px 20px;
-	float: left;
+	width: 100%;
+	padding: 20px;
 	background: #edf0f5;
 }
 
@@ -23,3 +21,18 @@
 		.module-footer {
 			padding: 0 0 20px 0;
 		}
+
+
+/* media queries */
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-width : 1024px) {
+
+	.admin-body {
+		width: 88%;
+		margin-left: 12%;
+		padding: 80px 20px 20px 20px;
+		float: left;
+	}
+    
+}

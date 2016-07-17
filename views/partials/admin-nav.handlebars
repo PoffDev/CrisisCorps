@@ -2,9 +2,14 @@
 <div class="admin-nav-container">
 	<div class="nav-logo">
 		<img src="/images/crisis-corps-logo.png" class="admin-logo" alt="Crisis Corps logo." />
+		<div id="nav-toggle">
+            <p>
+                &#9776;
+            </p>
+        </div>
 	</div>
 	<div class="admin-nav">
-		<ul>
+		<ul class="hidden" id="admin-nav-toggle">
 			<li><a href="dashboard" class="{{#if active_dashboard}}active{{/if}}"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Dashboard</a></li>
 			<li><a href="crisis" class="{{#if active_crisis}}active{{/if}}"><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> Crisis</a></li>
 			<li><a href="tasks" class="{{#if active_tasks}}active{{/if}}"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> Tasks</a></li>
