@@ -1,4 +1,5 @@
 var connection = require('./connection.js');
+var mysql = require('mysql');
 
 // object relational mapper (ORM)
 
@@ -43,5 +44,32 @@ var orm = {
     //     });
     // }
 };
+
+var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: process.argv[2],
+    database: 'dbUsers'
+});
+
+
+// //pulls info from database as user info
+// function User (userObj) {
+//  this.username = userObj.username
+//  this.password = userObj.password
+// }
+
+
+// //exports user object
+// module.exports = User
+
+
+// //saves current user to database
+// module.exports.saveUser = function(userObj, callback){
+//  orm.addUserToDB(userObj, function(status, err){
+//      if (err) return callback(false);
+//      callback(true);
+//  });
+// }
 
 module.exports = orm;
