@@ -7,21 +7,23 @@ CREATE TABLE Users (
 	 userName varchar(30) NOT NULL,
 	 emailAddress varchar(30) NOT NULL,
 	 password varchar(30) NOT NULL,
-	 contactNum varchar(30) NOT NULL,
 	 userType INTEGER(11) NOT NULL,
 	 primary key (userID)
 );
 
 CREATE TABLE members (
 	 userID INTEGER(11) NOT NULL,
+	 contactNum varchar(30),
 	 bloodType varchar(30) NOT NULL,
+	 activeTasks VARCHAR(30),
 	 primary key (userID)
 );
 
 CREATE TABLE corporateMembers (
 	 userID INTEGER(11) AUTO_INCREMENT NOT NULL,
-	 companyName varchar(30) NOT NULL,
-	 donationDesc varchar(900) NOT NULL,
+	 companyName varchar(30),
+	 contactNum VARCHAR(30),
+	 donationDesc varchar(900),
 	 primary key (userID)
 );
 
@@ -30,6 +32,7 @@ CREATE TABLE availableTasks (
 	 taskTitle varchar(90) NOT NULL,
 	 taskDescript varchar(900) NOT NULL,
 	 volsNeeded INTEGER(11) NOT NULL,
+	 volsRemaining INTEGER(11) NOT NULL,
 	 contactName varchar(30) NOT NULL,
 	 contactNum varchar(30) NOT NULL,
 	 taskAddress varchar(30) NOT NULL,
