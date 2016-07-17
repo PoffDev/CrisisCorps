@@ -43,13 +43,6 @@ var orm = {
                 console.log(result);
             });
         },
-
-    // findWhoHasMost: function(tableOneCol, tableTwoForeignKey, tableOne, tableTwo) {
-    //     var queryString = 'SELECT ' + tableOneCol + ', COUNT(' + tableOneCol + ') AS count FROM ' + tableOne + ' LEFT JOIN ' + tableTwo + ' ON ' + tableTwo + '.' + tableTwoForeignKey + '= ' + tableOne + '.id GROUP BY ' + tableOneCol + ' ORDER BY count desc LIMIT 1';
-    //     connection.query(queryString, function(err, result) {
-    //         console.log(result);
-    //     });
-    // }
 };
 
 module.exports = orm;
