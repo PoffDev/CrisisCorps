@@ -1,22 +1,63 @@
 /* jumbotron */
-.video-container {
+	
+	.crisis {
+		display: none;
+	}
+
+	.pic-container {
 		height: 650px;
 		position: relative;
 		overflow: hidden;
 	}
 
-		video {
-			width: 100%;
-			position: absolute;
-		}
+	.jumbotron{
+    	padding: 0;
+    	margin-bottom: 0;
+	}
 
-		.video-overlay {
-			position: absolute;
-			z-index: 99;
-			width: 70%;
-			margin: 100px 15%;
-			padding: 50px;
-			color: #fff;
-			text-align: center;
-			background: rgba(0,0,0, .5);
-		}
+	.picture {
+		width: 100%;
+		position: absolute;
+	}
+
+
+	.video-overlay {
+		position: absolute;
+		z-index: 99;
+		width: 70%;
+		margin: 15%;
+		padding: 50px;
+		color: #fff;
+		text-align: center;
+		background: rgba(0,0,0, .5);
+	}
+
+	.about_me {
+		position: relative;
+		overflow: hidden;
+		background-color: #ffffff ;
+		margin-top: 0%;
+	}
+
+	#aboutWell {
+		margin-top: 10%;
+	}
+
+	.friends {
+		height: 800px;
+		position: relative;
+		overflow: hidden;
+		text-align: center;
+		margin-top: 0%;
+		border-color: #2faacc;
+		background-color: #2faacc;
+	}
+
+	#friendsWell{
+		margin-top: 5%;
+		margin-bottom: 5%;
+	}
+
+	.panel.panel-primary{
+    background-color: rgba(245, 245, 245, 0);
+}

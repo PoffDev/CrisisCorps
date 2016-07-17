@@ -1,10 +1,17 @@
 /* jumbotron */
-.video-container {
+.crisis {
+  display: none; }
+
+.pic-container {
   height: 650px;
   position: relative;
   overflow: hidden; }
 
-video {
+.jumbotron {
+  padding: 0;
+  margin-bottom: 0; }
+
+.picture {
   width: 100%;
   position: absolute; }
 
@@ -12,11 +19,36 @@ video {
   position: absolute;
   z-index: 99;
   width: 70%;
-  margin: 100px 15%;
+  margin: 15%;
   padding: 50px;
   color: #fff;
   text-align: center;
   background: rgba(0, 0, 0, 0.5); }
+
+.about_me {
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+  margin-top: 0%; }
+
+#aboutWell {
+  margin-top: 10%; }
+
+.friends {
+  height: 800px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  margin-top: 0%;
+  border-color: #2faacc;
+  background-color: #2faacc; }
+
+#friendsWell {
+  margin-top: 5%;
+  margin-bottom: 5%; }
+
+.panel.panel-primary {
+  background-color: rgba(245, 245, 245, 0); }
 
 /* nav */
 img.nav-brand-symbol {
@@ -78,11 +110,14 @@ ol.breadcrumb {
 .username-container {
   width: 50%;
   float: right;
-  padding: 20px 50px 0 0;
+  padding: 20px 20px 0 0;
   text-align: right; }
 
 .username {
   font-size: 1.1em; }
+
+.username-container a.btn-sm {
+  margin: -5px 0 0 10px; }
 
 /* admin body */
 .admin-body {
@@ -117,11 +152,66 @@ ol.breadcrumb {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%); }
 
+/*Main Footer*/
+.main-footer {
+  background-color: #96deea;
+  height: 110px; }
+
+#logo {
+  float: right; 
+  padding: 2em 0 0 0; }
+
+.main-footer img {
+  width: 125px;
+  margin: 20px 5px 0 0;
+  float: right;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%); }
+
+.main-footer p {
+  padding-top: 25% !important;
+  color: #929495;
+  margin: 0 10px 0 0; }
+
+#team {
+  float: left; }
+
+#team h4 {
+  margin-top: 30px;
+  margin-left: 10px;
+  color: #929495; }
+
+#team p {
+  display: inline;
+  color: #929495;
+  cursor: pointer; }
+
+#one {
+  margin-left: 10px; }
+
+#modal {
+  position: relative; }
+
+.modal-content {
+  /*padding:3px;*/
+  margin-top: -7%;
+  text-align: center;
+  color: #2faacc; }
+
+.close {
+  margin-right: 5px; }
+
+i {
+  color: #2faacc;
+  padding: 0 10px 5px; }
+
+i:hover {
+  opacity: 0.8; }
+
 /* sign-up */
 .sign-up-in-bg {
-  height: 100vh;
   width: 100%;
-  padding: 1em 0;
+  padding: 1em 0 30em 0;
   background: #212d33; }
 
 img.sign-logo {
@@ -187,3 +277,11 @@ h2.db-num {
 
 #db-tt {
   background: #2faacc; }
+
+/* crisis */
+.crisis-view .module {
+  margin-bottom: 20px; }
+
+/* task */
+h3.task-title {
+  margin-top: 0; }

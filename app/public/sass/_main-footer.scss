@@ -1,0 +1,70 @@
+/*Main Footer*/
+.main-footer {
+	padding: 2em 0 0 0;
+}
+
+.main-footer {
+	background-color: #96deea;
+	height:110px;
+}
+	
+	#logo {
+		float:right;
+	}
+	.main-footer img {
+		width: 125px;
+		margin: 20px 5px 0 0;
+		float: right;
+		-webkit-filter: grayscale(100%);
+		filter: grayscale(100%);
+	}
+
+	.main-footer p {
+		padding-top:25% !important;
+		color:#929495;
+		margin:0 10px 0 0;
+	}
+
+	#team {
+		float:left;
+	}
+
+	#team h4 {
+		margin-top: 30px;
+		margin-left: 10px;
+		color:#929495;
+	}
+
+	#team p {
+		display:inline;
+		color:#929495;
+		cursor:pointer;
+	}
+
+	#one {
+		margin-left: 10px;
+	}
+
+	#modal {
+		position:relative;
+	}
+
+	.modal-content {
+		/*padding:3px;*/
+		margin-top: -7%;
+		text-align: center;
+		color:#2faacc;
+	}
+
+	.close {
+		margin-right:5px;
+	}
+
+	i {
+		color:#2faacc;
+		padding:0 10px 5px;
+	}
+
+	i:hover {
+		opacity: 0.8;
+	}
