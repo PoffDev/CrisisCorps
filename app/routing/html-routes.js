@@ -15,6 +15,13 @@ module.exports = function (app){
 		});
 	});
 
+	app.get('/home', function(req, res){
+		res.render('home', {
+			title: 'CrisisCorps',
+			link: 'home'
+		});
+	});
+
 	app.get('/profile', function(req, res){
 		res.render('profile', {
 			title: 'Profile',
