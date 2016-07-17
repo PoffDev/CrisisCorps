@@ -10,15 +10,22 @@ module.exports = function (app){
 
 	app.get('/', function(req, res){
 		res.render('home', {
-			title: 'CrisisCorps',
+			title: 'Home',
 			link: 'home'
 		});
 	});
 
 	app.get('/home', function(req, res){
 		res.render('home', {
-			title: 'CrisisCorps',
+			title: 'Home',
 			link: 'home'
+		});
+	});
+
+	app.get('/crisis', function(req, res){
+		res.render('crisis', {
+			title: 'Crisis Manager',
+			link: 'crisis'
 		});
 	});
 
