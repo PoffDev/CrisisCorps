@@ -2,42 +2,42 @@
 
 use cc_db;
 
-INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Admin', 'admin@crisiscorp.com', 'password1234', 4075551234, 1); 
+INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Admin', 'admin@crisiscorp.com', 'password1234', 1); 
 
-INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Margaret Smith', 'maggie@something.com', 'maggster875', 4078563425, 2); 
+INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Margaret Smith', 'maggie@something.com', 'maggster875', 2); 
 INSERT INTO members (userID, bloodType) VALUES (LAST_INSERT_ID(),'A');
 
-INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Mike Smith', 'mike@sleepy.com', 'deepsleep333', 3219994567, 2); 
+INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Mike Smith', 'mike@sleepy.com', 'deepsleep333', 2); 
 INSERT INTO members (userID, bloodType) VALUES (LAST_INSERT_ID(),'B');
 
-INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Jimmy', 'jim@aol.com', 'happy!!!', 4075556671, 2);
+INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Jimmy', 'jim@aol.com', 'happy!!!', 2);
 INSERT INTO members (userID, bloodType) VALUES (LAST_INSERT_ID(),'O');
 
-INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Kate', 'ksmithy@gmail.com', '#@#!!ajvnkl3546', 4074442231, 2);
+INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Kate', 'ksmithy@gmail.com', '#@#!!ajvnkl3546', 2);
 INSERT INTO members (userID, bloodType) VALUES (LAST_INSERT_ID(),'AB');
 
-INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Belinda Bees', 'bb@disney.com', 'mouseparade111', 3215640091, 2); 
+INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Belinda Bees', 'bb@disney.com', 'mouseparade111', 2); 
 INSERT INTO members (userID, bloodType) VALUES (LAST_INSERT_ID(),'O');
 
-INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Samantha Rose', 'samr@gmail.com', 'flowers65!!2', 4074441121, 2); 
+INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Samantha Rose', 'samr@gmail.com', 'flowers65!!2', 2); 
 INSERT INTO members (userID, bloodType) VALUES (LAST_INSERT_ID(),'A');
 
-INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Jorge Fernandez', 'jiorjito@gmail.com', '3gfriends47e!!', 3211234567, 2); 
+INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Jorge Fernandez', 'jiorjito@gmail.com', '3gfriends47e!!', 2); 
 INSERT INTO members (userID, bloodType) VALUES (LAST_INSERT_ID(),'A');
 
-INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Mike France', 'mikef@poolsandspas.com', 'poolspools776', 4078889091, 3);
+INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Mike France', 'mikef@poolsandspas.com', 'poolspools776', 3);
 INSERT INTO corporateMembers (userID, companyName, donationDesc) VALUES (LAST_INSERT_ID(), 'Mike\'s Pools and Spas', 'Our company will contribute cleaning supplies to the areas in need.');
 
-INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Jane Smith', 'janes@andmed.com', 'medsandmeds111', 8004350921, 3);
+INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Jane Smith', 'janes@andmed.com', 'medsandmeds111', 3);
 INSERT INTO corporateMembers (userID, companyName, donationDesc) VALUES (LAST_INSERT_ID(), 'AndMed', 'We\'ll provide food and bottled water to all shelters in a 1 mile radius of the impacted location, or any others in places of absolute need.');
 
-INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Harry Hungry', 'harry@ilovesubs.com', 'hungryhungryhippos', 3219900032, 3);
+INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Harry Hungry', 'harry@ilovesubs.com', 'hungryhungryhippos', 3);
 INSERT INTO corporateMembers (userID, companyName, donationDesc) VALUES (LAST_INSERT_ID(), 'Local Sub Shop', 'We can provide 25 6 inch subs to a shelter in need.');
 
-INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Bill Smith', 'billsmith@ppandspas.com', 'smilesallday55', 4076934077, 3); 
+INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Bill Smith', 'billsmith@ppandspas.com', 'smilesallday55', 3); 
 INSERT INTO corporateMembers (userID, companyName, donationDesc) VALUES (LAST_INSERT_ID(), 'Progressive Pools and Spas', 'We can bathe people in our pools and it will be totaly awesome'); 
 
-INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Helen Ripley', 'helen@builderdepot.com', 'buildingbuildings009!', 4078889191, 3);
+INSERT INTO Users (userName, emailAddress, password, userType) VALUES ('Helen Ripley', 'helen@builderdepot.com', 'buildingbuildings009!', 3);
 INSERT INTO corporateMembers (userID, companyName, donationDesc) VALUES (LAST_INSERT_ID(), 'Builder Depot', 'We can provide building materials to places that need to reinforce and repair damaged buildings. We can also provide 500 bottled waters and 200 hot dogs. We can also send a food vending cart free of charge for 3 hours during any food drives or pantry efforts that happen.');
 
 -- TASKS
