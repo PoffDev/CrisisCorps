@@ -20,7 +20,7 @@ module.exports = function(app){
 	})
 
 	app.post('/newTask', function (req, res){
-		orm.AvailableTasks(req.body.description, req.body.contactName, req.body.contactNumber, req.body.Address, req.body.TaskTime, req.body.membersNeeded);
+		orm.AvailableTasks(req.body.taskName, req.body.taskDescript, req.body.volsNeeded, req.body.volsRemaining, req.body.contactName, req.body.contactNum, req.body.taskAddress, req.body.taskAddress2, req.body.taskCity, req.body.taskState, req.body.taskZip);
 		res.send(function() {
 			alert("Task Created successfully!");
 		});
@@ -28,14 +28,14 @@ module.exports = function(app){
 
 
 	app.post('/newMember', function (req, res){
-		orm.AvailableTasks(req.body.memberName, req.body.emailAddress, req.body.contactNumber, req.body.twitterHandle, req.body.bloodType);
+		orm.Users(req.body.userName, req.body.emailAddress, req.body.password, req.body.userType);
 		res.send(function() {
 			alert("User added successfully!");
 		});
 	});
 
 	app.post('/newCorpMember', function (req, res){
-		orm.AvailableTasks(req.body.description, req.body.contactName, req.body.contactNumber, req.body.Address, req.body.TaskTime, req.body.membersNeeded);
+		orm.corporateMember(req.body.companyName, req.body.contactNum, req.body.donationDesc);
 		res.send(function() {
 			alert("Corporate Member Added successfully!");
 		})

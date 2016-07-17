@@ -23,7 +23,7 @@ var orm = {
     },
 
     corporateMembers: function(companyName, contactNum, donationDesc){ 
-    var queryString = 'INSERT INTO corporateMembers (companyName, contactNum, donationDesc) VALUES (?, ?)';
+    var queryString = 'INSERT INTO corporateMembers (companyName, contactNum, donationDesc) VALUES (?, ?, ?)';
     var vals = [companyName, contactNum, donationDesc];
 
          connection.query(queryString, vals, function(err, result) {
