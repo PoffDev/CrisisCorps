@@ -2,6 +2,20 @@ CREATE DATABASE cc_db;
 
 USE cc_db;
 
+-- drop database if exists USER_DATABASE; <-- Change this name
+
+-- create database if not exists USER_DATABASE; <-- Change this name
+
+-- use USER_DATABASE; <-- Change this name
+
+-- drop table if exists tblUsers; <-- Change this name
+
+-- create table if not exists tblUsers(
+--    userId integer primary key auto_increment,
+--    username varchar(100) unique,					<-- Nest create table members into here....
+--    password varchar(100)
+-- )
+
 CREATE TABLE members (
 	 ItemiD INTEGER(11) AUTO_INCREMENT NOT NULL,
 	 MemberName varchar(30) NOT NULL,

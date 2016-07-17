@@ -1,8 +1,11 @@
 //Required Node Modules
 	//handlebars
 	var express = require('express');
+	var flash = require('connect-flash');
+	var passport = require('passport');
+	var session = require('express-session');
 	var exphbs = require('express-handlebars');
-	//sessions
+	// var orm = require('./app/routing/orm.js')
 	var path = require('path');
 	var bodyParser = require('body-parser');
 	
@@ -31,6 +34,19 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
+// //session is used to keep the user logged in 
+// app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true}))
+
+// //flash is used to show a message on an incorrect login
+// app.use(flash());
+
+// //passport middleware methods
+// app.use(passport.initialize());
+// app.use(passport.session());
+
+
+// app.use(express.static('public'));
+
 
 // ================================================================================
 // ROUTER
@@ -40,7 +56,8 @@ app.use(bodyParser.json({type:'application/vnd.api+json'}));
 require('./app/routing/api-routes.js')(app);
 require('./app/routing/html-routes.js')(app);
 
-
+// //connect to db
+// orm.connectToDB();
 
 //Listener
 app.listen(PORT, function(){
