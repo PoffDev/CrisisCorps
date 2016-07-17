@@ -214,7 +214,7 @@
 
 						  	</div>
 							<!-- Submit -->
-						  	<a href="#" class="btn btn-primary" id="create-task" data-toggle="modal" data-target="#createTastModal">Create Task</a>
+						  	<a href="#" class="btn btn-primary" id="createtask" data-toggle="modal" data-target="#createTastModal">Create Task</a>
 						</form>
 					</div> <!-- end module -->
 					
@@ -303,7 +303,7 @@
 
 <script type="text/javascript">
 
-$('#create-task').on('click', function () {
+$('#createtask').on('click', function () {
 	//pull values from form input
 	var newTask = {
 		taskTitle: $('#task-title').val().trim(),
@@ -320,7 +320,7 @@ $('#create-task').on('click', function () {
 	}
 	//push those values to database
 	$.post('/newTask', newTask, function() {
-
+		console.log(newTask);
 	})
 	//refresh data base information. 
 
