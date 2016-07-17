@@ -5,7 +5,6 @@
 	var passport = require('passport');
 	var session = require('express-session');
 	var exphbs = require('express-handlebars');
-	// var orm = require('./app/routing/orm.js')
 	var path = require('path');
 	var bodyParser = require('body-parser');
 	
@@ -13,7 +12,7 @@
 //Port
 var app = express();
 var PORT = process.env.PORT || 8000;
-// var orm = require('./config/orm.js');
+var orm = require('config/orm.js');
 
 app.use(express.static('app/public'));
 
@@ -34,18 +33,18 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
-// //session is used to keep the user logged in 
-// app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true}))
+//session is used to keep the user logged in 
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true}))
 
-// //flash is used to show a message on an incorrect login
-// app.use(flash());
+//flash is used to show a message on an incorrect login
+app.use(flash());
 
-// //passport middleware methods
-// app.use(passport.initialize());
-// app.use(passport.session());
+// passport middleware methods
+app.use(passport.initialize());
+app.use(passport.session());
 
 
-// app.use(express.static('public'));
+app.use(express.static('public'));
 
 
 // ================================================================================
@@ -57,7 +56,7 @@ require('./app/routing/api-routes.js')(app);
 require('./app/routing/html-routes.js')(app);
 
 // //connect to db
-// orm.connectToDB();
+orm.connectToDB();
 
 //Listener
 app.listen(PORT, function(){
