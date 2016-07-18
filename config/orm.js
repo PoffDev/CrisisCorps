@@ -66,6 +66,34 @@ var orm = {
             callback(result);
         }); // end connection.query()
 
+    },
+
+    numVolsNeeded: function(callback) {
+        
+        // build the mysql query string
+        var queryString = 'SELECT SUM(volsRemaining) ';
+        queryString += 'FROM availableTasks;';
+
+        // call connection.query, pass the query string and get the callback to send to html-routes.js
+        connection.query(queryString, function(err, result) {
+            if (err) throw err;
+            callback(result);
+        }); // end connection.query()
+
+    },
+
+    numVolsWhoHaveVolunteered: function(callback) {
+
+        // build the mysql query string
+        var queryString = 'SELECT SUM(volsNeeded - volsRemaining) ';
+        queryString += 'FROM availableTasks;';
+
+        // call connection.query, pass the query string and get the callback to send to html-routes.js
+        connection.query(queryString, function(err, result) {
+            if (err) throw err;
+            callback(result);
+        }); // end connection.query()
+
     }
 
 };

@@ -70,21 +70,30 @@ module.exports = function (app){
 	});
 
 	app.get('/dashboard', function(req, res){
-		res.render('dashboard', {
-			title: 'Dashboard',
-			link: 'dashboard',
-			active_dashboard: true
+		// get number of volunteers still needed
+		orm.numVolsNeeded(function(num_vols) {
+			orm.numVolsWhoHaveVolunteered(function(vols_volunteered) {
+				res.render('dashboard', {
+					title: 'Dashboard',
+					link: 'dashboard',
+					active_dashboard: true,
+					vols: num_vols,
+					vols_volun: vols_volunteered
+				});
+			});
 		});
+
+		
 	});
 
 	app.get('/corp', function(req, res){
+		// get all corporate users
 		orm.allCorpUsers(function(all_corps) {
-			// console.log(all_corps);
 			res.render('corp', {
-				title: 'Corporation List',
-				link: 'corp',
-				active_crisis: true,
-				corp_list: all_corps
+				title: 'Corporation List', // breadcrumbs title
+				link: 'corp', // link to pass to breadcrumbs
+				active_crisis: true, // active class to display on admin nav
+				corp_list: all_corps // mysql data to pass to handlebars page
 			});
 		});
 	});

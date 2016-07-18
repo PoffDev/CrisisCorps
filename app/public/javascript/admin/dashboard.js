@@ -7,7 +7,7 @@ function volCanvas(total_vol_positions) {
 	var the_percentage = 2 * (committed_vols / total_vol_positions);
 	
 	// the number of volunteers needed. We'll pass this to the canvas text to display inside the circle
-	var num_vols_needed = total_vol_positions - committed_vols;
+	var num_vols_needed = document.getElementById('vols-needed-hidden').childNodes[0].textContent;
 	
 	// set canvas variable to canvas element with id of my-canvas
 	var canvas = document.getElementById('my-canvas');
