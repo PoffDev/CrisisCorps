@@ -80,37 +80,37 @@ var total_vol_positions = 1260;
 volCanvas(total_vol_positions);
 
 
-function totalVolsTasks(committed, uncommitted, el) {
+function totalVolsTasks(committed, totals, el) {
 
-	// add the committed volunteers to uncommitted volunteers on first call and then completed tasks and open tasks on second call
-	var sum = parseInt(committed) + parseInt(uncommitted);
+	// subtract the committed volunteers from all the members on first call and then completed tasks and all tasks on second call
+	var subtract_amounts = parseInt(totals) - parseInt(committed)
 
 	// update the text of each element passed
-	el.innerHTML = sum;
+	el.innerHTML = subtract_amounts;
 
 } // end totalVolsTasks()
 
 function getCommittedUncommitted() {
 
-	// get the text (numbers) from committed volunteers and uncommitted volunteers
+	// get the text (numbers) from committed volunteers and total volunteers
 	var num_commit = document.getElementById('db-cv').childNodes[1].textContent;
-	var num_uncommit = document.getElementById('db-uv').childNodes[1].textContent;
+	var total_vols = document.getElementById('db-tv').childNodes[1].textContent;
 
 	// get the h2 element that will be used to display the summed amount. We'll pass this in the function call
-	var vol_el_to_pass = document.getElementById('db-tv').children[0];
+	var vol_el_to_pass = document.getElementById('db-uv').children[0];
 
 	// call function to add and display the total on screen
-	totalVolsTasks(num_commit, num_uncommit, vol_el_to_pass);
+	totalVolsTasks(num_commit, total_vols, vol_el_to_pass);
 
-	// get the text (numbers) from completed tasks and open tasks
+	// get the text (numbers) from completed tasks and total tasks
 	var num_comp_tasks = document.getElementById('db-ct').childNodes[1].textContent;
-	var num_opentasks = document.getElementById('db-ot').childNodes[1].textContent;
+	var total_tasks = document.getElementById('db-tt').childNodes[1].textContent;
 
 	// get the h2 element that will be used to display the summed amount. We'll pass this in the function call
-	var tasks_el_to_pass = document.getElementById('db-tt').children[0];
+	var tasks_el_to_pass = document.getElementById('db-ot').children[0];
 
 	// call function to add and display the total on screen
-	totalVolsTasks(num_comp_tasks, num_opentasks, tasks_el_to_pass);
+	totalVolsTasks(num_comp_tasks, total_tasks, tasks_el_to_pass);
 
 } // end getCommittedUncommitted()
 

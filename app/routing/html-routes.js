@@ -1,4 +1,5 @@
 var path = require('path');
+var orm = require('../../config/orm.js');
 
 module.exports = function (app){
 
@@ -77,6 +78,10 @@ module.exports = function (app){
 	});
 
 	app.get('/corp', function(req, res){
+		orm.allCorpUsers(function(all_corps) {
+			console.log(all_corps);
+		});
+
 		res.render('corp', {
 			title: 'Corporation List',
 			link: 'corp',

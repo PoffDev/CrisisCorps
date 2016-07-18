@@ -43,6 +43,33 @@ var orm = {
                 console.log(result);
             });
         },
+
+
+/*********************************************************************************************
+**********************************************************************************************
+****************************************  GET Requests ***************************************
+**********************************************************************************************
+*********************************************************************************************/
+
+    allCorpUsers: function() {
+        
+        var queryString = '';
+        queryString += 'SELECT corporateMembers.companyName, users.userName, users.emailAddress, corporateMembers.contactNum, corporateMembers.donationDesc ';
+        queryString += 'FROM corporateMembers ';
+        queryString += 'LEFT JOIN users ';
+        queryString += 'ON users.userID=corporateMembers.userID ';
+        queryString += 'ORDER By corporateMembers.companyName;';
+
+        connection.query(queryString, function(err, result) {
+            
+            if (err) throw err;
+
+            console.log(result);
+
+        });
+
+    }
+
 };
 
 module.exports = orm;
