@@ -22,60 +22,14 @@
 							</tr>
 						</thead>
 						<tbody>
+							{{#each corp_list}}
 							<tr>
-								<td>Progressive Pools and Spas</td>
-								<td><a href="">billsmith@ppandspas.com</a></td>
-								<td>4076934091</td>
-								<td>Our company will contribute cleaning supplies to the areas in need.</td>
+								<td>{{this.companyName}}</td>
+								<td><a href="mailto:{{this.emailAddress}}?Subject=Hello%20From%20Crisiscorps">{{this.emailAddress}}</a></td>
+								<td>{{this.contactNum}}</td>
+								<td>{{this.donationDesc}}</td>
 							</tr>
-							<tr>
-								<td>AvMed</td>
-								<td><a href="">janes@avmed.com</a></td>
-								<td>8004350921</td>
-								<td>We'll provide food and bottled water to all shelters in a 1 mile radius of the impacted location, or any others in places of absolute need</td>
-							</tr>
-							<tr>
-								<td>Local Sub Shop</td>
-								<td><a href="">harry@ilovesubs.com</a></td>
-								<td>3219900032</td>
-								<td>We can provide 25 6 inch subs to a shelter in need.</td>
-							</tr>
-							<tr>
-								<td>Progressive Pools and Spas</td>
-								<td><a href="">billsmith@ppandspas.com</a></td>
-								<td>4076934091</td>
-								<td>Our company will contribute cleaning supplies to the areas in need.</td>
-							</tr>
-							<tr>
-								<td>AvMed</td>
-								<td><a href="">janes@avmed.com</a></td>
-								<td>8004350921</td>
-								<td>We'll provide food and bottled water to all shelters in a 1 mile radius of the impacted location, or any others in places of absolute need</td>
-							</tr>
-							<tr>
-								<td>Local Sub Shop</td>
-								<td><a href="">harry@ilovesubs.com</a></td>
-								<td>3219900032</td>
-								<td>We can provide 25 6 inch subs to a shelter in need.</td>
-							</tr>
-							<tr>
-								<td>Progressive Pools and Spas</td>
-								<td><a href="">billsmith@ppandspas.com</a></td>
-								<td>4076934091</td>
-								<td>Our company will contribute cleaning supplies to the areas in need.</td>
-							</tr>
-							<tr>
-								<td>AvMed</td>
-								<td><a href="">janes@avmed.com</a></td>
-								<td>8004350921</td>
-								<td>We'll provide food and bottled water to all shelters in a 1 mile radius of the impacted location, or any others in places of absolute need</td>
-							</tr>
-							<tr>
-								<td>Local Sub Shop</td>
-								<td><a href="">harry@ilovesubs.com</a></td>
-								<td>3219900032</td>
-								<td>We can provide 25 6 inch subs to a shelter in need.</td>
-							</tr>
+							{{/each}}
 						</tbody>
 					</table>
 				</div> <!-- end module -->

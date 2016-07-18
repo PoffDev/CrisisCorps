@@ -79,13 +79,13 @@ module.exports = function (app){
 
 	app.get('/corp', function(req, res){
 		orm.allCorpUsers(function(all_corps) {
-			console.log(all_corps);
-		});
-
-		res.render('corp', {
-			title: 'Corporation List',
-			link: 'corp',
-			active_crisis: true
+			// console.log(all_corps);
+			res.render('corp', {
+				title: 'Corporation List',
+				link: 'corp',
+				active_crisis: true,
+				corp_list: all_corps
+			});
 		});
 	});
 

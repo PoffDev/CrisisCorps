@@ -51,22 +51,20 @@ var orm = {
 **********************************************************************************************
 *********************************************************************************************/
 
-    allCorpUsers: function() {
+    allCorpUsers: function(callback) {
         
-        var queryString = '';
-        queryString += 'SELECT corporateMembers.companyName, users.userName, users.emailAddress, corporateMembers.contactNum, corporateMembers.donationDesc ';
+        // build the mysql query string
+        var queryString = 'SELECT corporateMembers.companyName, users.userName, users.emailAddress, corporateMembers.contactNum, corporateMembers.donationDesc ';
         queryString += 'FROM corporateMembers ';
         queryString += 'LEFT JOIN users ';
         queryString += 'ON users.userID=corporateMembers.userID ';
         queryString += 'ORDER By corporateMembers.companyName;';
 
+        // call connection.query, pass the query string and get the callback to send to html-routes.js
         connection.query(queryString, function(err, result) {
-            
             if (err) throw err;
-
-            console.log(result);
-
-        });
+            callback(result);
+        }); // end connection.query()
 
     }
 
