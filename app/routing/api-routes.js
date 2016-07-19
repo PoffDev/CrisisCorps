@@ -20,7 +20,7 @@ module.exports = function(app){
 	})
 
 	app.post('/newTask', function (req, res){
-		orm.AvailableTasks(req.body.taskName, req.body.taskDescript, req.body.volsNeeded, req.body.volsRemaining, req.body.contactName, req.body.contactNum, req.body.taskAddress, req.body.taskAddress2, req.body.taskCity, req.body.taskState, req.body.taskZip);
+		orm.AvailableTasks(req.body.taskTitle, req.body.taskDescript, req.body.volsNeeded, req.body.volsRemaining, req.body.contactName, req.body.contactNum, req.body.taskAddress, req.body.taskAddress2, req.body.taskCity, req.body.taskState, req.body.taskZip);
 		res.send(function() {
 			alert("Task Created successfully!");
 		});
@@ -30,6 +30,7 @@ module.exports = function(app){
 	app.post('/newMember', function (req, res){
 		orm.Users(req.body.userName, req.body.emailAddress, req.body.password, req.body.userType);
 		res.send(function() {
+			console.log(req.body);
 			alert("User added successfully!");
 		});
 	});
