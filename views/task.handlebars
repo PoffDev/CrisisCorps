@@ -13,15 +13,19 @@
 				</div>
 				<div class='module'>
 					<div class="list-group">
-						<h3 class="task-title">Blood Donation at ORMC</h3>
-						<h5>Volunteers Needed: 14</h5>
-				    	<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+						<h3 class="task-title">{{task.[0].taskTitle}}</h3>
+						<h5>Volunteers Needed: {{task.[0].volsRemaining}}</h5>
+				    	<p>{{task.[0].taskDescript}}</p>
+				    	<p>{{task.[0].contactName}}</p>
+				    	<p>{{task.[0].contactNum}}</p>
 				    	<address>
-				    		19785 N Orange Ave.
+				    		{{task.[0].taskAddress}}
 				    		<br />
-				    		Suite 100
-				    		<br />
-				    		Orlando, FL 32807
+				    		{{#if task.[0].taskAddress2}}
+				    			{{task.[0].taskAddress2}}
+				    			<br />
+				    		{{/if}}
+				    		{{task.[0].taskCity}}, {{task.[0].taskState}} {{task.[0].taskZip}}
 				    	</address>
 				    	<a href="#" class="btn btn-primary" id="task-vol" data-toggle="modal" data-target="#myModal">I Will Volunteer</a>
 					</div>
