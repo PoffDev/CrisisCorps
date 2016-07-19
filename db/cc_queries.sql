@@ -73,16 +73,16 @@ ORDER By users.username;
 
 -- Tasks
 -- Tasks page get all tasks and display title, description and remaining vols
-SELECT taskTitle, taskDescript, volsRemaining
+SELECT taskTitle, taskDescript, volsRemaining, taskId
 FROM availabletasks
 ORDER BY volsRemaining DESC;
 
 
 -- Task
 -- Task page get specific task and display title, description, remaining vols and address
-SELECT taskTitle, taskDescript, volsRemaining, contactName, contactNum, taskAddress, taskAddress2, taskCity, taskState, taskZip
+SELECT taskId, taskTitle, taskDescript, volsRemaining, contactName, contactNum, taskAddress, taskAddress2, taskCity, taskState, taskZip
 FROM availabletasks
-WHERE taskTitle = 'Blood Donation at ORMC';
+WHERE taskId = 2;
 
 
 -- Home

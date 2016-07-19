@@ -64,13 +64,15 @@ module.exports = function (app){
 		});
 	});
 
-	app.get('/task', function(req, res){
-		orm.specificTask(function(all_tasks) {
+	app.get('/task/:task_id', function(req, res){
+		var task_id = parseInt(req.params.task_id);
+		orm.specificTask(task_id, function(the_task) {
 			res.render('task', {
+				layout: 'subdir',
 				title: 'Task',
 				link: 'task',
 				active_tasks: true,
-				tasks: all_tasks
+				task: the_task
 			});
 		});
 	});

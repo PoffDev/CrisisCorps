@@ -1,10 +1,10 @@
 //Required Node Modules
-	//handlebars
-	var express = require('express');
-	var exphbs = require('express-handlebars');
-	//sessions
-	var path = require('path');
-	var bodyParser = require('body-parser');
+//handlebars
+var express = require('express');
+var exphbs = require('express-handlebars');
+//sessions
+var path = require('path');
+var bodyParser = require('body-parser');
 	
 
 //Port
@@ -12,6 +12,14 @@ var app = express();
 var PORT = process.env.PORT || 8000;
 // var orm = require('./config/orm.js');
 
+// BodyParser
+// allows our server to interpret data
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.text());
+app.use(bodyParser.json({type: 'application/vnd.api+json'}));
+
+// access to the public folder
 app.use(express.static('app/public'));
 
 

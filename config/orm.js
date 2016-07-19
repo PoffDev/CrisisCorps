@@ -139,9 +139,19 @@ var orm = {
     allTasks: function(callback) {
         
         // build the mysql query string
-        var queryString = 'SELECT taskTitle, taskDescript, volsRemaining ';
+        var queryString = 'SELECT taskTitle, taskDescript, volsRemaining, taskId ';
         queryString += 'FROM availableTasks ';
         queryString += 'ORDER BY volsRemaining DESC;';
+
+        this.connectionQuery(queryString, callback);
+
+    },
+
+    specificTask: function(task_id, callback) {
+
+        var queryString = 'SELECT taskId, taskTitle, taskDescript, volsRemaining, contactName, contactNum, taskAddress, taskAddress2, taskCity, taskState, taskZip ';
+        queryString += 'FROM availableTasks ';
+        queryString += 'WHERE taskId = ' + task_id + ';';
 
         this.connectionQuery(queryString, callback);
 
