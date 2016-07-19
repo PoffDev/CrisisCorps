@@ -38,11 +38,17 @@
 
 $('#signup-user').on('click', function () {
 	//pull values from form input
+	if ($('input#corp-checkbox').is(':checked')) {
+		var userType = 3;
+	} else {
+		var userType = 2;
+	}
+	console.log(userType);
 	var newMember = {
-		userName: $('#memberName').val().trim(),
+		userName: $('#userName').val().trim(),
 		emailAddress: $('#emailAddress').val().trim(),
 		password: $('#inputPassword').val().trim(),
-		userType: 2
+		userType: userType
 	}
 	//push those values to database
 	$.post('/newMember', newMember, function() {
@@ -51,23 +57,6 @@ $('#signup-user').on('click', function () {
 	//refresh data base information. 
 
 });
-
-$('#signup-corp').on('click', function () {
-	//pull values from form input
-	var newCorpMember = {
-		companyName: $('#companyName').val().trim(),
-		emailAddress: $('#emailAddress').val().trim(),
-		password: $('#inputPassword').val().trim(),
-		userType: 3
-	}
-	//push those values to database
-	$.post('/newCorpMember', newMember, function() {
-		console.log(newCorpMember);
-	})
-	//refresh data base information. 
-
-});
-
 
 //display my sql data into a form document.
 
