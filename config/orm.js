@@ -116,9 +116,21 @@ var orm = {
 
     totalTasks: function(callback) {
         
-         // build the mysql query string
+        // build the mysql query string
         var queryString = 'SELECT COUNT(*) ';
         queryString += 'FROM availableTasks;';
+
+        this.connectionQuery(queryString, callback);
+
+    },
+
+    dashboardTasksList: function(callback) {
+        
+        // build the mysql query string
+        var queryString = 'SELECT taskTitle, taskDescript, volsRemaining ';
+        queryString += 'FROM availableTasks ';
+        queryString += 'ORDER BY volsRemaining DESC ';
+        queryString += 'LIMIT 3;';
 
         this.connectionQuery(queryString, callback);
 

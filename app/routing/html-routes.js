@@ -77,16 +77,19 @@ module.exports = function (app){
 					orm.totalVolPositions(function(vol_positions) {
 						orm.totalCompletedTasks(function(comp_tasks) {
 							orm.totalTasks(function(tot_tasks) {
-								res.render('dashboard', {
-									title: 'Dashboard',
-									link: 'dashboard',
-									active_dashboard: true,
-									vols: num_vols,
-									vols_volun: vols_volunteered,
-									membs: total_membs,
-									vol_pos: vol_positions,
-									completed_tasks: comp_tasks,
-									total_tasks: tot_tasks
+								orm.dashboardTasksList(function(tasks_three) {
+									res.render('dashboard', {
+										title: 'Dashboard',
+										link: 'dashboard',
+										active_dashboard: true,
+										vols: num_vols,
+										vols_volun: vols_volunteered,
+										membs: total_membs,
+										vol_pos: vol_positions,
+										completed_tasks: comp_tasks,
+										total_tasks: tot_tasks,
+										db_tasks: tasks_three
+									});
 								});
 							});
 						});
