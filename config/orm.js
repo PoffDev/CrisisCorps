@@ -136,6 +136,17 @@ var orm = {
 
     },
 
+    allTasks: function(callback) {
+        
+        // build the mysql query string
+        var queryString = 'SELECT taskTitle, taskDescript, volsRemaining ';
+        queryString += 'FROM availableTasks ';
+        queryString += 'ORDER BY volsRemaining DESC;';
+
+        this.connectionQuery(queryString, callback);
+
+    },
+
     connectionQuery: function(queryString, callback) {
         
         // call connection.query, pass the query string and get the callback to send to html-routes.js

@@ -72,7 +72,7 @@ ORDER By users.username;
 
 
 -- Tasks
--- Taks page get all tasks and display title, description and remaining vols
+-- Tasks page get all tasks and display title, description and remaining vols
 SELECT taskTitle, taskDescript, volsRemaining
 FROM availabletasks
 ORDER BY volsRemaining DESC;

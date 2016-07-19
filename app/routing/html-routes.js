@@ -54,18 +54,24 @@ module.exports = function (app){
 	});
 
 	app.get('/tasks', function(req, res){
-		res.render('tasks', {
-			title: 'Tasks List',
-			link: 'tasks',
-			active_tasks: true
+		orm.allTasks(function(all_tasks) {
+			res.render('tasks', {
+				title: 'Tasks',
+				link: 'tasks',
+				active_tasks: true,
+				tasks: all_tasks
+			});
 		});
 	});
 
 	app.get('/task', function(req, res){
-		res.render('task', {
-			title: 'Task',
-			link: 'task',
-			active_tasks: true
+		orm.specificTask(function(all_tasks) {
+			res.render('task', {
+				title: 'Task',
+				link: 'task',
+				active_tasks: true,
+				tasks: all_tasks
+			});
 		});
 	});
 
