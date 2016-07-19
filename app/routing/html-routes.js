@@ -67,6 +67,7 @@ module.exports = function (app){
 	app.get('/task/:task_id', function(req, res){
 		var task_id = parseInt(req.params.task_id);
 		orm.specificTask(task_id, function(the_task) {
+			console.log(the_task);
 			res.render('task', {
 				layout: 'subdir',
 				title: 'Task',

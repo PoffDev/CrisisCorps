@@ -13,17 +13,17 @@
 				</div>
 				<div class='module'>
 					<div class="list-group">
-						<h3 class="task-title">{{task.taskTitle}}</h3>
-						<h5>Volunteers Needed: {{task.volsRemaining}}</h5>
-				    	<p>{{task.taskDescript}}</p>
-				    	<p>{{task.contactName}}</p>
-				    	<p>{{task.contactNum}}</p>
+						<h3 class="task-title">{{task.[0].taskTitle}}</h3>
+						<h5>Volunteers Needed: {{task.[0].volsRemaining}}</h5>
+				    	<p>{{task.[0].taskDescript}}</p>
+				    	<p>{{task.[0].contactName}}</p>
+				    	<p>{{task.[0].contactNum}}</p>
 				    	<address>
-				    		{{task.taskAddress}}
+				    		{{task.[0].taskAddress}}
 				    		<br />
-				    		{{task.taskAddress}}
+				    		{{task.[0].taskAddress}}
 				    		<br />
-				    		{{task.taskCity}}, {{task.taskState}} {{task.taskZip}}
+				    		{{task.[0].taskCity}}, {{task.[0].taskState}} {{task.[0].taskZip}}
 				    	</address>
 				    	<a href="#" class="btn btn-primary" id="task-vol" data-toggle="modal" data-target="#myModal">I Will Volunteer</a>
 					</div>
