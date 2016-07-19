@@ -17,11 +17,76 @@ $('#nav-toggle').on('click', function() {
 	adminNavToggle();
 
 }); // end nav-toggle click event
-function volCanvas(total_vol_positions) {
+function volCanvas() {
 
+	// volunteer calculations
 	// get number of commited volunteers from what's displayed on the dashboard	
 	var committed_vols = document.getElementById('db-cv').childNodes[1].textContent;
 
+	// total volunteer positions span text node
+	var total_vol_positions = document.getElementById('total-vol-positions').childNodes[0].textContent;
+
+	// calculate the % of volunteer posisitons filled
+	var vol_positions_percentage = parseInt(committed_vols / total_vol_positions * 100);
+
+	// progress bar element to adjust the width of based on percentage
+	var vol_width = $('#vols-width');
+
+	// pass the amount to the screen
+	$('#vol-filled').html(vol_positions_percentage);
+
+	// reset the width of that progress bar div
+	vol_width.css('width', vol_positions_percentage + '%');
+
+	progressBarSwitch(vol_positions_percentage, vol_width);
+
+
+	// tasks calculations
+	// get number of commited volunteers from what's displayed on the dashboard	
+	var comp_tasks = document.getElementById('db-ct').childNodes[1].textContent;
+
+	// get number of commited volunteers from what's displayed on the dashboard	
+	var total_tasks = document.getElementById('db-tt').childNodes[1].textContent;
+
+	// percentage of tasks
+	var tasks_percentage = parseInt(comp_tasks / total_tasks * 100);
+
+	var tasks_width = $('#tasks-width');
+
+	$('#tasks-filled').html(tasks_percentage);
+
+	// reset the width of that progress bar div
+	tasks_width.css('width', tasks_percentage + '%');
+
+	progressBarSwitch(tasks_percentage, tasks_width);
+
+	// swithc for both progress bars
+	function progressBarSwitch(percentage, progress_bar) {
+		
+		// switch to apply the appropriate bootstrap progress bar class
+		switch(true) {
+
+			case (percentage < 50):
+				progress_bar.addClass('progress-bar-danger');
+				break;
+
+			case (percentage > 49 && percentage < 100):
+				progress_bar.addClass('progress-bar-warning');
+				break;
+
+			case (percentage > 99):
+				progress_bar.addClass('progress-bar-success');
+				break;
+
+			default:
+				progress_bar.addClass('progress-bar-danger');
+
+		} // end switch
+
+	} // end progressBarSwitch()
+
+	
+	// canvas calculations
 	// need the percentage to be dipslayed in relation to 2. Meaning the higher the percentage the closer the value needs to be to 2.
 	var the_percentage = 2 * (committed_vols / total_vol_positions);
 	
@@ -73,11 +138,8 @@ function volCanvas(total_vol_positions) {
 	
 } // volCanvas()
 
-// ************************* this needs to be removed once the get method runs
-var total_vol_positions = 1260;
-
 // we need to pass the total_vol_positions from get method, so that is where this function call should go
-volCanvas(total_vol_positions);
+volCanvas();
 
 
 function totalVolsTasks(committed, totals, el) {

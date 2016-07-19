@@ -73,12 +73,24 @@ module.exports = function (app){
 		// get number of volunteers still needed
 		orm.numVolsNeeded(function(num_vols) {
 			orm.numVolsWhoHaveVolunteered(function(vols_volunteered) {
-				res.render('dashboard', {
-					title: 'Dashboard',
-					link: 'dashboard',
-					active_dashboard: true,
-					vols: num_vols,
-					vols_volun: vols_volunteered
+				orm.totalNumMembers(function(total_membs) {
+					orm.totalVolPositions(function(vol_positions) {
+						orm.totalCompletedTasks(function(comp_tasks) {
+							orm.totalTasks(function(tot_tasks) {
+								res.render('dashboard', {
+									title: 'Dashboard',
+									link: 'dashboard',
+									active_dashboard: true,
+									vols: num_vols,
+									vols_volun: vols_volunteered,
+									membs: total_membs,
+									vol_pos: vol_positions,
+									completed_tasks: comp_tasks,
+									total_tasks: tot_tasks
+								});
+							});
+						});
+					});
 				});
 			});
 		});

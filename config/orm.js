@@ -60,11 +60,7 @@ var orm = {
         queryString += 'ON users.userID=corporateMembers.userID ';
         queryString += 'ORDER By corporateMembers.companyName;';
 
-        // call connection.query, pass the query string and get the callback to send to html-routes.js
-        connection.query(queryString, function(err, result) {
-            if (err) throw err;
-            callback(result);
-        }); // end connection.query()
+        this.connectionQuery(queryString, callback);
 
     },
 
@@ -74,11 +70,7 @@ var orm = {
         var queryString = 'SELECT SUM(volsRemaining) ';
         queryString += 'FROM availableTasks;';
 
-        // call connection.query, pass the query string and get the callback to send to html-routes.js
-        connection.query(queryString, function(err, result) {
-            if (err) throw err;
-            callback(result);
-        }); // end connection.query()
+        this.connectionQuery(queryString, callback);
 
     },
 
@@ -88,6 +80,52 @@ var orm = {
         var queryString = 'SELECT SUM(volsNeeded - volsRemaining) ';
         queryString += 'FROM availableTasks;';
 
+        this.connectionQuery(queryString, callback);
+
+    },
+
+    totalNumMembers: function(callback) {
+        
+         // build the mysql query string
+        var queryString = 'SELECT COUNT(*) ';
+        queryString += 'FROM members;';
+
+        this.connectionQuery(queryString, callback);
+
+    },
+
+    totalVolPositions: function(callback) {
+        
+        // build the mysql query string
+        var queryString = 'SELECT SUM(volsNeeded) ';
+        queryString += 'FROM availableTasks;';
+
+        this.connectionQuery(queryString, callback);
+
+    },
+
+    totalCompletedTasks: function(callback) {
+        
+        // build the mysql query string
+        var queryString = 'SELECT SUM(volsNeeded = 0) ';
+        queryString += 'FROM availableTasks;';
+
+        this.connectionQuery(queryString, callback);
+
+    },
+
+    totalTasks: function(callback) {
+        
+         // build the mysql query string
+        var queryString = 'SELECT COUNT(*) ';
+        queryString += 'FROM availableTasks;';
+
+        this.connectionQuery(queryString, callback);
+
+    },
+
+    connectionQuery: function(queryString, callback) {
+        
         // call connection.query, pass the query string and get the callback to send to html-routes.js
         connection.query(queryString, function(err, result) {
             if (err) throw err;
