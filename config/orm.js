@@ -157,6 +157,40 @@ var orm = {
 
     },
 
+    memberProfile: function(user_id, callback) {
+        
+        var queryString = 'SELECT users.userType, users.userName, users.emailAddress, members.contactNum, members.bloodType ';
+        queryString += 'FROM users ';
+        queryString += 'LEFT JOIN members ';
+        queryString += 'ON users.userID = members.userID WHERE users.userId = ' + user_id + ' AND users.userType = 2 '
+        queryString += 'ORDER By users.username;';
+
+        this.connectionQuery(queryString, callback);
+
+    },
+
+    corpProfile: function(user_id, callback) {
+        
+        var queryString = 'SELECT users.userType, corporateMembers.companyName, users.userName, users.emailAddress, users.password, corporateMembers.contactNum, corporateMembers.donationDesc ';
+        queryString += 'FROM corporateMembers ';
+        queryString += 'LEFT JOIN users ';
+        queryString += 'ON users.userID = corporateMembers.userID WHERE users.userID = ' + user_id + ' AND users.userType = 3 '
+        queryString += 'ORDER By users.username;';
+
+        this.connectionQuery(queryString, callback);
+
+    },
+
+    getCrisisDetails: function(callback) {
+        
+        // build the mysql query string
+        var queryString = 'SELECT * ';
+        queryString += 'FROM activecrisis;';
+
+        this.connectionQuery(queryString, callback);
+
+    },
+
     connectionQuery: function(queryString, callback) {
         
         // call connection.query, pass the query string and get the callback to send to html-routes.js

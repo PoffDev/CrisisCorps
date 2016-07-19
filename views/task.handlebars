@@ -21,8 +21,10 @@
 				    	<address>
 				    		{{task.[0].taskAddress}}
 				    		<br />
-				    		{{task.[0].taskAddress}}
-				    		<br />
+				    		{{#if task.[0].taskAddress2}}
+				    			{{task.[0].taskAddress2}}
+				    			<br />
+				    		{{/if}}
 				    		{{task.[0].taskCity}}, {{task.[0].taskState}} {{task.[0].taskZip}}
 				    	</address>
 				    	<a href="#" class="btn btn-primary" id="task-vol" data-toggle="modal" data-target="#myModal">I Will Volunteer</a>

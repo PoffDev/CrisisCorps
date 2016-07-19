@@ -17,9 +17,12 @@ module.exports = function (app){
 	});
 
 	app.get('/home', function(req, res){
-		res.render('home', {
-			title: 'Home',
-			link: 'home'
+		orm.getCrisisDetails(function(crisis_details) {
+			res.render('home', {
+				title: 'Home',
+				link: 'home',
+				crisis: crisis_details
+			});
 		});
 	});
 
@@ -28,14 +31,6 @@ module.exports = function (app){
 			title: 'Crisis Manager',
 			link: 'crisis',
 			active_crisis: true
-		});
-	});
-
-	app.get('/profile', function(req, res){
-		res.render('profile', {
-			title: 'Profile',
-			link: 'profile',
-			active_profile: true
 		});
 	});
 
@@ -67,13 +62,28 @@ module.exports = function (app){
 	app.get('/task/:task_id', function(req, res){
 		var task_id = parseInt(req.params.task_id);
 		orm.specificTask(task_id, function(the_task) {
-			console.log(the_task);
 			res.render('task', {
 				layout: 'subdir',
 				title: 'Task',
 				link: 'task',
 				active_tasks: true,
 				task: the_task
+			});
+		});
+	});
+
+	app.get('/profile/:user_id', function(req, res){
+		var user_id = parseInt(req.params.user_id);
+		orm.memberProfile(user_id, function(memb) {
+			orm.corpProfile(user_id, function(corp) {
+				res.render('profile', {
+					layout: 'subdir',
+					title: 'Profile',
+					link: 'profile',
+					active_profile: true,
+					member: memb,
+					corporation: corp
+				});
 			});
 		});
 	});
