@@ -1,5 +1,39 @@
 var path = require('path');
 var orm = require('../../config/orm.js');
+var UserModel = require('../../model/user.js');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var orm = require('../../config/orm.js');
+
+//Setting the strategy for Passport
+passport.use(new LocalStrategy({passReqToCallback : true},
+  function(req, userName, password, done) {
+  	//Searching the ORM for the user in the database
+  	orm.findUser(userName, function(err, user){
+  		console.log('first',user);
+  		user = user[0];
+  		
+  		if (err) { return done(err); }
+  		
+      if (!user) { return done(null, false); }
+      
+
+      //comparing user passwords - return if not a match
+      if (password !== user.password) { return done(null, false);}
+		
+      return done(null, user);
+  	});
+  }
+));
+
+//These two methods are required to keep the user logged in via the session
+passport.serializeUser(function(Users, done) {
+  done(null, Users);
+});
+
+passport.deserializeUser(function(Users, done) {
+  done(null, Users);
+});
 
 module.exports = function (app){
 
@@ -12,8 +46,12 @@ module.exports = function (app){
 	app.get('/', function(req, res){
 		res.render('home', {
 			title: 'Home',
-			link: 'home'
-		});
+			link: 'home',
+			welcomeText: "Sign In",
+			actionBtn: 'signin',
+			message: req.flash('error')[0],
+			otherAction: "Signup"
+			});
 	});
 
 	app.get('/home', function(req, res){
@@ -37,14 +75,17 @@ module.exports = function (app){
 	app.get('/signin', function(req, res){
 		res.render('signin', {
 			title: 'Sign In',
-			link: 'signin'
+			link: 'dashboard'
 		});
 	});
 
 	app.get('/signup', function(req, res){
 		res.render('signup', {
 			title: 'Sign Up',
-			link: 'signup'
+			link: 'signup',
+			welcomeText: "Sign Up",
+			actionBtn: 'signup',
+			otherAction: "signin"
 		});
 	});
 
@@ -70,6 +111,13 @@ module.exports = function (app){
 				task: the_task
 			});
 		});
+		if (req.isAuthenticated()) {
+			res.render('/task/:task_id', {
+				username: req.user.username
+			})
+		} else {
+			res.redirect('/signin')
+		}
 	});
 
 	app.get('/profile/:user_id', function(req, res){
@@ -85,10 +133,28 @@ module.exports = function (app){
 					corporation: corp
 				});
 			});
+
+			console.log('hello');
 		});
+		if (req.isAuthenticated()) {
+			res.render('/profile/:user_id', {
+				username: req.user.username
+			})
+		} else {
+			res.redirect('/signin')
+		}
 	});
 
 	app.get('/dashboard', function(req, res){
+		// if (req.isAuthenticated()) {
+		// 	res.render('dashboard', {
+
+
+		// 		// username: req.user.username
+		// 	})
+		// } else {
+		// 	res.redirect('/signin')
+		// }
 		// get number of volunteers still needed
 		orm.numVolsNeeded(function(num_vols) {
 			orm.numVolsWhoHaveVolunteered(function(vols_volunteered) {
@@ -97,8 +163,10 @@ module.exports = function (app){
 						orm.totalCompletedTasks(function(comp_tasks) {
 							orm.totalTasks(function(tot_tasks) {
 								orm.dashboardTasksList(function(tasks_three) {
+									if (req.isAuthenticated()) {
 									res.render('dashboard', {
-										title: 'Dashboard',
+										username: req.user.username,
+										title: 'dashboard',
 										link: 'dashboard',
 										active_dashboard: true,
 										vols: num_vols,
@@ -109,26 +177,53 @@ module.exports = function (app){
 										total_tasks: tot_tasks,
 										db_tasks: tasks_three
 									});
-								});
+								};
 							});
 						});
 					});
 				});
 			});
-		});
-
-		
+		})		
 	});
+});
 
 	app.get('/corp', function(req, res){
 		// get all corporate users
 		orm.allCorpUsers(function(all_corps) {
+
 			res.render('corp', {
 				title: 'Corporation List', // breadcrumbs title
 				link: 'corp', // link to pass to breadcrumbs
 				active_crisis: true, // active class to display on admin nav
-				corp_list: all_corps // mysql data to pass to handlebars page
+				corp_list: all_corps, // mysql data to pass to handlebars page
+
 			});
+			if (req.isAuthenticated()) {
+			res.render('/corp', {
+				username: req.user.username
+			})
+			} else {
+				res.redirect('/signin')
+			}
+		});
+	});
+
+
+	// =============== POSTS ================= //
+
+	app.post('/signin', passport.authenticate('local',{failureRedirect:'/', failureFlash:'Wrong Username or Password'}), function(req, res){
+		res.redirect('/dashboard');
+		console.log("hello: " + req.user);
+	});
+
+	app.post('/signup', function(req, res){
+		var user = new UserModel(req.body);
+		UserModel.saveUser(Users, function(status){
+			if(!status) {
+				res.redirect('/signin')
+				return false
+			}
+			res.redirect('/dashboard');
 		});
 	});
 
@@ -140,5 +235,6 @@ module.exports = function (app){
 			link: '404'
 		});
 	});
-
 }
+
+

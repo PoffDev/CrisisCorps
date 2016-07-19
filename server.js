@@ -64,7 +64,7 @@ require('./app/routing/api-routes.js')(app);
 require('./app/routing/html-routes.js')(app);
 
 //check these if they do not work.
-orm.connectToDB();
+// orm.connectToDB();
 
 //Listener
 app.listen(PORT, function(){

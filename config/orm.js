@@ -2,20 +2,32 @@ var connection = require('./connection.js');
 
 // object relational mapper (ORM)
 
-//
-function connectToDB(){
-    connection.connect(function(err){
-        if (err) {
-            console.error('error connection:', err.stack);
-            return
-        }
-        console.log('connected to MySQL DB')
-    });
-}
+// //
+// function connectToDB(){
+//     connection.connect(function(err){
+//         if (err) {
+//             console.error('error connection:', err.stack);
+//             return
+//         }
+//         console.log('connected to MySQL DB')
+//     });
+// }
 
-module.exports.connectToDB = connectToDB;
+// module.exports.connectToDB = connectToDB;
 
 var orm = {
+
+    //connect to database
+    // connectToDB: function () {
+    // connection.connect(function(err){
+    //     if (err) {
+    //         console.error('error connection:', err.stack);
+    //         return
+    //     }
+    //     console.log('connected to MySQL DB')
+    // });
+    // },
+
     //form data entry queries
     Users: function(userName, emailAddress, password, userType) {
         var queryString = 'INSERT INTO users (userName, emailAddress, password, userType) VALUES (?, ?, ?, ?)';
@@ -26,6 +38,7 @@ var orm = {
                 console.log(result);
             });
         },
+
     members: function(userId, contactNumber, bloodType) {
         var queryString = 'INSERT INTO users (userId, contactNumber, bloodType) VALUES(?, ?, ?)';
         var vals = [userId, bloodType];
@@ -78,10 +91,12 @@ var orm = {
     },
 
     findUser: function (userName, callback){
-    connection.query('SELECT * FROM Users WHERE ?', {userName: userName}, function(err, user){
+        console.log('username is',userName)
+    connection.query('SELECT * FROM Users WHERE ?', {emailAddress: userName}, function(err, user){
+        console.log(user)
         callback(err, user)
         })
-    }
+    },
 
     numVolsNeeded: function(callback) {
         
