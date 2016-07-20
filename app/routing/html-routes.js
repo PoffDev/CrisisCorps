@@ -151,7 +151,14 @@ module.exports = function (app){
 			console.log('auth working');
 
 			res.render('/profile/:user_id', {
-				username: req.user.username
+				username: req.user.username,
+				layout: 'subdir',
+				title: 'Profile',
+				link: 'profile',
+				active_profile: true,
+				member: memb,
+				corporation: corp,
+				userID: user_id,
 			})
 
 
