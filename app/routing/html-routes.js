@@ -129,7 +129,7 @@ module.exports = function (app){
 		var user_id = parseInt(req.user.userID);
 
 		orm.memberProfile(user_id, function(memb) {
-			orm.corpProfile(user_id, function(corp) {
+			orm.corporateMembers(user_id, function(corp) {
 
 				if (req.isAuthenticated()){
 
