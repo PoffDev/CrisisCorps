@@ -44,7 +44,7 @@ app.engine('handlebars', exphbs({
 
 app.set('view engine', 'handlebars');
 
-+orm.connectToDB();
+//orm.connectToDB();g
 
 
 // BodyParser

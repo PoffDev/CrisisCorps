@@ -3,11 +3,11 @@ var LocalStrategy = require('passport-local').Strategy;
 var orm = require('../config/orm.js');
 
 function User; (Users) {
-	this.userName = userObj.username
+	this.userName = userObj.userName
 	this.password = userObj.password
 }
  //check these names//
-module.exports = user
+module.exports = Users
 
 module.exports.saveUser = function(Users, callback){
 	orm.addUserToDB(Users, function(status, err){
