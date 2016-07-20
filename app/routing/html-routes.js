@@ -123,7 +123,10 @@ module.exports = function (app){
 	});
 
 	app.get('/profile/:user_id', function(req, res){
-		var user_id = parseInt(req.user.user);
+		var user_id = parseInt(req.user.userID);
+
+		console.log("user id " + user_id);
+
 		orm.memberProfile(user_id, function(memb) {
 			orm.corpProfile(user_id, function(corp) {
 
