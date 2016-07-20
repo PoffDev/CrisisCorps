@@ -2,8 +2,8 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var orm = require('../config/orm.js');
 
-function User; (Users) {
-	this.userName = userObj.userName
+function Users (Users) {
+ 	this.userName = userObj.userName
 	this.password = userObj.password
 }
  //check these names//

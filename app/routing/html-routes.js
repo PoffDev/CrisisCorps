@@ -131,6 +131,7 @@ module.exports = function (app){
 			orm.corpProfile(user_id, function(corp) {
 
 				console.log('user_id');
+
 				res.render('profile', {
 					layout: 'subdir',
 					title: 'Profile',
@@ -139,10 +140,8 @@ module.exports = function (app){
 					member: memb,
 					corporation: corp,
 					userID: user_id
-
-
 			
-			console.log('hello');
+				// console.log('hello');
   		});
 		if (req.isAuthenticated()) {
 
@@ -224,9 +223,10 @@ module.exports = function (app){
 	// =============== POSTS ================= //
 
 	app.post('/signin', passport.authenticate('local',{failureRedirect:'/', failureFlash:'Wrong Username or Password'}), function(req, res){
+		
 		res.redirect('/dashboard');
-		console.log("hello: " req.user.userName);
-	});
+		});
+			console.log("hello: " + req.user.userName);
 
 	app.post('/signup', function(req, res){
 		var user = new UserModel(req.body);
@@ -249,3 +249,4 @@ module.exports = function (app){
 			link: '404'
 		});
 	});
+}

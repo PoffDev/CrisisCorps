@@ -14,7 +14,7 @@ var connection = require('./connection.js');
 // }
 // module.exports.connectToDB = connectToDB;
   
-  var orm = {
+
       //connect to database
       // connectToDB: function () {
       // connection.connect(function(err){
@@ -34,7 +34,7 @@ var orm = {
         var vals = [userName, emailAddress, password, userType];
          connection.query(queryString, vals, function(err, result) {
                 if (err) return callback(false, err);
- +                callback(true. null);
+                callback(true. null);
                 console.log(result);
             });
         },
