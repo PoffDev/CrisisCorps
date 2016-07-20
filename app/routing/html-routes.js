@@ -126,31 +126,68 @@ module.exports = function (app){
 	});
 
 	app.get('/profile/:user_id', function(req, res){
+
+		console.log ('clicked profile link');
+		
+		var type = parseInt(req.user.userType)
 		var user_id = parseInt(req.user.userID);
 
-		orm.memberProfile(user_id, function(memb) {
-			orm.corporateMembers(user_id, function(corp) {
+		if (type == 1 || 2) {
+
+			orm.memberProfile(user_id, function(memb){
 
 				if (req.isAuthenticated()){
-
-					console.log('dynamic profile working, userID = ' + user_id)
-
 					res.render('profile/' + user_id), {
 					layout: 'subdir',
 					title: 'Profile',
-					link: 'profile',
+					link: 'profile' + user_id,
 					active_profile: true,
 					member: memb,
-					corporation: corp,
  					userID: user_id,
- 					};
-				}else{
-					console.log('fith place');
-					res.redirect('/signin')
+
 				}
-  			});
-  		});
-  	});
+			}
+		}) } else {
+
+			orm.corporateMembers(user_id, function(corp){
+
+				if (req.isAuthenticated()){
+					res.render('profile/' + user_id), {
+						layout: 'subdir',
+						title: 'Profile',
+						link: 'profile' + user_id,
+						active_profile: true,
+						corporation: corp,
+						userID: user_id,
+					}
+				}
+			})
+		}
+	});
+
+		// orm.memberProfile(user_id, function(memb) {
+		// 	orm.corporateMembers(user_id, function(corp) {
+
+		// 		if (req.isAuthenticated()){
+
+		// 			console.log('dynamic profile working, userID = ' + user_id)
+
+		// 			res.render('profile/' + user_id), {
+		// 			layout: 'subdir',
+		// 			title: 'Profile',
+		// 			link: 'profile',
+		// 			active_profile: true,
+		// 			member: memb,
+		// 			corporation: corp,
+ 	// 				userID: user_id,
+ 	// 				};
+		// 		}else{
+		// 			console.log('fith place');
+		// 			res.redirect('/signin')
+		// 		}
+  // 			});
+  // 		});
+  	// });
   
   	app.get('/dashboard', function(req, res){
   		var user_id = parseInt(req.user.userID);
