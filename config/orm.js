@@ -14,19 +14,6 @@ function connectToDB(){
 }
 module.exports.connectToDB = connectToDB;
   
-
-      //connect to database
-      // connectToDB: function () {
-      // connection.connect(function(err){
-      //     if (err) {
-      //         console.error('error connection:', err.stack);
-      //         return
-      //     }
-      //     console.log('connected to MySQL DB')
-      // });
-      // },
-
-
 var orm = {
     //form data entry queries
     Users: function(userName, emailAddress, password, userType) {
@@ -40,9 +27,8 @@ var orm = {
         },
 
     findUser: function (userName, callback){
-        console.log('username is: ' + userName)
+        console.log('find user function, username is: ' + userName)
     connection.query('SELECT * FROM Users WHERE ?', {emailAddress: userName}, function(err, user){
-        console.log('username object: ')
         callback(err, user)
         })
      },

@@ -10,7 +10,8 @@ passport.use(new LocalStrategy({passReqToCallback : true},
   function(req, userName, password, done) {
   	//Searching the ORM for the user in the database
   	orm.findUser(userName, function(err, user){
-  		console.log('first', user);
+  		//use this to troubleshoot
+  		//console.log('first', user);
   		user = user[0];
   		
   		if (err) { return done(err); }
@@ -80,7 +81,7 @@ module.exports = function (app){
 
 		});
 
-		console.log('sign in function' + req.user);
+		console.log('sign in succesfull' + req.user);
 	});
 
 	app.get('/signup', function(req, res){
@@ -130,9 +131,11 @@ module.exports = function (app){
 		orm.memberProfile(user_id, function(memb) {
 			orm.corpProfile(user_id, function(corp) {
 
-				console.log('dynamic profile' + user_id);
+				if (req.isAuthenticated()){
 
-				res.render('profile', {
+					console.log('dynamic profile working, userID = ' + user_id)
+
+					res.render('profile/' + user_id), {
 					layout: 'subdir',
 					title: 'Profile',
 					link: 'profile',
@@ -140,31 +143,13 @@ module.exports = function (app){
 					member: memb,
 					corporation: corp,
  					userID: user_id,
- 				});
+ 					};
+				}else{
+					console.log('fith place');
+					res.redirect('/signin')
+				}
   			});
-
-  			console.log('hello');
   		});
-
-		if (req.isAuthenticated()) {
-
-			console.log('auth working');
-
-			res.render('/profile/:user_id', {
-				username: req.user.username,
-				layout: 'subdir',
-				title: 'Profile',
-				link: 'profile',
-				active_profile: true,
-				member: memb,
-				corporation: corp,
-				userID: user_id,
-			})
-
-
-		} else {
-			res.redirect('/signin')
-		}
   	});
   
   	app.get('/dashboard', function(req, res){
@@ -237,7 +222,7 @@ module.exports = function (app){
 	app.post('/signin', passport.authenticate('local',{failureRedirect:'/', failureFlash:'Wrong Username or Password'}), function(req, res){
 		
 		res.redirect('/dashboard');
-		console.log("hello: " + req.user.userName);
+		console.log("post /sign: " + req.user.userName);
 		});
 
 
