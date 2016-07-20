@@ -10,7 +10,7 @@ passport.use(new LocalStrategy({passReqToCallback : true},
   function(req, userName, password, done) {
   	//Searching the ORM for the user in the database
   	orm.findUser(userName, function(err, user){
-  		console.log('first',req.user_id);
+  		console.log('first', user);
   		user = user[0];
   		
   		if (err) { return done(err); }
@@ -80,7 +80,7 @@ module.exports = function (app){
 
 		});
 
-		console.log(req.user);
+		console.log('sign in function' + req.user);
 	});
 
 	app.get('/signup', function(req, res){
@@ -130,7 +130,7 @@ module.exports = function (app){
 		orm.memberProfile(user_id, function(memb) {
 			orm.corpProfile(user_id, function(corp) {
 
-				console.log('user_id');
+				console.log('dynamic profile' + user_id);
 
 				res.render('profile', {
 					layout: 'subdir',
@@ -153,6 +153,8 @@ module.exports = function (app){
 			res.render('/profile/:user_id', {
 				username: req.user.username
 			})
+
+
 		} else {
 			res.redirect('/signin')
 		}
@@ -214,7 +216,7 @@ module.exports = function (app){
 			});
 			if (req.isAuthenticated()) {
 			res.render('/corp', {
-				username: req.user.username
+				username: req.user.userName
 			})
 			} else {
 				res.redirect('/signin')
