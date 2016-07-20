@@ -124,8 +124,11 @@ module.exports = function (app){
 			res.redirect('/signin')
 		}
 	});
+	///:user_id
+	app.get('/profile', function(req, res){
 
-	app.get('/profile/:user_id', function(req, res){
+		console.log('clicked on profile link');
+
 		var user_id = parseInt(req.user.userID);
 
 		orm.memberProfile(user_id, function(memb) {
@@ -135,10 +138,10 @@ module.exports = function (app){
 
 					console.log('dynamic profile working, userID = ' + user_id)
 
-					res.render('profile/' + user_id), {
+					res.render('profile'), {
 					layout: 'subdir',
 					title: 'Profile',
-					link: 'profile',
+					link: 'profile' + user_id,
 					active_profile: true,
 					member: memb,
 					corporation: corp,
