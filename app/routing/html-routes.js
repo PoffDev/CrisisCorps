@@ -10,7 +10,7 @@ passport.use(new LocalStrategy({passReqToCallback : true},
   function(req, userName, password, done) {
   	//Searching the ORM for the user in the database
   	orm.findUser(userName, function(err, user){
-  		console.log('first',user);
+  		console.log('first', user);
   		user = user[0];
   		
   		if (err) { return done(err); }
@@ -75,8 +75,10 @@ module.exports = function (app){
 	app.get('/signin', function(req, res){
 		res.render('signin', {
 			title: 'Sign In',
-			link: 'dashboard'
+			link: 'dashboard',
+
 		});
+		console.log(req.user);
 	});
 
 	app.get('/signup', function(req, res){
@@ -121,31 +123,40 @@ module.exports = function (app){
 	});
 
 	app.get('/profile/:user_id', function(req, res){
-		var user_id = parseInt(req.params.user_id);
+		var user_id = parseInt(req.user.user);
 		orm.memberProfile(user_id, function(memb) {
 			orm.corpProfile(user_id, function(corp) {
+
+				console.log('user_id');
 				res.render('profile', {
 					layout: 'subdir',
 					title: 'Profile',
 					link: 'profile',
 					active_profile: true,
 					member: memb,
-					corporation: corp
+					corporation: corp,
+					userID: user_id
 				});
 			});
 
 			console.log('hello');
 		});
 		if (req.isAuthenticated()) {
+
+			console.log('auth working');
+
 			res.render('/profile/:user_id', {
 				username: req.user.username
 			})
+
+
 		} else {
 			res.redirect('/signin')
 		}
 	});
 
 	app.get('/dashboard', function(req, res){
+		var user_id = parseInt(req.user.userID);
 		// if (req.isAuthenticated()) {
 		// 	res.render('dashboard', {
 
@@ -165,7 +176,7 @@ module.exports = function (app){
 								orm.dashboardTasksList(function(tasks_three) {
 									if (req.isAuthenticated()) {
 									res.render('dashboard', {
-										username: req.user.username,
+										userName: req.user.userName,
 										title: 'dashboard',
 										link: 'dashboard',
 										active_dashboard: true,
@@ -175,7 +186,8 @@ module.exports = function (app){
 										vol_pos: vol_positions,
 										completed_tasks: comp_tasks,
 										total_tasks: tot_tasks,
-										db_tasks: tasks_three
+										db_tasks: tasks_three,
+										userID: user_id
 									});
 								};
 							});
@@ -213,7 +225,8 @@ module.exports = function (app){
 
 	app.post('/signin', passport.authenticate('local',{failureRedirect:'/', failureFlash:'Wrong Username or Password'}), function(req, res){
 		res.redirect('/dashboard');
-		console.log("hello: " + req.user);
+		console.log("hello: " + req.user.userName);
+		
 	});
 
 	app.post('/signup', function(req, res){
