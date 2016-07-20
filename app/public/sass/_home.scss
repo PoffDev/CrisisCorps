@@ -1,0 +1,46 @@
+/* home */
+#about {
+	padding: 200px 0;
+	color: #fff;
+	text-align: center;
+	background-image: url(/images/vigil.jpg);
+	background-size: cover;
+}
+
+	#about h2 {
+		font-family: 'Roboto Condensed', sans-serif;
+	}
+
+#vol-pics {
+	padding: 50px 0;
+}
+
+	#vol-pics .row {
+		margin-bottom: 30px;
+	}
+
+	.vol-pics-container {
+		position: relative;
+	}
+
+		#vol-pics img {
+			max-width: 100%;
+			box-shadow: 1px 1px 15px #ccc;
+		}
+
+		.vol-pics-content {
+			position: absolute;
+			bottom: 0;
+			text-align: center;
+			background: rgba(255,255,255, .85);
+		}
+
+
+@media (min-width: 768px) {
+
+	#about p {
+		width: 50%;
+		margin: 50px auto;
+	}
+
+}

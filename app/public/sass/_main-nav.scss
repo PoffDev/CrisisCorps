@@ -1,5 +1,14 @@
 /* nav */
 img.nav-brand-symbol {
 	width: 50%;
-	margin-top: -16px;
+	margin-top: -5px;
+}
+
+@media (min-width: 768px) {
+
+	.navbar-nav>li>a {
+		padding-top: 25px;
+    	padding-bottom: 5px;
+	}
+
 }

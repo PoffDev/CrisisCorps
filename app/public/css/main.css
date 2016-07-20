@@ -1,3 +1,10 @@
+/* globals */
+body {
+  color: #545F63; }
+
+p {
+  line-height: 1.7em; }
+
 /* jumbotron */
 .crisis {
   display: none; }
@@ -7,11 +14,16 @@
   position: relative;
   overflow: hidden; }
 
+/*
+	.jumbotron{
+    	padding: 0;
+    	margin-bottom: 0;
+	}
+*/
 .jumbotron {
-  padding: 0;
-  margin-bottom: 0; }
+  padding: 50px 50px 200px 50px; }
 
-.jumbotron h1 {
+.jumbotron h2 {
   font-family: 'Roboto Condensed', sans-serif; }
 
 .picture {
@@ -27,6 +39,10 @@
   color: #fff;
   text-align: center;
   background: rgba(0, 0, 0, 0.5); }
+
+.molecule-bg {
+  margin-bottom: 0;
+  background: url(/images/cc-header.jpg) no-repeat top center; }
 
 .about_me {
   position: relative;
@@ -53,10 +69,56 @@
 .panel.panel-primary {
   background-color: rgba(245, 245, 245, 0); }
 
+/* iPads (landscape) ----------- */
+@media only screen and (min-width: 1024px) {
+  .jumbotron p {
+    width: 50%;
+    font-size: 1.1em; } }
+
 /* nav */
 img.nav-brand-symbol {
   width: 50%;
-  margin-top: -16px; }
+  margin-top: -5px; }
+
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    padding-top: 25px;
+    padding-bottom: 5px; } }
+
+/* home */
+#about {
+  padding: 200px 0;
+  color: #fff;
+  text-align: center;
+  background-image: url(/images/vigil.jpg);
+  background-size: cover; }
+
+#about h2 {
+  font-family: 'Roboto Condensed', sans-serif; }
+
+#vol-pics {
+  padding: 50px 0; }
+
+#vol-pics .row {
+  margin-bottom: 30px; }
+
+.vol-pics-container {
+  position: relative; }
+
+#vol-pics img {
+  max-width: 100%;
+  box-shadow: 1px 1px 15px #ccc; }
+
+.vol-pics-content {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.85); }
+
+@media (min-width: 768px) {
+  #about p {
+    width: 50%;
+    margin: 50px auto; } }
 
 /* admin nav main left */
 .admin-nav-container {
