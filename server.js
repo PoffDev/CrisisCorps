@@ -2,12 +2,15 @@
 //handlebars
 var express = require('express');
 var exphbs = require('express-handlebars');
-//sessions
+//login
 var flash = require('connect-flash');
 var passport = require('passport');
 var session = require('express-session');
+//sessions
 var path = require('path');
 var bodyParser = require('body-parser');
+
+//check this if not working..
 var orm = require('./config/orm.js')
 	
 
@@ -44,6 +47,7 @@ app.engine('handlebars', exphbs({
 
 app.set('view engine', 'handlebars');
 
+//check these if they do not work..
 //orm.connectToDB();g
 
 

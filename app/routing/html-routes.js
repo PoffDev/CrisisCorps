@@ -10,7 +10,7 @@ passport.use(new LocalStrategy({passReqToCallback : true},
   function(req, userName, password, done) {
   	//Searching the ORM for the user in the database
   	orm.findUser(userName, function(err, user){
-  		console.log('first', user);
+  		console.log('first',req.user_id);
   		user = user[0];
   		
   		if (err) { return done(err); }
@@ -77,7 +77,9 @@ module.exports = function (app){
 		res.render('signin', {
 			title: 'Sign In',
 			link: 'dashboard',
+
 		});
+
 		console.log(req.user);
 	});
 
@@ -125,8 +127,6 @@ module.exports = function (app){
 	app.get('/profile/:user_id', function(req, res){
 		var user_id = parseInt(req.user.userID);
 
-		console.log("user id " + user_id);
-
 		orm.memberProfile(user_id, function(memb) {
 			orm.corpProfile(user_id, function(corp) {
 
@@ -139,10 +139,13 @@ module.exports = function (app){
 					active_profile: true,
 					member: memb,
 					corporation: corp,
-					userID: user_id
-			
-				// console.log('hello');
+ 					userID: user_id,
+ 				});
+  			});
+
+  			console.log('hello');
   		});
+
 		if (req.isAuthenticated()) {
 
 			console.log('auth working');
@@ -176,8 +179,8 @@ module.exports = function (app){
 								orm.dashboardTasksList(function(tasks_three) {
 									if (req.isAuthenticated()) {
 									res.render('dashboard', {
-										userName: req.user.userName,
-										title: 'dashboard',
+										username: req.user.userName,
+										title: 'Dashboard',
 										link: 'dashboard',
 										active_dashboard: true,
 										vols: num_vols,
@@ -225,8 +228,9 @@ module.exports = function (app){
 	app.post('/signin', passport.authenticate('local',{failureRedirect:'/', failureFlash:'Wrong Username or Password'}), function(req, res){
 		
 		res.redirect('/dashboard');
+		console.log("hello: " + req.user.userName);
 		});
-			console.log("hello: " + req.user.userName);
+
 
 	app.post('/signup', function(req, res){
 		var user = new UserModel(req.body);
@@ -238,8 +242,7 @@ module.exports = function (app){
 			res.redirect('/dashboard');
   		});
   	});
-		});
-	});
+		
 
 	// If no matching route is found default to home
 	app.use(function(req, res){
