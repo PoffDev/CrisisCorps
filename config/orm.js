@@ -2,6 +2,17 @@ var connection = require('./connection.js');
 
 // object relational mapper (ORM)
 
+function connectToDB(){
+    connection.connect(function(err){
+        if (err) {
+            console.error('error connection:', err.stack);
+            return
+        }
+        console.log('connected to MySQL DB')
+    });
+}
+
+module.exports.connectToDB = connectToDB;
 
 var orm = {
     //form data entry queries
@@ -9,10 +20,17 @@ var orm = {
         var queryString = 'INSERT INTO users (userName, emailAddress, password, userType) VALUES (?, ?, ?, ?)';
         var vals = [userName, emailAddress, password, userType];
          connection.query(queryString, vals, function(err, result) {
-                if (err) throw err;
+                if (err) return callback(false, err);
+ +                callback(true. null);
                 console.log(result);
             });
         },
+
+    findUser: function (userName, callback){
+    connection.query('SELECT * FROM Users WHERE ?', {userName: userName}, function(err, user){
+        callback(err, user)
+        })
+    }
     members: function(userId, contactNumber, bloodType) {
         var queryString = 'INSERT INTO users (userId, contactNumber, bloodType) VALUES(?, ?, ?)';
         var vals = [userId, bloodType];
