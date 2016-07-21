@@ -140,7 +140,7 @@ module.exports = function (app){
 
 					res.render('profile'), {
 					layout: 'subdir',
-					title: 'Profile',
+					title: "(user_id + '| Profile')",
 					link: 'profile' + user_id,
 					active_profile: true,
 					member: memb,
