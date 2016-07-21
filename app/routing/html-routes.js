@@ -81,7 +81,7 @@ module.exports = function (app){
 
 		});
 
-		console.log('sign in succesfull' + req.user);
+		// console.log('sign in succesfull ' + req.user.userName);
 	});
 
 	app.get('/signup', function(req, res){
@@ -125,9 +125,9 @@ module.exports = function (app){
 		}
 	});
 	///:user_id
-	app.get('/profile', function(req, res){
+	app.get('/profile/:user_id', function(req, res){
 
-		console.log('clicked on profile link');
+		console.log('clicked on profile link' );
 
 		var user_id = parseInt(req.user.userID);
 
@@ -138,15 +138,15 @@ module.exports = function (app){
 
 					console.log('dynamic profile working, userID = ' + user_id)
 
-					res.render('profile'), {
+					res.render('profile', {
 					layout: 'subdir',
-					title: "(user_id + '| Profile')",
-					link: 'profile' + user_id,
+					title: "Profile",
+					link: 'profile',
 					active_profile: true,
 					member: memb,
 					corporation: corp,
- 					userID: user_id,
- 					};
+ 					userID: req.user.userID,
+ 					});
 				}else{
 					console.log('fith place');
 					res.redirect('/signin')
@@ -175,6 +175,7 @@ module.exports = function (app){
 							orm.totalTasks(function(tot_tasks) {
 								orm.dashboardTasksList(function(tasks_three) {
 									if (req.isAuthenticated()) {
+										console.log(req.user.userID);
 									res.render('dashboard', {
 										username: req.user.userName,
 										title: 'Dashboard',
@@ -187,7 +188,7 @@ module.exports = function (app){
 										completed_tasks: comp_tasks,
 										total_tasks: tot_tasks,
 										db_tasks: tasks_three,
-										userID: user_id
+										userID: req.user.userID
 									});
 								};
 							});
