@@ -50,9 +50,9 @@ module.exports = function (app){
 			title: 'Home',
 			link: 'home',
 			welcomeText: "Sign In",
-			actionBtn: 'signin',
+			actionBtn: 'Sign Up',
 			message: req.flash('error')[0],
-			otherAction: "Signup"
+			otherAction: "Sign In"
 			});
 	});
 
@@ -88,7 +88,7 @@ module.exports = function (app){
 	app.get('/signup', function(req, res){
 		res.render('signup', {
 			title: 'Sign Up',
-			link: 'signup',
+			link: 'signin',
 			welcomeText: "Sign Up",
 			actionBtn: 'signup',
 			otherAction: "signin"
