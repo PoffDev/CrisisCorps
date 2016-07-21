@@ -70,7 +70,8 @@ module.exports = function (app){
 		res.render('crisis', {
 			title: 'Crisis Manager',
 			link: 'crisis',
-			active_crisis: true
+			active_crisis: true,
+			userID: req.user.userID
 		});
 	});
 
@@ -100,7 +101,8 @@ module.exports = function (app){
 				title: 'Tasks',
 				link: 'tasks',
 				active_tasks: true,
-				tasks: all_tasks
+				tasks: all_tasks,
+				userID: req.user.userID
 			});
 		});
 	});
@@ -113,16 +115,18 @@ module.exports = function (app){
 				title: 'Task',
 				link: 'task',
 				active_tasks: true,
-				task: the_task
+				task: the_task,
+				userID: req.user.userID,
+				username: req.user.username
 			});
 		});
-		if (req.isAuthenticated()) {
-			res.render('/task/:task_id', {
-				username: req.user.username
-			})
-		} else {
-			res.redirect('/signin')
-		}
+		// if (req.isAuthenticated()) {
+		// 	res.render('/task/:task_id', {
+		// 		username: req.user.username
+		// 	})
+		// } else {
+		// 	res.redirect('/signin')
+		// }
 	});
 	///:user_id
 	app.get('/profile/:user_id', function(req, res){
@@ -209,6 +213,7 @@ module.exports = function (app){
 				link: 'corp', // link to pass to breadcrumbs
 				active_crisis: true, // active class to display on admin nav
 				corp_list: all_corps, // mysql data to pass to handlebars page
+				userID: req.user.userID
 			});
 			if (req.isAuthenticated()) {
 			res.render('/corp', {
