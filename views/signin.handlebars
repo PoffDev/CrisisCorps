@@ -1,23 +1,23 @@
 <div class="sign-up-in-bg">
 	<div class="sign-logo">
-		<img src="/images/crisis-corps-logo.png" class="sign-logo" alt="Crisis Corps logo." />
+		<a href="/home"><img src="/images/crisis-corps-logo.png" class="sign-logo" alt="Crisis Corps logo." /></a>
 	</div>
 	<div class="sign-up-in-container">
 	
 		<!-- Form Document -->
-		<form action="dashboard">
+		<form method="post" action="/signin">
 		  	<!-- Email -->
 		  	<div class="form-group">
 		    	<label for="inputCrisisName">Email</label>
-		    	<input type="email" class="form-control" id="inputEmail">
+		    	<input name="username" type="email" class="form-control" id="inputEmail">
 		  	</div>
 		  	<!-- Password -->
 		  	<div class="form-group">
 		   		<label for="inputPassword">Password</label>
-		    	<input type="password" class="form-control" id="inputPassword">
+		    	<input type="password" name="password" class="form-control" id="inputPassword">
 		  	</div>
 			<!--Button -->
-			<a href="dashboard" type="submitMember" class="btn btn-primary btn-lg btn-block" id="signin">Sign In</a>
+			<button type="submit" class="btn btn-primary btn-lg btn-block">Sign In</button>
 		</form>
 		<!-- End Form Document -->
 

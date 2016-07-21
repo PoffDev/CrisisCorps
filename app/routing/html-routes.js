@@ -1,5 +1,41 @@
 var path = require('path');
 var orm = require('../../config/orm.js');
+var UserModel = require('../../model/user.js');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var orm = require('../../config/orm.js');
+
+//Setting the strategy for Passport
+passport.use(new LocalStrategy({passReqToCallback : true},
+  function(req, userName, password, done) {
+  	//Searching the ORM for the user in the database
+  	orm.findUser(userName, function(err, user){
+  		//use this to troubleshoot
+  		//console.log('first', user);
+  		user = user[0];
+  		
+  		if (err) { return done(err); }
+  		
+      if (!user) { return done(null, false); }
+      
+
+      //comparing user passwords - return if not a match
+      if (password !== user.password) { return done(null, false);}
+		
+      return done(null, user);
+  	});
+  }
+));
+
+//These two methods are required to keep the user logged in via the session
+passport.serializeUser(function(Users, done) {
+  done(null, Users);
+});
+
+passport.deserializeUser(function(Users, done) {
+  done(null, Users);
+});
+
 
 module.exports = function (app){
 
@@ -12,8 +48,12 @@ module.exports = function (app){
 	app.get('/', function(req, res){
 		res.render('home', {
 			title: 'Home',
-			link: 'home'
-		});
+			link: 'home',
+			welcomeText: "Sign In",
+			actionBtn: 'signin',
+			message: req.flash('error')[0],
+			otherAction: "Signup"
+			});
 	});
 
 	app.get('/home', function(req, res){
@@ -37,14 +77,20 @@ module.exports = function (app){
 	app.get('/signin', function(req, res){
 		res.render('signin', {
 			title: 'Sign In',
-			link: 'signin'
+			link: 'dashboard',
+
 		});
+
+		console.log('sign in succesfull' + req.user);
 	});
 
 	app.get('/signup', function(req, res){
 		res.render('signup', {
 			title: 'Sign Up',
-			link: 'signup'
+			link: 'signup',
+			welcomeText: "Sign Up",
+			actionBtn: 'signup',
+			otherAction: "signin"
 		});
 	});
 
@@ -70,25 +116,56 @@ module.exports = function (app){
 				task: the_task
 			});
 		});
+		if (req.isAuthenticated()) {
+			res.render('/task/:task_id', {
+				username: req.user.username
+			})
+		} else {
+			res.redirect('/signin')
+		}
 	});
+	///:user_id
+	app.get('/profile', function(req, res){
 
-	app.get('/profile/:user_id', function(req, res){
-		var user_id = parseInt(req.params.user_id);
+		console.log('clicked on profile link');
+
+		var user_id = parseInt(req.user.userID);
+
 		orm.memberProfile(user_id, function(memb) {
 			orm.corpProfile(user_id, function(corp) {
-				res.render('profile', {
+
+				if (req.isAuthenticated()){
+
+					console.log('dynamic profile working, userID = ' + user_id)
+
+					res.render('profile'), {
 					layout: 'subdir',
 					title: 'Profile',
-					link: 'profile',
+					link: 'profile' + user_id,
 					active_profile: true,
 					member: memb,
-					corporation: corp
-				});
-			});
-		});
-	});
+					corporation: corp,
+ 					userID: user_id,
+ 					};
+				}else{
+					console.log('fith place');
+					res.redirect('/signin')
+				}
+  			});
+  		});
+  	});
+  
+  	app.get('/dashboard', function(req, res){
+  		var user_id = parseInt(req.user.userID);
+		// if (req.isAuthenticated()) {
+		// 	res.render('dashboard', {
 
-	app.get('/dashboard', function(req, res){
+
+		// 		// username: req.user.username
+		// 	})
+		// } else {
+		// 	res.redirect('/signin')
+		// }
 		// get number of volunteers still needed
 		orm.numVolsNeeded(function(num_vols) {
 			orm.numVolsWhoHaveVolunteered(function(vols_volunteered) {
@@ -97,7 +174,9 @@ module.exports = function (app){
 						orm.totalCompletedTasks(function(comp_tasks) {
 							orm.totalTasks(function(tot_tasks) {
 								orm.dashboardTasksList(function(tasks_three) {
+									if (req.isAuthenticated()) {
 									res.render('dashboard', {
+										username: req.user.userName,
 										title: 'Dashboard',
 										link: 'dashboard',
 										active_dashboard: true,
@@ -107,38 +186,67 @@ module.exports = function (app){
 										vol_pos: vol_positions,
 										completed_tasks: comp_tasks,
 										total_tasks: tot_tasks,
-										db_tasks: tasks_three
+										db_tasks: tasks_three,
+										userID: user_id
 									});
-								});
+								};
 							});
 						});
 					});
 				});
-			});
-		});
-
-		
+			})
+		});		
 	});
+});
 
 	app.get('/corp', function(req, res){
 		// get all corporate users
 		orm.allCorpUsers(function(all_corps) {
+
 			res.render('corp', {
 				title: 'Corporation List', // breadcrumbs title
 				link: 'corp', // link to pass to breadcrumbs
 				active_crisis: true, // active class to display on admin nav
-				corp_list: all_corps // mysql data to pass to handlebars page
+				corp_list: all_corps, // mysql data to pass to handlebars page
 			});
+			if (req.isAuthenticated()) {
+			res.render('/corp', {
+				username: req.user.userName
+			})
+			} else {
+				res.redirect('/signin')
+			}
 		});
 	});
 
+
+	// =============== POSTS ================= //
+
+	app.post('/signin', passport.authenticate('local',{failureRedirect:'/', failureFlash:'Wrong Username or Password'}), function(req, res){
+		
+		res.redirect('/dashboard');
+		console.log("post /sign: " + req.user.userName);
+		});
+
+
+	app.post('/signup', function(req, res){
+		var user = new UserModel(req.body);
+		UserModel.saveUser(Users, function(status){
+			if(!status) {
+				res.redirect('/signin')
+				return false
+			}
+			res.redirect('/dashboard');
+  		});
+  	});
+		
+
 	// If no matching route is found default to home
 	app.use(function(req, res){
-		// res.sendFile(path.join(__dirname + '/../public/home.html'));
+		// res.sendFile(path.join(__dirname '/../public/home.html'));
 		res.render('404', {
 			title: 'CrisisCorps Not Found',
 			link: '404'
 		});
 	});
-
 }

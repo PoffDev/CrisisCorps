@@ -2,18 +2,39 @@ var connection = require('./connection.js');
 
 // object relational mapper (ORM)
 
-
+//
+function connectToDB(){
+    connection.connect(function(err){
+        if (err) {
+            console.error('error connection:', err.stack);
+            return
+        }
+        console.log('connected to MySQL DB')
+    });
+}
+module.exports.connectToDB = connectToDB;
+  
 var orm = {
     //form data entry queries
     Users: function(userName, emailAddress, password, userType) {
         var queryString = 'INSERT INTO users (userName, emailAddress, password, userType) VALUES (?, ?, ?, ?)';
         var vals = [userName, emailAddress, password, userType];
          connection.query(queryString, vals, function(err, result) {
-                if (err) throw err;
+                if (err) return callback(false, err);
+                callback(true. null);
                 console.log(result);
             });
         },
         //Why is user id being pushed here? 
+
+
+    findUser: function (userName, callback){
+        console.log('find user function, username is: ' + userName)
+    connection.query('SELECT * FROM Users WHERE ?', {emailAddress: userName}, function(err, user){
+        callback(err, user)
+        })
+     },
+
     members: function(userId, contactNumber, bloodType) {
         var queryString = 'INSERT INTO users (userId, contactNumber, bloodType) VALUES(?, ?, ?)';
         var vals = [userId, bloodType];
@@ -38,7 +59,6 @@ var orm = {
     //should user id be at the beginning or end here?
     updateMembers: function(userId, contactNumber, bloodType) {
         var queryString = 'UPDATE users SET contactNumber = ?, bloodType = ?, WHERE id = ?,' [req.params.id, req.body.contactNumber, req.body.bloodType],
-
         function(err, result){
             if(err) throw err;
             res.redirect('/');

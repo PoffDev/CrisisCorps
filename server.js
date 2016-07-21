@@ -2,9 +2,16 @@
 //handlebars
 var express = require('express');
 var exphbs = require('express-handlebars');
+//login
+var flash = require('connect-flash');
+var passport = require('passport');
+var session = require('express-session');
 //sessions
 var path = require('path');
 var bodyParser = require('body-parser');
+
+//check this if not working..
+var orm = require('./config/orm.js')
 	
 
 //Port
@@ -22,6 +29,16 @@ app.use(bodyParser.json({type: 'application/vnd.api+json'}));
 // access to the public folder
 app.use(express.static('app/public'));
 
+//session is used to keep the user logged in 
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true}))
+
+//flash is used to show a message on an incorrect login
+app.use(flash());
+
+//passport middleware methods
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 // Handlebars
 app.engine('handlebars', exphbs({
@@ -29,6 +46,9 @@ app.engine('handlebars', exphbs({
 }));
 
 app.set('view engine', 'handlebars');
+
+//check these if they do not work..
+//orm.connectToDB();g
 
 
 // BodyParser

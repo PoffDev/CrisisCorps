@@ -11,6 +11,9 @@
   padding: 0;
   margin-bottom: 0; }
 
+.jumbotron h1 {
+  font-family: 'Roboto Condensed', sans-serif; }
+
 .picture {
   width: 100%;
   position: absolute; }
