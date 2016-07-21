@@ -2,6 +2,7 @@
 var orm = require('../../config/orm.js');
 var hospitalArray = require('../data/resources.js');
 var bloodArray = require('../data/blood.js');
+var twilio = require('../../config/twilio.js')
 
 //actually routing
 
@@ -40,5 +41,16 @@ module.exports = function(app){
 		res.send(function() {
 			alert("Corporate Member Added successfully!");
 		})
+	});
+
+	app.post('/textMembers', function (req, res){
+		var textBody = req.body.body;
+		orm.getNumbers(function(result){
+			var numbers = result;
+			console.log('numbers are', numbers)
+			for (var i = numbers.length - 1; i >= 0; i--) {
+				twilio(numbers[i].contactNum, process.env.twilNumber, textBody);
+			}
+		});
 	});
 }

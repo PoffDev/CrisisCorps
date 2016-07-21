@@ -189,6 +189,7 @@ var orm = {
 
     },
 
+
     corpProfile: function(user_id, callback) {
         
         var queryString = 'SELECT users.userType, corporateMembers.companyName, users.userName, users.emailAddress, users.password, corporateMembers.contactNum, corporateMembers.donationDesc ';
@@ -200,6 +201,53 @@ var orm = {
         this.connectionQuery(queryString, callback);
 
     },
+
+
+    textBloodType: function(user_id, callback) {
+        
+        var queryString = 'SELECT users.userID, members.contactNum ';
+        queryString += 'FROM users ';
+        queryString += 'LEFT JOIN members ';
+        queryString += 'ON users.userID = members.userID WHERE members.bloodType = ' + bloodType + ' AND users.userType = 4 '
+        queryString += 'ORDER By users.userID;';
+        vals = [to, from, body]
+
+        this.connectionQuery(queryString, vals, function(err, result) {
+                if (err) throw err;
+                console.log(result);
+            });
+        },
+
+    getNumbers: function(callback) {
+    
+        // build the mysql query string
+        var queryString = 'SELECT users.userID, members.contactNum ';
+        queryString += 'FROM users ';
+        queryString += 'LEFT JOIN members ';
+        queryString += 'ON users.userID = members.userID WHERE users.userType = 4 '
+        queryString += 'ORDER By users.userID;';
+
+        this.connectionQuery(queryString, function(result){
+            callback(result);
+        });
+        },
+
+
+    textMembers: function(to, from, body) {
+        
+        // build the mysql query string
+        var queryString = 'SELECT users.userID, members.contactNum ';
+        queryString += 'FROM users ';
+        queryString += 'LEFT JOIN members ';
+        queryString += 'ON users.userID = members.userID WHERE users.userType = 4 '
+        queryString += 'ORDER By users.userID;';
+        vals = [to, from, body]
+
+        this.connectionQuery(queryString, vals, function(err, result) {
+                if (err) throw err;
+                console.log(result);
+            });
+        },
 
     getCrisisDetails: function(callback) {
         
