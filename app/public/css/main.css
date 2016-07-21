@@ -80,10 +80,16 @@ img.nav-brand-symbol {
   width: 50%;
   margin-top: -5px; }
 
+.icon-bar {
+  background: #212d33; }
+
 @media (min-width: 768px) {
   .navbar-nav > li > a {
     padding-top: 25px;
-    padding-bottom: 5px; } }
+    padding-bottom: 25px; }
+  .navbar {
+    margin-bottom: 0;
+    border: none; } }
 
 /* home */
 /* about */
@@ -122,7 +128,7 @@ img.nav-brand-symbol {
   color: #fff;
   text-align: center; }
 
-#vol-pics .row {
+#vol-pics .col-md-4 {
   margin-bottom: 30px; }
 
 .vol-pics-container {
@@ -154,7 +160,7 @@ img.nav-brand-symbol {
   color: #96deea;
   font-size: 3em; }
 
-#website-backend .row {
+#website-backend .col-md-4 {
   margin-bottom: 100px; }
 
 #website-backend img {

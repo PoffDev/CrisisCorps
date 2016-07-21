@@ -4,11 +4,20 @@ img.nav-brand-symbol {
 	margin-top: -5px;
 }
 
+.icon-bar {
+	background: #212d33;
+}
+
 @media (min-width: 768px) {
 
 	.navbar-nav>li>a {
 		padding-top: 25px;
-    	padding-bottom: 5px;
+    	padding-bottom: 25px;
+	}
+
+	.navbar {
+		margin-bottom: 0;
+		border: none;
 	}
 
 }
