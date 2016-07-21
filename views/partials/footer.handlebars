@@ -1,55 +1,61 @@
 <!-- Footer -->
-<footer class="main-footer">
-	<div id="logo">
-		<img src="/images/crisis-corps-logo.png" class="main-footer-logo" alt="Crisis Corps logo." />
-		<p>&#169; 2016 Crisis Corps all rights reserved</p>
+<footer class="main-footer clearfix">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-7">
+				<div id="team">
+					<h4>Team Members</h4>
+					<p class="triggerModal" id="one">Robert Bethencourt</p>
+					<p class="triggerModal" id="two">Josh Cruey</p>
+					<p class="triggerModal" id="three">Emily Frazin</p>
+					<p class="triggerModal" id="four">Jenn Hernandez</p>
+					<p class="triggerModal" id="five">Josh Poffenberger</p>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div id="logo">
+					<img src="/images/crisis-corps-logo.png" class="main-footer-logo" alt="Crisis Corps logo." />
+					<p>&#169; 2016 Crisis Corps all rights reserved</p>
+				</div>
+			</div>
+		</div>
 	</div>
-	<div id="team">
-		<h4>Team Members</h4>
-			<p class="triggerModal" id="one">Robert Bethencourt</p>
-			<p class="triggerModal" id="two">Josh Cruey</p>
-			<p class="triggerModal" id="three">Emily Frazin</p>
-			<p class="triggerModal" id="four">Jenn Hernandez</p>
-			<p class="triggerModal" id="five">Josh Poffenberger</p>
-	</div>
-
-	<div class="modal fade bs-example-modal-sm" id = "modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  		<div class="modal-dialog modal-sm">
-    		<div class="modal-content">
-    			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-      			<div class="hiddenModalContent" data-id="one">
-      				<h4>Robert Bethencourt</h4>
-      				<a href="https://github.com/robbethencourt"><i class="fa fa-github fa-2x"></i></a>
-                	<a href="http://www.twitter.com/rob_bethencourt"><i class="fa fa-twitter fa-2x"></i></a>
-      			</div>
-      			<div class="hiddenModalContent" data-id="two">
-      				<h4>Josh Cruey</h4>
-      				<a href="https://github.com/jcruey"><i class="fa fa-github fa-2x"></i></a>
-                	<a href="http://www.twitter.com/jccruey"><i class="fa fa-twitter fa-2x"></i></a>
-                </div>
-      			<div class="hiddenModalContent" data-id="three">
-      				<h4>Emily Frazin</h4>
-      				<a href="https://github.com/emilysf"><i class="fa fa-github fa-2x"></i></a>
-                	<a href="http://www.twitter.com/emsems12"><i class="fa fa-twitter fa-2x"></i></a>
-      			</div>
-      			<div class="hiddenModalContent" data-id="four">
-      				<h4>Jenn Hernandez</h4>
-      				<a href="https://github.com/jennaroe"><i class="fa fa-github fa-2x"></i></a>
-                	<a href="http://www.twitter.com/jenesis15"><i class="fa fa-twitter fa-2x"></i></a>
-                </div>
-      			<div class="hiddenModalContent" data-id="five">
-      				<h4>Josh Poffenberger</h4>
-      				<a href="https://github.com/PoffDev"><i class="fa fa-github fa-2x"></i></a>
-                	<a href="http://www.twitter.com/PoffDev"><i class="fa fa-twitter fa-2x"></i></a>
-      			</div>
-      		</div>
-    	</div>
-
-    
-  	
-</div>
 </footer>
+
+<!-- footer modals -->
+<div class="modal fade bs-example-modal-sm" id = "modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+  			<div class="hiddenModalContent" data-id="one">
+  				<h4>Robert Bethencourt</h4>
+  				<a href="https://github.com/robbethencourt"><i class="fa fa-github fa-2x"></i></a>
+            	<a href="http://www.twitter.com/rob_bethencourt"><i class="fa fa-twitter fa-2x"></i></a>
+  			</div>
+  			<div class="hiddenModalContent" data-id="two">
+  				<h4>Josh Cruey</h4>
+  				<a href="https://github.com/jcruey"><i class="fa fa-github fa-2x"></i></a>
+            	<a href="http://www.twitter.com/jccruey"><i class="fa fa-twitter fa-2x"></i></a>
+            </div>
+  			<div class="hiddenModalContent" data-id="three">
+  				<h4>Emily Frazin</h4>
+  				<a href="https://github.com/emilysf"><i class="fa fa-github fa-2x"></i></a>
+            	<a href="http://www.twitter.com/emsems12"><i class="fa fa-twitter fa-2x"></i></a>
+  			</div>
+  			<div class="hiddenModalContent" data-id="four">
+  				<h4>Jenn Hernandez</h4>
+  				<a href="https://github.com/jennaroe"><i class="fa fa-github fa-2x"></i></a>
+            	<a href="http://www.twitter.com/jenesis15"><i class="fa fa-twitter fa-2x"></i></a>
+            </div>
+  			<div class="hiddenModalContent" data-id="five">
+  				<h4>Josh Poffenberger</h4>
+  				<a href="https://github.com/PoffDev"><i class="fa fa-github fa-2x"></i></a>
+            	<a href="http://www.twitter.com/PoffDev"><i class="fa fa-twitter fa-2x"></i></a>
+  			</div>
+  		</div>
+	</div>
+</div>
 
 	<script>
 	    $(document).ready(function(){

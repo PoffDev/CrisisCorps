@@ -10,13 +10,19 @@
 		overflow: hidden;
 	}
 
+/*
 	.jumbotron{
     	padding: 0;
     	margin-bottom: 0;
 	}
+*/
 
-	.jumbotron h1 {
-		font-family: 'Roboto Condensed', sans-serif;
+	.jumbotron {
+		padding: 50px 50px 200px 50px;
+	}
+
+	.jumbotron h2 {
+		font-family: 'Oswald', sans-serif;
 	}
 
 	.picture {
@@ -34,6 +40,11 @@
 		color: #fff;
 		text-align: center;
 		background: rgba(0,0,0, .5);
+	}
+
+	.molecule-bg {
+		margin-bottom: 0;
+		background: url(/images/cc-header.jpg) no-repeat top center;
 	}
 
 	.about_me {
@@ -64,4 +75,14 @@
 
 	.panel.panel-primary{
     background-color: rgba(245, 245, 245, 0);
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-width : 1024px) {
+
+	.jumbotron p {
+		width: 50%;
+		font-size: 1.1em;
+	}
+
 }
