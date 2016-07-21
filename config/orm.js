@@ -57,22 +57,22 @@ var orm = {
     //Form Update Queries
 
     //should user id be at the beginning or end here?
-    updateMembers: function(userId, contactNumber, bloodType) {
-        var queryString = 'UPDATE users SET contactNumber = ?, bloodType = ?, WHERE id = ?,' [req.params.id, req.body.contactNumber, req.body.bloodType],
-        function(err, result){
-            if(err) throw err;
-            res.redirect('/');
-        };
-    },
+    // updateMembers: function(userId, contactNumber, bloodType) {
+    //     var queryString = 'UPDATE users SET contactNumber = ?, bloodType = ?, WHERE id = ?,' [req.params.id, req.body.contactNumber, req.body.bloodType],
+    //     function(err, result){
+    //         if(err) throw err;
+    //         res.redirect('/');
+    //     };
+    // },
 
-    updateCorporate: function(companyName, contactNum, donationDesc, userId){ 
-    var queryString = ' UPDATE corporateMembers SET companyName = ?, contactNum = ?, donationDesc = ?, WHERE id = ?,' [req.body.companyName, req.body.contactNum, req.body.donationDesc, req.params.id];
+    // updateCorporate: function(companyName, contactNum, donationDesc, userId){ 
+    // var queryString = ' UPDATE corporateMembers SET companyName = ?, contactNum = ?, donationDesc = ?, WHERE id = ?,' [req.body.companyName, req.body.contactNum, req.body.donationDesc, req.params.id];
 
-        function(err, result) {
-                if (err) throw err;
-                console.log(result);
-        };
-    },
+    //     function(err, result) {
+    //             if (err) throw err;
+    //             console.log(result);
+    //     };
+    // },
 
 
 
