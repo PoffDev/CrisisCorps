@@ -1,24 +1,49 @@
 /* home */
+/* about */
 #about {
 	padding: 100px 0;
-	color: #fff;
-	text-align: center;
-	background-image: url(/images/vigil.jpg);
-	background-size: cover;
 }
 
+	#about .row {
+		margin: 150px 0;
+	}
+
 	.about-content {
-		padding: 50px 0;
-		background: rgba(0,0,0, .5);
+		padding: 0 50px 0 0;
 	}
 
 		#about h2 {
-			font-family: 'Roboto Condensed', sans-serif;
+			color: #96deea;
+			text-align: center;
 		}
 
+		#about h2, #about h3 {
+			font-family: 'Oswald', sans-serif;
+		}
+
+		#about img {
+			max-width: 100%;
+		}
+
+
+/* volunteer pics */
 #vol-pics {
-	padding: 200px 0 100px 0;
+	padding: 150px 0;
+	background: #212d33;
 }
+
+	#vol-pics h2 {
+		margin-bottom: 20px;
+		color: #fff;
+		font-family: 'Oswald', sans-serif;
+		text-align: center;
+	}
+
+	.vol-pics-p {
+		margin-bottom: 100px;
+		color: #fff;
+		text-align: center;
+	}
 
 	#vol-pics .row {
 		margin-bottom: 30px;
@@ -30,32 +55,75 @@
 
 		#vol-pics img {
 			max-width: 100%;
-			box-shadow: 1px 1px 15px #ccc;
+			box-shadow: 1px 1px 15px #0e1518;
 		}
 
 		.vol-pics-content {
 			position: absolute;
 			bottom: 0;
+			padding: 10px;
 			text-align: center;
-			background: rgba(255,255,255, .85);
+			background: rgba(255,255,255, .9);
 		}
 
+
+/* website-backend */
 #website-backend {
-	padding: 100px 0;
+	padding: 150px 0 100px 0;
 	text-align: center;
 }
+
+	#website-backend h2 {
+		margin-bottom: 100px;
+		color: #96deea;
+		font-family: 'Oswald', sans-serif;
+		text-align: center;
+	}
 
 	#website-backend span {
 		color: #96deea;
 		font-size: 3em;
 	}
 
+	#website-backend .row {
+		margin-bottom: 100px;
+	}
+
+	#website-backend img {
+		max-width: 100%;
+		box-shadow: 1px 1px 15px #999;
+	}
+
+
+/* friends */
+#friends {
+	padding: 0 0 150px 0;
+}
+
+	#friends h2 {
+		margin-bottom: 100px;
+		color: #96deea;
+		font-family: 'Oswald', sans-serif;
+		text-align: center;
+	}
+
+		#friends img {
+			width: 50%;
+			margin: 0 0 50px 25%;
+			text-align: center;
+		}
+
+		#friends h3 {
+			font-family: 'Oswald', sans-serif;
+		}
+
 
 @media (min-width: 768px) {
 
-	#about p {
+	.vol-pics-p {
 		width: 50%;
-		margin: 50px auto;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 }

@@ -1,28 +1,21 @@
 /*Main Footer*/
 .main-footer {
-	padding: 2em 0 0 0;
-}
-
-.main-footer {
-	background-color: #96deea;
-	height:110px;
+	padding: 20px 0 20px 0;
+	background-color: #212d33;
 }
 	
-	#logo {
-		float:right;
-	}
+
 	.main-footer img {
 		width: 125px;
-		margin: 20px 5px 0 0;
-		float: right;
+		margin: -6px 5px 0 -5px;
+		float: left;
 		-webkit-filter: grayscale(100%);
 		filter: grayscale(100%);
 	}
 
 	.main-footer p {
-		padding-top:25% !important;
-		color:#929495;
-		margin:0 10px 0 0;
+		color: #D6D6D6;
+		margin: 57px 0 0 0;
 	}
 
 	#team {
@@ -32,12 +25,13 @@
 	#team h4 {
 		margin-top: 30px;
 		margin-left: 10px;
-		color:#929495;
+		color:#D6D6D6;
 	}
 
 	#team p {
 		display:inline;
-		color:#929495;
+		padding-right: 10px;
+		color:#D6D6D6;
 		cursor:pointer;
 	}
 
