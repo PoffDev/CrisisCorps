@@ -87,17 +87,21 @@ img.nav-brand-symbol {
 
 /* home */
 #about {
-  padding: 200px 0;
+  padding: 100px 0;
   color: #fff;
   text-align: center;
   background-image: url(/images/vigil.jpg);
   background-size: cover; }
 
+.about-content {
+  padding: 50px 0;
+  background: rgba(0, 0, 0, 0.5); }
+
 #about h2 {
   font-family: 'Roboto Condensed', sans-serif; }
 
 #vol-pics {
-  padding: 50px 0; }
+  padding: 200px 0 100px 0; }
 
 #vol-pics .row {
   margin-bottom: 30px; }
@@ -114,6 +118,14 @@ img.nav-brand-symbol {
   bottom: 0;
   text-align: center;
   background: rgba(255, 255, 255, 0.85); }
+
+#website-backend {
+  padding: 100px 0;
+  text-align: center; }
+
+#website-backend span {
+  color: #96deea;
+  font-size: 3em; }
 
 @media (min-width: 768px) {
   #about p {
