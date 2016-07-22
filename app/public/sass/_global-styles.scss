@@ -6,3 +6,13 @@ body {
 p {
 	line-height: 1.7em;
 }
+
+.btn-custom {
+	color: #fff;
+	background: #FF6347;
+}
+
+.btn-custom:hover, .btn-custom:focus {
+	color: #fff;
+	background: #E84B2E;
+}

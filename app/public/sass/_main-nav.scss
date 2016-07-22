@@ -1,4 +1,8 @@
 /* nav */
+.navbar {
+	background: rgba(255,255,255, .9);
+}
+
 img.nav-brand-symbol {
 	width: 50%;
 	margin-top: -5px;
@@ -8,6 +12,15 @@ img.nav-brand-symbol {
 	background: #212d33;
 }
 
+.navbar-nav > li > a  {
+	color: #43929C;
+}
+
+.navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
+	background: #f8f8f8;
+}
+
+/* media queries */
 @media (min-width: 768px) {
 
 	.navbar-nav>li>a {
