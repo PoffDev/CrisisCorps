@@ -120,7 +120,7 @@ function volCanvas() {
 } // volCanvas()
 
 // we need to pass the total_vol_positions from get method, so that is where this function call should go
-volCanvas();
+// volCanvas(); this is being called on the dashboard.handlebars file so no chiidNodes errors appear in the console
 
 
 function totalVolsTasks(committed, totals, el) {
@@ -157,4 +157,4 @@ function getCommittedUncommitted() {
 
 } // end getCommittedUncommitted()
 
-getCommittedUncommitted();
+// getCommittedUncommitted(); this is being called on the dashboard.handlebars file so no chiidNodes errors appear in the console
