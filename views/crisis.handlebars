@@ -50,7 +50,7 @@
 						<!-- Form Document -->
 						<form>
 							<div class="form-group">
-						    	<label for="createTask">Content</label>
+						    	<label for="text-description">Content</label>
 						    	<textarea class="form-control" id="text-description" placeholder="content to text"></textarea>
 							</div>
 							<!-- Submit -->
@@ -321,6 +321,21 @@ $('#SubmitTask').on('click', function () {
 	//push those values to database
 	$.post('/newTask', newTask, function() {
 		console.log(newTask);
+	})
+	//refresh data base information. 
+
+});
+
+$('#text-blast').on('click', function () {
+	console.log('works')
+	//pull values from form input
+	var textMembers = {
+		body: $('#text-description').val().trim(),
+	}
+	console.log(textMembers);
+	//push those values to database
+	$.post('/textMembers', textMembers, function() {
+		console.log(textMembers);
 	})
 	//refresh data base information. 
 
