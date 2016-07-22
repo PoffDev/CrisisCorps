@@ -318,6 +318,7 @@ $('#SubmitTask').on('click', function () {
 		taskState: $('#state').val().trim(),
 		taskZip: $('#zip').val().trim()
 	}
+	console.log(newTask);
 	//push those values to database
 	$.post('/newTask', newTask, function() {
 		console.log(newTask);
@@ -346,11 +347,10 @@ $('#bt-text-blast').on('click', function () {
 	//pull values from form input
 	var textMembers = {
 		body: $('#bt-text-description').val().trim(),
-		bloodType: $('#blood-type').find(':selected').text();
+		bloodType: $('#blood-type').find(':selected').text()
 	}
-	console.log(textMembers);
 	//push those values to database
-	$.post('/textMembers', textMembers, function() {
+	$.post('/textMembersBlood', textMembers, function() {
 		console.log(textMembers);
 	})
 	//refresh data base information. 

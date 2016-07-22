@@ -60,6 +60,7 @@ var orm = {
 
             connection.query(queryString, vals, function(err, result) {
                 if (err) throw err;
+                console.log(err);
                 console.log(result);
             });
         },
@@ -203,14 +204,14 @@ var orm = {
     },
 
     getNumbersBlood: function(bloodType, callback) {
-    
+        console.log(bloodType);
         // build the mysql query string
         var queryString = 'SELECT users.userID, members.contactNum ';
         queryString += 'FROM users ';
         queryString += 'LEFT JOIN members ';
-        queryString += 'ON users.userID = members.userID WHERE members.bloodType = ' + bloodType + ' AND users.userType = 4 '
+        queryString += 'ON users.userID = members.userID WHERE members.bloodType = ' + "'" + bloodType + "'" + ' AND users.userType = 4 '
         queryString += 'ORDER By users.userID;';
-
+        console.log(queryString);
         this.connectionQuery(queryString, function(result){
             callback(result);
         });
