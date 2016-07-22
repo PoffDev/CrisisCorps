@@ -29,10 +29,20 @@ module.exports = function(app){
 
 
 	app.post('/newUser', function (req, res){
-		orm.Users(req.body.userName, req.body.emailAddress, req.body.password, req.body.userType);
-		res.send(function() {
+		orm.Users(req.body.userName, req.body.emailAddress, req.body.password, req.body.userType, function(success, userId){
+			console.log('here', success)
+			if (req.body.userType =2) {
+				orm.members(userId);
+			} else if (req.body.userType =3) {
+				orm.corporateMembers(userId)
+			} else {
+				throw err;
+			}
+			res.send(function() {
+			// orm.member()
 			console.log(req.body);
 			alert("User added successfully!");
+		});
 		});
 	});
 

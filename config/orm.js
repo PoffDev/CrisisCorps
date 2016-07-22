@@ -77,7 +77,9 @@ var orm = {
             });
         },
 
-    updateUsers: function(userName, emailAddress, password, userID) {
+        //Profile update forms
+
+    updateUsers: function(userName, emailAddress, password, userID, userType) {
         var queryString = 'UPDATE users SET userName = ?, emailAddress = ?, password = ?,  WHERE id = ?'[userName, emailAddress, password];
         connection.query(queryString, vals, function(err, result) {
             if (err) return callback(false, err);
@@ -98,7 +100,7 @@ var orm = {
         });
     },
   
-    updateCorporate: function(companyName, contactNum, donationDesc, userId){ 
+    updateCorporate: function(companyName, contactNum, donationDesc, userId, userType){ 
         var queryString = ' UPDATE corporateMembers SET companyName = ?, contactNum = ?, donationDesc = ?, WHERE id = ?,' [companyName, contactNum, donationDesc, userId];
         connection.query(queryString, vals, function(err, result) {
             if (err) throw err;
