@@ -333,6 +333,8 @@ $('#create-crisis').on('click', function () {
 		crisisName: $('#input-crisis-name').val().trim(),
 		crisisDesc: $('#input-crisis-desc').val().trim()		
 	}
+	$('#crisis-well').css('display','block');
+	
 	console.log(newCrisis);
 	//push those values to database
 	$.post('/newCrisis', newCrisis, function() {
@@ -340,6 +342,11 @@ $('#create-crisis').on('click', function () {
 	})
 	//refresh data base information. 
 
+});
+
+$('#deactivate-crisis').on('click', function () {
+	//pull values from form input
+	$('#crisis-well').css("display","none");
 });
 
 $('#text-blast').on('click', function () {

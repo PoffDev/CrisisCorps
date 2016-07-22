@@ -46,14 +46,17 @@ module.exports = function (app){
 
 
 	app.get('/', function(req, res){
-		res.render('home', {
-			title: 'Home',
-			link: 'home',
-			welcomeText: "Sign In",
-			actionBtn: 'Sign Up',
-			message: req.flash('error')[0],
-			otherAction: "Sign In"
+		orm.getCrisisDetails(function(crisis_details) {
+			res.render('home', {
+				title: 'Home',
+				link: 'home',
+				welcomeText: "Sign In",
+				actionBtn: 'Sign Up',
+				message: req.flash('error')[0],
+				otherAction: "Sign In",
+				crisis: crisis_details
 			});
+		});
 	});
 
 	app.get('/home', function(req, res){
@@ -63,6 +66,7 @@ module.exports = function (app){
 				link: 'home',
 				crisis: crisis_details
 			});
+			console.log(crisis_details);
 		});
 	});
 
