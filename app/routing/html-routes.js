@@ -137,7 +137,7 @@ module.exports = function (app){
 
 		orm.memberProfile(user_id, function(memb) {
 			orm.corpProfile(user_id, function(corp) {
-				orm.specificTask(user_id, function(task) {
+				orm.memberTask(user_id, function(task) {
 					if (req.isAuthenticated()){
 
 						console.log('dynamic profile working, userID = ' + user_id)

@@ -234,6 +234,18 @@ var orm = {
 
     },
 
+    memberTask: function(user_id, callback) {
+
+        var queryString = 'SELECT taskId, taskTitle, taskDescript, volsRemaining, contactName, availabletasks.contactNum, taskAddress, taskAddress2, taskCity, taskState, taskZip ';
+            queryString += 'FROM availabletasks ';
+            queryString += 'LEFT JOIN members ';
+            queryString += 'ON members.userID = ' + user_id + ' ';
+            queryString += 'WHERE availableTasks.taskID = members.activeTasks; ';
+
+        this.connectionQuery(queryString, callback);
+
+    },
+
     memberProfile: function(user_id, callback) {
         
         var queryString = 'SELECT users.userType, users.userName, users.emailAddress, members.contactNum, members.bloodType ';
