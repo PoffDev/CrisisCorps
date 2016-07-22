@@ -5,7 +5,7 @@
 
 	<!-- create task module -->
 	<div class="conatiner">
-		<div class="row">
+		<div class="row memb-profile">
 
 			<div class="col-md-6">
 
@@ -52,6 +52,30 @@
 					    	</div>
 					    </div>
 					</form>
+				</div> <!-- end module -->
+
+				<!-- task for specific user -->
+				<div class="module-header">
+					<h5>Task I have Volunteered for</h5>
+				</div>
+				<div class='module'>
+					<div class="list-group">
+						<h3 class="task-title">{{task.[0].taskTitle}}</h3>
+						<h5>Volunteers Needed: {{task.[0].volsRemaining}}</h5>
+				    	<p>{{task.[0].taskDescript}}</p>
+				    	<p>{{task.[0].contactName}}</p>
+				    	<p>{{task.[0].contactNum}}</p>
+				    	<address>
+				    		{{task.[0].taskAddress}}
+				    		<br />
+				    		{{#if task.[0].taskAddress2}}
+				    			{{task.[0].taskAddress2}}
+				    			<br />
+				    		{{/if}}
+				    		{{task.[0].taskCity}}, {{task.[0].taskState}} {{task.[0].taskZip}}
+				    	</address>
+				    	<a href="#" class="btn btn-primary" id="vol-for-task" data-task="{{task.[0].taskId}}" data-let="{{userID}}" data-toggle="modal" data-target="#myModal">Task Complete</a>
+					</div>
 				</div> <!-- end module -->
 
 			</div> <!-- end col-md-6 -->

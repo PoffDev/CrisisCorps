@@ -317,6 +317,9 @@ ol.breadcrumb {
 .module-footer {
   padding: 0 0 20px 0; }
 
+.memb-profile .module {
+  margin-bottom: 20px; }
+
 /* media queries */
 /* iPads (landscape) ----------- */
 @media only screen and (min-width: 1024px) {
