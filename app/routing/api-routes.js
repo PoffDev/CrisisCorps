@@ -36,6 +36,14 @@ module.exports = function(app){
 		});
 	});
 
+	app.post('/newCrisis', function (req, res){
+		orm.ActiveCrisis(req.body.crisisName, req.body.crisisDesc);
+		res.send(function() {
+			console.log(req.body);
+			alert("Crisis created successfully!");
+		});
+	});
+
 	app.post('/newCorpMember', function (req, res){
 		orm.corporateMember(req.body.companyName, req.body.contactNum, req.body.donationDesc);
 		res.send(function() {

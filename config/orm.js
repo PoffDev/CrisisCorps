@@ -64,6 +64,18 @@ var orm = {
                 console.log(result);
             });
         },
+    
+    ActiveCrisis: function(crisisName, crisisDesc){ 
+    var queryString = 'INSERT INTO ActiveCrisis (crisisName, crisisDesc) VALUES (?, ?)';
+    var vals = [crisisName, crisisDesc];
+
+            connection.query(queryString, vals, function(err, result) {
+                if (err) throw err;
+                console.log(err);
+                console.log(result);
+            });
+        },
+    
 
 
 /*********************************************************************************************

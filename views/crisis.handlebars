@@ -20,16 +20,16 @@
 						<!-- Inputs -->
 						  <!-- Crisis Name -->
 						  <div class="form-group">
-						    <label for="inputCrisisName">Crisis Name</label>
+						    <label for="input-crisis-name">Crisis Name</label>
 						    <input type="text" class="form-control" id="input-crisis-name">
 						  </div>
 						  <!-- Crisis Description -->
 						  <div class="form-group">
-						    <label for="inputDescription">Crisis Description</label>
-						    <textarea class="form-control" rows="3" id="input-description"></textarea>
+						    <label for="input-crisis-desc">Crisis Description</label>
+						    <textarea class="form-control" rows="3" id="input-crisis-desc"></textarea>
 						  </div>
 						  <!-- Submit -->
-						  <a href="#" class="btn btn-danger" id="create-crisis" data-toggle="modal" data-target="#createCrisisModal">Creaate Crisis</a>
+						  <a href="#" class="btn btn-danger" id="create-crisis" data-toggle="modal" data-target="#createCrisisModal">Create Crisis</a>
 						</form>
 						<!-- Form Document End -->
 					</div> <!-- end module -->
@@ -322,6 +322,21 @@ $('#SubmitTask').on('click', function () {
 	//push those values to database
 	$.post('/newTask', newTask, function() {
 		console.log(newTask);
+	})
+	//refresh data base information. 
+
+});
+
+$('#create-crisis').on('click', function () {
+	//pull values from form input
+	var newCrisis = {
+		crisisName: $('#input-crisis-name').val().trim(),
+		crisisDesc: $('#input-crisis-desc').val().trim()		
+	}
+	console.log(newCrisis);
+	//push those values to database
+	$.post('/newCrisis', newCrisis, function() {
+		console.log(newCrisis);
 	})
 	//refresh data base information. 
 
