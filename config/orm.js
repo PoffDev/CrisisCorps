@@ -16,15 +16,16 @@ module.exports.connectToDB = connectToDB;
   
 var orm = {
     //form data entry queries
-    Users: function(userName, emailAddress, password, userType) {
+    Users: function(userName, emailAddress, password, userType, callback) {
         var queryString = 'INSERT INTO users (userName, emailAddress, password, userType) VALUES (?, ?, ?, ?)';
         var vals = [userName, emailAddress, password, userType];
-         connection.query(queryString, vals, function(err, result) {
-                if (err) return callback(false, err);
-                callback(true. null);
+        connection.query(queryString, vals, function(err, result) {
+            if (err) return callback(false, err);
+                console.log(result.insertId);
+                callback(true, result.insertId);
                 console.log(result);
             });
-        },
+          },
 
     findUser: function (userName, callback){
         console.log('find user function, username is: ' + userName)
