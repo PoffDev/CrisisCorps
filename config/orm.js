@@ -67,8 +67,8 @@ var orm = {
         },
     
     ActiveCrisis: function(crisisName, crisisDesc){ 
-    var queryString = 'INSERT INTO ActiveCrisis (crisisName, crisisDesc) VALUES (?, ?)';
-    var vals = [crisisName, crisisDesc];
+        var queryString = 'INSERT INTO ActiveCrisis (crisisName, crisisDesc) VALUES (?, ?)';
+        var vals = [crisisName, crisisDesc];
 
             connection.query(queryString, vals, function(err, result) {
                 if (err) throw err;
@@ -76,6 +76,35 @@ var orm = {
                 console.log(result);
             });
         },
+
+    updateUsers: function(userName, emailAddress, password, userID) {
+        var queryString = 'UPDATE users SET userName = ?, emailAddress = ?, password = ?,  WHERE id = ?'[userName, emailAddress, password];
+        connection.query(queryString, vals, function(err, result) {
+            if (err) return callback(false, err);
+                console.log(result);
+                if (userType == 2){ 
+                updateMembers();
+                } else{
+                updateCorporate();
+                }
+            });
+        },
+  
+    updateMembers: function(userId, contactNum, bloodType) {
+        var queryString = 'UPDATE users SET contactNumber = ?, bloodType = ?, WHERE id = ?' [contactNumber, bloodType, userId];
+        connection.query(queryString, vals, function(err, result){
+            if(err) throw err;
+            console.log(result);
+        });
+    },
+  
+    updateCorporate: function(companyName, contactNum, donationDesc, userId){ 
+        var queryString = ' UPDATE corporateMembers SET companyName = ?, contactNum = ?, donationDesc = ?, WHERE id = ?,' [companyName, contactNum, donationDesc, userId];
+        connection.query(queryString, vals, function(err, result) {
+            if (err) throw err;
+            console.log(result);
+        });
+    },
     
 
 

@@ -57,7 +57,7 @@
 			</div> <!-- end col-md-6 -->
 
 
-<!-- ****************** this is where the new column starts ********************* -->
+<!-- ****************** this is where the new column starts **	******************* -->
 
 
 			<div class="col-md-6">
@@ -149,5 +149,22 @@
 
 <script type="text/javascript">
 
+	$('#update-profile').on('click', function () {
+	//pull values from form input
+	var updateMember = {
+		userName: $('#memberName').val().trim(),
+		password: $('#inputPassword').val().trim(),
+		contactNum: $('#contact-number').val().trim(),
+		bloodType: $('#blood-type').val().trim(),
+		userID: req.user.userID
+	}
+	console.log(updateMember);
+	//push those values to database
+	$.post('/updateMember', updateMember, function() {
+		console.log(updateMember);
+	})
+	//refresh data base information. 
+
+});
 
 </script>
