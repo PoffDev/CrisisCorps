@@ -21,6 +21,7 @@ var orm = {
         var vals = [userName, emailAddress, password, userType];
         connection.query(queryString, vals, function(err, result) {
             if (err) return callback(false, err);
+                console.log(err);
                 console.log(result.insertId);
                 callback(true, result.insertId);
                 console.log(result);
@@ -82,7 +83,7 @@ var orm = {
 
     updateUsers: function(userName, emailAddress, password, userId) {
         var queryString = 'UPDATE users SET userName = ?, emailAddress = ?, password = ?,  WHERE id = ?'[userName, emailAddress, password, userId];
-        connection.query(queryString, vals, function(err, result) {
+        connection.query(queryString, function(err, result) {
            if(err) throw err;
             console.log(result);
         });
@@ -90,7 +91,7 @@ var orm = {
   
     updateMembers: function(contactNum, bloodType, userId) {
         var queryString = 'UPDATE members SET contactNum = ?, bloodType = ?, WHERE id = ?' [contactNumber, bloodType, userId];
-        connection.query(queryString, vals, function(err, result){
+        connection.query(queryString, function(err, result){
             if(err) throw err;
             console.log(result);
         });
@@ -98,7 +99,7 @@ var orm = {
   
     updateCorporate: function(companyName, contactNum, donationDesc, userId){ 
         var queryString = ' UPDATE corporateMembers SET companyName = ?, contactNum = ?, donationDesc = ?, WHERE id = ?,' [companyName, contactNum, donationDesc, userId];
-        connection.query(queryString, vals, function(err, result) {
+        connection.query(queryString, function(err, result) {
             if (err) throw err;
             console.log(result);
         });

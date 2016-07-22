@@ -157,7 +157,7 @@
 		password: $('#inputPassword').val().trim(),
 		contactNum: $('#contactNumber').val().trim(),
 		bloodType: $('#blood-type').val().trim(),
-		userId: req.user.userID
+		userId: {{userID}}
 	}
 	console.log(updateMember);
 	//push those values to database
