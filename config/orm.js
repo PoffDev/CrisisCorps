@@ -75,6 +75,34 @@ var orm = {
                 console.log(result);
             });
         },
+
+
+    // volunteer for task
+    volunteerForTask: function(taskId, volId) {
+        
+        var queryString = 'UPDATE availableTasks ';
+        queryString += 'SET volsRemaining = volsRemaining - 1 ';
+        queryString += 'WHERE taskID = ' + taskId + ';';
+
+        connection.query(queryString, function(err, result) {
+            if (err) throw err;
+            console.log(result);
+        });
+
+        var queryString2 = 'UPDATE members ';
+        queryString2 += 'SET activeTasks = ? ';
+        queryString2 += 'WHERE userID = ?;';
+
+        taskId = taskId.toString();
+
+        var vals = [taskId, volId];
+
+        connection.query(queryString2, vals, function(err, result) {
+            if (err) throw err;
+            console.log(result);
+        });
+
+    },
     
 
 

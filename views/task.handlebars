@@ -27,7 +27,7 @@
 				    		{{/if}}
 				    		{{task.[0].taskCity}}, {{task.[0].taskState}} {{task.[0].taskZip}}
 				    	</address>
-				    	<a href="#" class="btn btn-primary" id="vol-for-task" data-toggle="modal" data-target="#myModal">I Will Volunteer</a>
+				    	<a href="#" class="btn btn-primary" id="vol-for-task" data-task="{{task.[0].taskId}}" data-let="{{userID}}" data-toggle="modal" data-target="#myModal">I Will Volunteer</a>
 					</div>
 				</div> <!-- end module -->
 			</div> <!-- end col-md-6 -->

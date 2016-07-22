@@ -74,4 +74,14 @@ module.exports = function(app){
 			}
 		});
 	});
+
+	app.post('/volForTask', function(req, res) {
+		// var taskid = req.body.taskId;
+		// var volid = req.body.volId;
+		orm.volunteerForTask(req.body.taskId, req.body.volId);
+		// console.log('task id: ' + taskid + ' / vol id: ' + volid);
+		res.send(function() {
+			alert("Remaining vols for task and task added to user successfully!");
+		});
+	});
 }
