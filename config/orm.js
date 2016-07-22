@@ -160,7 +160,7 @@ var orm = {
     dashboardTasksList: function(callback) {
         
         // build the mysql query string
-        var queryString = 'SELECT taskTitle, taskDescript, volsRemaining ';
+        var queryString = 'SELECT taskId, taskTitle, taskDescript, volsRemaining ';
         queryString += 'FROM availableTasks ';
         queryString += 'ORDER BY volsRemaining DESC ';
         queryString += 'LIMIT 3;';
