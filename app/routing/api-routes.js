@@ -28,7 +28,7 @@ module.exports = function(app){
 	});
 
 
-	app.post('/newMember', function (req, res){
+	app.post('/newUser', function (req, res){
 		orm.Users(req.body.userName, req.body.emailAddress, req.body.password, req.body.userType);
 		res.send(function() {
 			console.log(req.body);
