@@ -48,9 +48,9 @@ module.exports = function(app){
 	});
 
 	app.post('/updateMember', function (req, res){
-		orm.updateUsers(req.body.userName, req.body.emailAddress, req.body.password, req.body.userID);
+		orm.updateUsers(req.body.userName, req.body.emailAddress, req.body.password, req.body.userId);
 		console.log("updateUsers fired")
-		orm.updateMembers(req.body.userID, req.body.contactNum, req.body.bloodType);
+		orm.updateMembers(req.body.userId, req.body.contactNum, req.body.bloodType);
 			console.log("updateMembers fired");
 		res.send(function() {
 			console.log(req.body);
