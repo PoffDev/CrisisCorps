@@ -28,13 +28,36 @@ module.exports = function(app){
 	});
 
 
-	app.post('/newMember', function (req, res){
-		orm.Users(req.body.userName, req.body.emailAddress, req.body.password, req.body.userType);
-		res.send(function() {
+	app.post('/newUser', function (req, res){
+		orm.Users(req.body.userName, req.body.emailAddress, req.body.password, req.body.userType, function(success, userId){
+			console.log('here', success)
+			if (req.body.userType == 2) {
+				console.log("ID to be inserted " + userId);
+				orm.members(userId, req.body.contactNum, req.body.bloodType);
+			} else if (req.body.userType == 3) {
+				orm.corporateMembers(userId, req.body.companyName, req.body.contactNum, req.body.donationDesc);
+			} else {
+				throw err;
+			}
+			res.send(function() {
+			// orm.member()
 			console.log(req.body);
 			alert("User added successfully!");
 		});
+		});
 	});
+
+	app.post('/updateMember', function (req, res){
+		orm.updateUsers(req.body.userName, req.body.emailAddress, req.body.password, req.body.userID);
+		console.log("updateUsers fired")
+		orm.updateMembers(req.body.userID, req.body.contactNum, req.body.bloodType);
+			console.log("updateMembers fired");
+		res.send(function() {
+			console.log(req.body);
+			alert("Profile updated successfully!");
+		});
+	});
+
 
 	app.post('/newCrisis', function (req, res){
 		orm.ActiveCrisis(req.body.crisisName, req.body.crisisDesc);

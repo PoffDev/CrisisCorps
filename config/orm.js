@@ -16,15 +16,17 @@ module.exports.connectToDB = connectToDB;
   
 var orm = {
     //form data entry queries
-    Users: function(userName, emailAddress, password, userType) {
+    Users: function(userName, emailAddress, password, userType, callback) {
         var queryString = 'INSERT INTO users (userName, emailAddress, password, userType) VALUES (?, ?, ?, ?)';
         var vals = [userName, emailAddress, password, userType];
-         connection.query(queryString, vals, function(err, result) {
-                if (err) return callback(false, err);
-                callback(true. null);
+        connection.query(queryString, vals, function(err, result) {
+            if (err) return callback(false, err);
+                console.log(err);
+                console.log(result.insertId);
+                callback(true, result.insertId);
                 console.log(result);
             });
-        },
+          },
 
     findUser: function (userName, callback){
         console.log('find user function, username is: ' + userName)
@@ -33,18 +35,19 @@ var orm = {
         })
      },
 
-    members: function(userId, contactNumber, bloodType) {
-        var queryString = 'INSERT INTO users (userId, contactNumber, bloodType) VALUES(?, ?, ?)';
-        var vals = [userId, bloodType];
+    members: function(userId, contactNum, bloodType) {
+        var queryString = 'INSERT INTO members (userId, contactNum, bloodType) VALUES(?, ?, ?)';
+        var vals = [userId, contactNum, bloodType];
         connection.query(queryString, vals, function(err, result){
             if(err) throw err;
+            console.log(err);
             console.log(result);
         });
     },
 
-    corporateMembers: function(companyName, contactNum, donationDesc){ 
-    var queryString = 'INSERT INTO corporateMembers (companyName, contactNum, donationDesc) VALUES (?, ?, ?)';
-    var vals = [companyName, contactNum, donationDesc];
+    corporateMembers: function(userId, companyName, contactNum, donationDesc){ 
+    var queryString = 'INSERT INTO corporateMembers (userId, companyName, contactNum, donationDesc) VALUES (?, ?, ?, ?)';
+    var vals = [userId, companyName, contactNum, donationDesc];
 
          connection.query(queryString, vals, function(err, result) {
                 if (err) throw err;
@@ -66,8 +69,8 @@ var orm = {
         },
     
     ActiveCrisis: function(crisisName, crisisDesc){ 
-    var queryString = 'INSERT INTO ActiveCrisis (crisisName, crisisDesc) VALUES (?, ?)';
-    var vals = [crisisName, crisisDesc];
+        var queryString = 'INSERT INTO ActiveCrisis (crisisName, crisisDesc) VALUES (?, ?)';
+        var vals = [crisisName, crisisDesc];
 
             connection.query(queryString, vals, function(err, result) {
                 if (err) throw err;
@@ -75,7 +78,6 @@ var orm = {
                 console.log(result);
             });
         },
-
 
     // volunteer for task
     volunteerForTask: function(taskId, volId) {
@@ -118,6 +120,32 @@ var orm = {
             console.log(result);
         });
 
+    },
+
+        //Profile update forms
+
+    updateUsers: function(userName, emailAddress, password, userId) {
+        var queryString = 'UPDATE users SET userName = ?, emailAddress = ?, password = ?,  WHERE id = ?'[userName, emailAddress, password, userId];
+        connection.query(queryString, function(err, result) {
+           if(err) throw err;
+            console.log(result);
+        });
+    },
+  
+    updateMembers: function(contactNum, bloodType, userId) {
+        var queryString = 'UPDATE members SET contactNum = ?, bloodType = ?, WHERE id = ?' [contactNumber, bloodType, userId];
+        connection.query(queryString, function(err, result){
+            if(err) throw err;
+            console.log(result);
+        });
+    },
+  
+    updateCorporate: function(companyName, contactNum, donationDesc, userId){ 
+        var queryString = ' UPDATE corporateMembers SET companyName = ?, contactNum = ?, donationDesc = ?, WHERE id = ?,' [companyName, contactNum, donationDesc, userId];
+        connection.query(queryString, function(err, result) {
+            if (err) throw err;
+            console.log(result);
+        });
     },
     
 
