@@ -77,7 +77,7 @@
 								<br />
 							</div>
 							<div class="form-group">
-							    <label for="inputDescription">Blood Type Text Description</label>
+							    <label for="bt-text-description">Blood Type Text Description</label>
 							    <textarea class="form-control" rows="3" id="bt-text-description"></textarea>
 							</div>
 							<!-- Submit -->
@@ -331,6 +331,22 @@ $('#text-blast').on('click', function () {
 	//pull values from form input
 	var textMembers = {
 		body: $('#text-description').val().trim(),
+	}
+	console.log(textMembers);
+	//push those values to database
+	$.post('/textMembers', textMembers, function() {
+		console.log(textMembers);
+	})
+	//refresh data base information. 
+
+});
+
+$('#bt-text-blast').on('click', function () {
+	console.log('works')
+	//pull values from form input
+	var textMembers = {
+		body: $('#bt-text-description').val().trim(),
+		bloodType: $('#blood-type').find(':selected').text();
 	}
 	console.log(textMembers);
 	//push those values to database
