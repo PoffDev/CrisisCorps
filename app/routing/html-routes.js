@@ -50,9 +50,9 @@ module.exports = function (app){
 			title: 'Home',
 			link: 'home',
 			welcomeText: "Sign In",
-			actionBtn: 'signin',
+			actionBtn: 'Sign Up',
 			message: req.flash('error')[0],
-			otherAction: "Signup"
+			otherAction: "Sign In"
 			});
 	});
 
@@ -70,7 +70,8 @@ module.exports = function (app){
 		res.render('crisis', {
 			title: 'Crisis Manager',
 			link: 'crisis',
-			active_crisis: true
+			active_crisis: true,
+			userID: req.user.userID
 		});
 	});
 
@@ -81,13 +82,13 @@ module.exports = function (app){
 
 		});
 
-		console.log('sign in succesfull' + req.user);
+		// console.log('sign in succesfull ' + req.user.userName);
 	});
 
 	app.get('/signup', function(req, res){
 		res.render('signup', {
 			title: 'Sign Up',
-			link: 'signup',
+			link: 'signin',
 			welcomeText: "Sign Up",
 			actionBtn: 'signup',
 			otherAction: "signin"
@@ -100,7 +101,8 @@ module.exports = function (app){
 				title: 'Tasks',
 				link: 'tasks',
 				active_tasks: true,
-				tasks: all_tasks
+				tasks: all_tasks,
+				userID: req.user.userID
 			});
 		});
 	});
@@ -113,21 +115,23 @@ module.exports = function (app){
 				title: 'Task',
 				link: 'task',
 				active_tasks: true,
-				task: the_task
+				task: the_task,
+				userID: req.user.userID,
+				username: req.user.username
 			});
 		});
-		if (req.isAuthenticated()) {
-			res.render('/task/:task_id', {
-				username: req.user.username
-			})
-		} else {
-			res.redirect('/signin')
-		}
+		// if (req.isAuthenticated()) {
+		// 	res.render('/task/:task_id', {
+		// 		username: req.user.username
+		// 	})
+		// } else {
+		// 	res.redirect('/signin')
+		// }
 	});
 	///:user_id
-	app.get('/profile', function(req, res){
+	app.get('/profile/:user_id', function(req, res){
 
-		console.log('clicked on profile link');
+		console.log('clicked on profile link' );
 
 		var user_id = parseInt(req.user.userID);
 
@@ -138,15 +142,15 @@ module.exports = function (app){
 
 					console.log('dynamic profile working, userID = ' + user_id)
 
-					res.render('profile'), {
+					res.render('profile', {
 					layout: 'subdir',
-					title: 'Profile',
-					link: 'profile' + user_id,
+					title: "Profile",
+					link: 'profile',
 					active_profile: true,
 					member: memb,
 					corporation: corp,
- 					userID: user_id,
- 					};
+ 					userID: req.user.userID,
+ 					});
 				}else{
 					console.log('fith place');
 					res.redirect('/signin')
@@ -175,6 +179,7 @@ module.exports = function (app){
 							orm.totalTasks(function(tot_tasks) {
 								orm.dashboardTasksList(function(tasks_three) {
 									if (req.isAuthenticated()) {
+										console.log(req.user.userID);
 									res.render('dashboard', {
 										username: req.user.userName,
 										title: 'Dashboard',
@@ -187,7 +192,7 @@ module.exports = function (app){
 										completed_tasks: comp_tasks,
 										total_tasks: tot_tasks,
 										db_tasks: tasks_three,
-										userID: user_id
+										userID: req.user.userID
 									});
 								};
 							});
@@ -208,6 +213,7 @@ module.exports = function (app){
 				link: 'corp', // link to pass to breadcrumbs
 				active_crisis: true, // active class to display on admin nav
 				corp_list: all_corps, // mysql data to pass to handlebars page
+				userID: req.user.userID
 			});
 			if (req.isAuthenticated()) {
 			res.render('/corp', {
@@ -217,6 +223,11 @@ module.exports = function (app){
 				res.redirect('/signin')
 			}
 		});
+	});
+
+	app.get('/logout', function(req, res){
+	  req.logout();
+	  res.redirect('/');
 	});
 
 

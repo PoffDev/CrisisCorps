@@ -19,15 +19,15 @@ var app = express();
 var PORT = process.env.PORT || 8000;
 // var orm = require('./config/orm.js');
 
+// access to the public folder
+app.use(express.static('app/public'));
+
 // BodyParser
 // allows our server to interpret data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type: 'application/vnd.api+json'}));
-
-// access to the public folder
-app.use(express.static('app/public'));
 
 //session is used to keep the user logged in 
 app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }, resave: true, saveUninitialized: true}))
@@ -49,16 +49,6 @@ app.set('view engine', 'handlebars');
 
 //check these if they do not work..
 //orm.connectToDB();g
-
-
-// BodyParser
-// BodyParser makes it easy for our server to interpret data sent to it.
-// The code below is pretty standard.
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.text());
-app.use(bodyParser.json({type:'application/vnd.api+json'}));
-
 
 // ================================================================================
 // ROUTER
