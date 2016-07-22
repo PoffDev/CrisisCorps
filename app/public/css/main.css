@@ -5,6 +5,14 @@ body {
 p {
   line-height: 1.7em; }
 
+.btn-custom {
+  color: #fff;
+  background: #FF6347; }
+
+.btn-custom:hover, .btn-custom:focus {
+  color: #fff;
+  background: #E84B2E; }
+
 /* jumbotron */
 .crisis {
   display: none; }
@@ -21,6 +29,7 @@ p {
 	}
 */
 .jumbotron {
+  margin-top: 60px;
   padding: 50px 50px 200px 50px; }
 
 .jumbotron h2 {
@@ -76,6 +85,9 @@ p {
     font-size: 1.1em; } }
 
 /* nav */
+.navbar {
+  background: rgba(255, 255, 255, 0.9); }
+
 img.nav-brand-symbol {
   width: 50%;
   margin-top: -5px; }
@@ -83,6 +95,13 @@ img.nav-brand-symbol {
 .icon-bar {
   background: #212d33; }
 
+.navbar-nav > li > a {
+  color: #43929C; }
+
+.navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
+  background: #f8f8f8; }
+
+/* media queries */
 @media (min-width: 768px) {
   .navbar-nav > li > a {
     padding-top: 25px;
@@ -169,7 +188,7 @@ img.nav-brand-symbol {
 
 /* friends */
 #friends {
-  padding: 0 0 150px 0; }
+  padding: 150px 0 150px 0; }
 
 #friends h2 {
   margin-bottom: 100px;
@@ -297,6 +316,9 @@ ol.breadcrumb {
 
 .module-footer {
   padding: 0 0 20px 0; }
+
+.memb-profile .module {
+  margin-bottom: 20px; }
 
 /* media queries */
 /* iPads (landscape) ----------- */

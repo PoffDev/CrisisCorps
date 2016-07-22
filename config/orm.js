@@ -75,6 +75,50 @@ var orm = {
                 console.log(result);
             });
         },
+
+
+    // volunteer for task
+    volunteerForTask: function(taskId, volId) {
+        
+        var queryString = 'UPDATE availableTasks ';
+        queryString += 'SET volsRemaining = volsRemaining - 1 ';
+        queryString += 'WHERE taskID = ' + taskId + ';';
+
+        connection.query(queryString, function(err, result) {
+            if (err) throw err;
+            console.log(result);
+        });
+
+        var queryString2 = 'UPDATE members ';
+        queryString2 += 'SET activeTasks = ? ';
+        queryString2 += 'WHERE userID = ?;';
+
+        taskId = taskId.toString();
+
+        var vals = [taskId, volId];
+
+        connection.query(queryString2, vals, function(err, result) {
+            if (err) throw err;
+            console.log(result);
+        });
+
+    },
+
+    // volunteer for task
+    membTaskUpate: function(taskId, volId) {
+
+        var queryString2 = 'UPDATE members ';
+        queryString2 += 'SET activeTasks = ? ';
+        queryString2 += 'WHERE userID = ?;';
+
+        var vals = [taskId, volId];
+
+        connection.query(queryString2, vals, function(err, result) {
+            if (err) throw err;
+            console.log(result);
+        });
+
+    },
     
 
 
@@ -160,7 +204,7 @@ var orm = {
     dashboardTasksList: function(callback) {
         
         // build the mysql query string
-        var queryString = 'SELECT taskTitle, taskDescript, volsRemaining ';
+        var queryString = 'SELECT taskId, taskTitle, taskDescript, volsRemaining ';
         queryString += 'FROM availableTasks ';
         queryString += 'ORDER BY volsRemaining DESC ';
         queryString += 'LIMIT 3;';
@@ -185,6 +229,18 @@ var orm = {
         var queryString = 'SELECT taskId, taskTitle, taskDescript, volsRemaining, contactName, contactNum, taskAddress, taskAddress2, taskCity, taskState, taskZip ';
         queryString += 'FROM availableTasks ';
         queryString += 'WHERE taskId = ' + task_id + ';';
+
+        this.connectionQuery(queryString, callback);
+
+    },
+
+    memberTask: function(user_id, callback) {
+
+        var queryString = 'SELECT taskId, taskTitle, taskDescript, volsRemaining, contactName, availabletasks.contactNum, taskAddress, taskAddress2, taskCity, taskState, taskZip ';
+            queryString += 'FROM availabletasks ';
+            queryString += 'LEFT JOIN members ';
+            queryString += 'ON members.userID = ' + user_id + ' ';
+            queryString += 'WHERE availableTasks.taskID = members.activeTasks; ';
 
         this.connectionQuery(queryString, callback);
 

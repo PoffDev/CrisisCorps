@@ -5,7 +5,7 @@
 
 	<!-- create task module -->
 	<div class="conatiner">
-		<div class="row">
+		<div class="row memb-profile">
 
 			<div class="col-md-6">
 
@@ -52,6 +52,30 @@
 					    	</div>
 					    </div>
 					</form>
+				</div> <!-- end module -->
+
+				<!-- task for specific user -->
+				<div class="module-header">
+					<h5>Task I have Volunteered for</h5>
+				</div>
+				<div class='module'>
+					<div class="list-group">
+						<h3 class="task-title">{{task.[0].taskTitle}}</h3>
+						<h5>Volunteers Needed: {{task.[0].volsRemaining}}</h5>
+				    	<p>{{task.[0].taskDescript}}</p>
+				    	<p>{{task.[0].contactName}}</p>
+				    	<p>{{task.[0].contactNum}}</p>
+				    	<address>
+				    		{{task.[0].taskAddress}}
+				    		<br />
+				    		{{#if task.[0].taskAddress2}}
+				    			{{task.[0].taskAddress2}}
+				    			<br />
+				    		{{/if}}
+				    		{{task.[0].taskCity}}, {{task.[0].taskState}} {{task.[0].taskZip}}
+				    	</address>
+				    	<a href="#" class="btn btn-primary" id="task-complete" data-task="0" data-let="{{userID}}" data-toggle="modal" data-target="#completedTaskModal">Mark Task Complete</a>
+					</div>
 				</div> <!-- end module -->
 
 			</div> <!-- end col-md-6 -->
@@ -104,11 +128,11 @@
 		</div> <!-- end row -->
 	</div> <!-- end container -->
 
-	{{>admin-footer}}
+	{{>subdir-admin-footer}}
 
 	<!-- ******************************** modals ********************************** -->
 
-	<!-- create crisis manager Modal -->
+	<!-- update profile Modal -->
 	<div class="modal fade" id="updateCorpModal" tabindex="-1" role="dialog" aria-labelledby="updateCorpModalLabel">
 	    <div class="modal-dialog">
 	    	<div class="modal-content">
@@ -126,7 +150,7 @@
 	  	</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
 
-	<!-- create crisis manager Modal -->
+	<!-- update corporation Modal -->
 	<div class="modal fade" id="updateProfileModal" tabindex="-1" role="dialog" aria-labelledby="updateProfileModalLabel">
 	    <div class="modal-dialog">
 	    	<div class="modal-content">
@@ -136,6 +160,24 @@
 	      		</div>
 	      		<div class="modal-body">
 	        		<p>Thanksf for keeping us up to date with your info.</p>
+	      		</div>
+	      		<div class="modal-footer">
+	        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      		</div>
+	    	</div><!-- /.modal-content -->
+	  	</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!-- completed task Modal -->
+	<div class="modal fade" id="completedTaskModal" tabindex="-1" role="dialog" aria-labelledby="completedTaskModalLabel">
+	    <div class="modal-dialog">
+	    	<div class="modal-content">
+	      		<div class="modal-header">
+	        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        		<h4 class="modal-title">Thanks for competing the task!</h4>
+	      		</div>
+	      		<div class="modal-body">
+	        		<p>Take a look at the active tasks list and sign up for another.</p>
 	      		</div>
 	      		<div class="modal-footer">
 	        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

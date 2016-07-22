@@ -1,13 +1,3 @@
-function goodbyeWeb() {
-	console.log("goodbye web");
-}
-
-goodbyeWeb();
-function helloWeb() {
-	console.log("hello web");
-}
-
-helloWeb();
 /* Home Scroll */
  // scroll script for nav links
 $("nav a[href^='#']").on('click', function(e) {

@@ -121,7 +121,7 @@
 
 						<div class="list-group">
 							{{#each db_tasks}}
-						  	<a href="#" class="list-group-item">
+						  	<a href="task/{{this.taskId}}" class="list-group-item">
 								<span class="badge">{{this.volsRemaining}}</span>
 						    	<h4 class="list-group-item-heading">{{this.taskTitle}}</h4>
 						    	<p class="list-group-item-text">{{this.taskDescript}}</p>
@@ -139,5 +139,10 @@
 	</div> <!-- end container -->
 
 {{>admin-footer}}
+
+<script type="text/javascript">
+	volCanvas();
+	getCommittedUncommitted();
+</script>
 
 </div> <!-- end admin-body -->		

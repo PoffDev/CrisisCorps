@@ -1,5 +1,12 @@
 USE cc_db;
 
+SELECT * FROM members WHERE userID = 2;
+
+UPDATE members SET activeTasks = "2" WHERE userID = 2;
+
+UPDATE availableTasks SET volsRemaining = volsRemaining - 1 WHERE taskID = 1;
+
+SELECT * FROM availabletasks WHERE taskID = 2;
 
 -- Corp *****DONE*****
 -- Corp page get all corporate users *****DONE*****
@@ -69,6 +76,13 @@ FROM corporateMembers
 LEFT JOIN users 
 ON users.userID = corporateMembers.userID WHERE users.userID = 9 AND users.userType = 3
 ORDER By users.username;
+
+-- Profile page member's active task
+SELECT taskId, taskTitle, taskDescript, volsRemaining, contactName, availabletasks.contactNum, taskAddress, taskAddress2, taskCity, taskState, taskZip
+FROM availabletasks
+LEFT JOIN members
+ON members.userID = 2
+WHERE availableTasks.taskID = members.activeTasks;
 
 
 -- Tasks *****DONE*****
