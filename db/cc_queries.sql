@@ -1,5 +1,12 @@
 USE cc_db;
 
+SELECT * FROM members WHERE userID = 2;
+
+UPDATE members SET activeTasks = "22" WHERE userID = 2;
+
+UPDATE availableTasks SET volsRemaining = volsRemaining - 1 WHERE taskID = 1;
+
+SELECT * FROM availabletasks WHERE taskID = 2;
 
 -- Corp *****DONE*****
 -- Corp page get all corporate users *****DONE*****

@@ -103,6 +103,22 @@ var orm = {
         });
 
     },
+
+    // volunteer for task
+    membTaskUpate: function(taskId, volId) {
+
+        var queryString2 = 'UPDATE members ';
+        queryString2 += 'SET activeTasks = ? ';
+        queryString2 += 'WHERE userID = ?;';
+
+        var vals = [taskId, volId];
+
+        connection.query(queryString2, vals, function(err, result) {
+            if (err) throw err;
+            console.log(result);
+        });
+
+    },
     
 
 

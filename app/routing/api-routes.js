@@ -84,4 +84,14 @@ module.exports = function(app){
 			alert("Remaining vols for task and task added to user successfully!");
 		});
 	});
+
+	app.post('/membTaskUpdate', function(req, res) {
+		// var taskid = req.body.taskId;
+		// var volid = req.body.volId;
+		orm.membTaskUpate(req.body.taskId, req.body.volId);
+		// console.log('task id: ' + taskid + ' / vol id: ' + volid);
+		res.send(function() {
+			alert("Remaining vols for task and task added to user successfully!");
+		});
+	});
 }
