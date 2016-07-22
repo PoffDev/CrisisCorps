@@ -31,10 +31,11 @@ module.exports = function(app){
 	app.post('/newUser', function (req, res){
 		orm.Users(req.body.userName, req.body.emailAddress, req.body.password, req.body.userType, function(success, userId){
 			console.log('here', success)
-			if (req.body.userType =2) {
-				orm.members(userId);
-			} else if (req.body.userType =3) {
-				orm.corporateMembers(userId)
+			if (req.body.userType == 2) {
+				console.log("ID to be inserted " + userId);
+				orm.members(userId, req.body.contactNum, req.body.bloodType);
+			} else if (req.body.userType == 3) {
+				orm.corporateMembers(userId, req.body.companyName, req.body.contactNum, req.body.donationDesc);
 			} else {
 				throw err;
 			}

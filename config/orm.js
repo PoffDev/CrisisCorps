@@ -34,18 +34,19 @@ var orm = {
         })
      },
 
-    members: function(userId, contactNumber, bloodType) {
-        var queryString = 'INSERT INTO users (userId, contactNumber, bloodType) VALUES(?, ?, ?)';
-        var vals = [userId, bloodType];
+    members: function(userId, contactNum, bloodType) {
+        var queryString = 'INSERT INTO members (userId, contactNum, bloodType) VALUES(?, ?, ?)';
+        var vals = [userId, contactNum, bloodType];
         connection.query(queryString, vals, function(err, result){
             if(err) throw err;
+            console.log(err);
             console.log(result);
         });
     },
 
-    corporateMembers: function(companyName, contactNum, donationDesc){ 
-    var queryString = 'INSERT INTO corporateMembers (companyName, contactNum, donationDesc) VALUES (?, ?, ?)';
-    var vals = [companyName, contactNum, donationDesc];
+    corporateMembers: function(userId, companyName, contactNum, donationDesc){ 
+    var queryString = 'INSERT INTO corporateMembers (userId, companyName, contactNum, donationDesc) VALUES (?, ?, ?, ?)';
+    var vals = [userId, companyName, contactNum, donationDesc];
 
          connection.query(queryString, vals, function(err, result) {
                 if (err) throw err;
