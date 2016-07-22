@@ -67,11 +67,14 @@ module.exports = function (app){
 	});
 
 	app.get('/crisis', function(req, res){
+		var user_id = parseInt(req.user.userID);
+		
 		res.render('crisis', {
 			title: 'Crisis Manager',
 			link: 'crisis',
 			active_crisis: true,
-			userID: req.user.userID
+			userID: user_id,
+			username: req.user.userName,
 		});
 	});
 
@@ -96,28 +99,33 @@ module.exports = function (app){
 	});
 
 	app.get('/tasks', function(req, res){
+		var user_id = parseInt(req.user.userID);
+
 		orm.allTasks(function(all_tasks) {
 			res.render('tasks', {
+				username: req.user.userName,
 				title: 'Tasks',
 				link: 'tasks',
 				active_tasks: true,
 				tasks: all_tasks,
-				userID: req.user.userID
+				userID: user_id,
 			});
 		});
 	});
 
 	app.get('/task/:task_id', function(req, res){
 		var task_id = parseInt(req.params.task_id);
+		var user_id = parseInt(req.user.userID);
+
 		orm.specificTask(task_id, function(the_task) {
 			res.render('task', {
+				username: req.user.userName,
 				layout: 'subdir',
 				title: 'Task',
 				link: 'task',
 				active_tasks: true,
 				task: the_task,
-				userID: req.user.userID,
-				username: req.user.username
+				userID: user_id,
 			});
 		});
 		// if (req.isAuthenticated()) {
@@ -143,13 +151,14 @@ module.exports = function (app){
 					console.log('dynamic profile working, userID = ' + user_id)
 
 					res.render('profile', {
+					username: req.user.userName,
 					layout: 'subdir',
 					title: "Profile",
 					link: 'profile',
 					active_profile: true,
 					member: memb,
 					corporation: corp,
- 					userID: req.user.userID,
+ 					userID: user_id,
  					});
 				}else{
 					console.log('fith place');
