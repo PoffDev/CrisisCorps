@@ -16,17 +16,16 @@ module.exports.connectToDB = connectToDB;
   
 var orm = {
     //form data entry queries
-    Users: function(userName, emailAddress, password, userType) {
+    Users: function(userName, emailAddress, password, userType, callback) {
         var queryString = 'INSERT INTO users (userName, emailAddress, password, userType) VALUES (?, ?, ?, ?)';
         var vals = [userName, emailAddress, password, userType];
          connection.query(queryString, vals, function(err, result) {
                 if (err) return callback(false, err);
-                callback(true. null);
+                console.log(result.insertId);
+                callback(true, result.insertId);
                 console.log(result);
             });
         },
-        //Why is user id being pushed here? 
-
 
     findUser: function (userName, callback){
         console.log('find user function, username is: ' + userName)
@@ -35,46 +34,66 @@ var orm = {
         })
      },
 
+    findMember: function (userID, callback){
+        console.log('find user function, userID is: ' + userID)
+    connection.query('SELECT * FROM member WHERE ?', {userID: userID}, function(err, user){
+        callback(err, user)
+        })
+     },
+     
     members: function(userId, contactNumber, bloodType) {
-        var queryString = 'INSERT INTO users (userId, contactNumber, bloodType) VALUES(?, ?, ?)';
-        var vals = [userId, bloodType];
+        var queryString = 'INSERT INTO members (userId, contactNum, bloodType) VALUES(?, ?, ?)';
+        var vals = [userId, contactNumber, bloodType];
+        connection.query(queryString, vals, function(err, result){
+            console.log('err here is ', err)
+            if(err) throw err;
+            console.log('got here')
+            console.log(result);
+        });
+    },
+
+    corporateMembers: function(userId, companyName, contactNum, donationDesc){ 
+    var queryString = 'INSERT INTO corporateMembers (userId, companyName, contactNum, donationDesc) VALUES (?, ?, ?)';
+    var vals = [userId, companyName, contactNum, donationDesc];
+
+         connection.query(queryString, vals, function(err, result) {
+            console.log('err here is ', err)
+            if(err) throw err;
+            console.log('got here')
+            console.log(result);
+            });
+        },
+
+    // Form Update Queries
+
+    updateUsers: function(userName, emailAddress, password, userType) {
+        var queryString = 'UPDATE users SET userName = ?, emailAddress = ?, password = ?,  WHERE id = ?'[userName, emailAddress, password];
+         connection.query(queryString, vals, function(err, result) {
+                if (err) return callback(false, err);
+                console.log(result);
+                if (userType == 2){ 
+                updateMembers();
+                } else{
+                updateCorporate();
+                }
+            });
+        },
+
+    updateMembers: function(userId, contactNumber, bloodType) {
+        var queryString = 'UPDATE users SET contactNumber = ?, bloodType = ?, WHERE id = ?' [contactNumber, bloodType, userId];
         connection.query(queryString, vals, function(err, result){
             if(err) throw err;
             console.log(result);
         });
     },
 
-    corporateMembers: function(companyName, contactNum, donationDesc){ 
-    var queryString = 'INSERT INTO corporateMembers (companyName, contactNum, donationDesc) VALUES (?, ?, ?)';
-    var vals = [companyName, contactNum, donationDesc];
-
-         connection.query(queryString, vals, function(err, result) {
+    updateCorporate: function(companyName, contactNum, donationDesc, userId){ 
+    var queryString = ' UPDATE corporateMembers SET companyName = ?, contactNum = ?, donationDesc = ?, WHERE id = ?,' [companyName, contactNum, donationDesc, userId];
+        connection.query(queryString, vals, function(err, result) {
                 if (err) throw err;
                 console.log(result);
-            });
-        },
-
-    //Form Update Queries
-
-    //should user id be at the beginning or end here?
-    // updateMembers: function(userId, contactNumber, bloodType) {
-    //     var queryString = 'UPDATE users SET contactNumber = ?, bloodType = ?, WHERE id = ?,' [req.params.id, req.body.contactNumber, req.body.bloodType],
-    //     function(err, result){
-    //         if(err) throw err;
-    //         res.redirect('/');
-    //     };
-    // },
-
-    // updateCorporate: function(companyName, contactNum, donationDesc, userId){ 
-    // var queryString = ' UPDATE corporateMembers SET companyName = ?, contactNum = ?, donationDesc = ?, WHERE id = ?,' [req.body.companyName, req.body.contactNum, req.body.donationDesc, req.params.id];
-
-    //     function(err, result) {
-    //             if (err) throw err;
-    //             console.log(result);
-    //     };
-    // },
-
-
+        });
+    },
 
     //admin panel task
 
