@@ -102,7 +102,7 @@ module.exports = function (app){
 				link: 'tasks',
 				active_tasks: true,
 				tasks: all_tasks,
-				userID: req.user.userID
+				// userID: req.user.userID
 			});
 		});
 	});
