@@ -49,7 +49,9 @@ module.exports = function(app){
 
 	app.post('/updateMember', function (req, res){
 		orm.updateUsers(req.body.userName, req.body.emailAddress, req.body.password, req.body.userID);
-		orm.updateMembers(req.bpdy.userID, req.body.contactNum, req.body.bloodType)
+		console.log("updateUsers fired")
+		orm.updateMembers(req.body.userID, req.body.contactNum, req.body.bloodType);
+			console.log("updateMembers fired");
 		res.send(function() {
 			console.log(req.body);
 			alert("Profile updated successfully!");
