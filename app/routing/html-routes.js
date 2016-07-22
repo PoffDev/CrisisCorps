@@ -145,27 +145,28 @@ module.exports = function (app){
 
 		orm.memberProfile(user_id, function(memb) {
 			orm.corpProfile(user_id, function(corp) {
+				orm.memberTask(user_id, function(task) {
 
-				if (req.isAuthenticated()){
+					if (req.isAuthenticated()){
 
-					console.log('dynamic profile working, userID = ' + user_id)
+						console.log('dynamic profile working, userID = ' + user_id)
 
-					res.render('profile', {
-					username: req.user.userName,
-					layout: 'subdir',
-					title: "Profile",
-					link: 'profile',
-					active_profile: true,
-					member: memb,
-					corporation: corp,
- 					userID: user_id,
- 					task: task
- 					});
-				}else{
-					console.log('fith place');
-					res.redirect('/signin')
-				}
-
+						res.render('profile', {
+						username: req.user.userName,
+						layout: 'subdir',
+						title: "Profile",
+						link: 'profile',
+						active_profile: true,
+						member: memb,
+						corporation: corp,
+	 					userID: user_id,
+	 					task: task
+	 					});
+					}else{
+						console.log('fith place');
+						res.redirect('/signin')
+					}
+				});
   			});
   		});
   	});
