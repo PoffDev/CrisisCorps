@@ -232,23 +232,6 @@ var orm = {
         });
         },
 
-
-    textMembers: function(to, from, body) {
-        
-        // build the mysql query string
-        var queryString = 'SELECT users.userID, members.contactNum ';
-        queryString += 'FROM users ';
-        queryString += 'LEFT JOIN members ';
-        queryString += 'ON users.userID = members.userID WHERE users.userType = 4 '
-        queryString += 'ORDER By users.userID;';
-        vals = [to, from, body]
-
-        this.connectionQuery(queryString, vals, function(err, result) {
-                if (err) throw err;
-                console.log(result);
-            });
-        },
-
     getCrisisDetails: function(callback) {
         
         // build the mysql query string
