@@ -220,15 +220,14 @@ module.exports = function (app){
 		// get all corporate users
 		orm.allCorpUsers(function(all_corps) {
 
-			res.render('corp', {
+			
+			if (req.isAuthenticated()) {
+				res.render('corp', {
 				title: 'Corporation List', // breadcrumbs title
 				link: 'corp', // link to pass to breadcrumbs
 				active_crisis: true, // active class to display on admin nav
 				corp_list: all_corps, // mysql data to pass to handlebars page
-				userID: req.user.userID
-			});
-			if (req.isAuthenticated()) {
-			res.render('/corp', {
+				userID: req.user.userID,
 				username: req.user.userName
 			})
 			} else {
