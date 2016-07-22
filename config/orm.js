@@ -82,7 +82,7 @@ var orm = {
         //Profile update forms
 
     updateUsers: function(userName, emailAddress, password, userId) {
-        var queryString = 'UPDATE users SET userName = ?, emailAddress = ?, password = ?,  WHERE id = ?'[userName, emailAddress, password, userId];
+        var queryString = 'UPDATE users SET userName = ?, emailAddress = ?, password = ?,  WHERE userID = ?'[userName, emailAddress, password, userId];
         connection.query(queryString, function(err, result) {
            if(err) throw err;
             console.log(result);
@@ -90,7 +90,7 @@ var orm = {
     },
   
     updateMembers: function(contactNum, bloodType, userId) {
-        var queryString = 'UPDATE members SET contactNum = ?, bloodType = ?, WHERE id = ?' [contactNumber, bloodType, userId];
+        var queryString = 'UPDATE members SET contactNum = ?, bloodType = ?, WHERE userID = ?' [contactNumber, bloodType, userId];
         connection.query(queryString, function(err, result){
             if(err) throw err;
             console.log(result);
@@ -98,7 +98,7 @@ var orm = {
     },
   
     updateCorporate: function(companyName, contactNum, donationDesc, userId){ 
-        var queryString = ' UPDATE corporateMembers SET companyName = ?, contactNum = ?, donationDesc = ?, WHERE id = ?,' [companyName, contactNum, donationDesc, userId];
+        var queryString = ' UPDATE corporateMembers SET companyName = ?, contactNum = ?, donationDesc = ?, WHERE userID = ?,' [companyName, contactNum, donationDesc, userId];
         connection.query(queryString, function(err, result) {
             if (err) throw err;
             console.log(result);
