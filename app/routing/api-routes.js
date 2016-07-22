@@ -53,4 +53,16 @@ module.exports = function(app){
 			}
 		});
 	});
+
+	app.post('/textMembersBlood', function (req, res){
+		var textBody = req.body.body;
+		var bloodType = req.body.bloodType;
+		orm.getNumbers(bloodType, function(result){
+			var numbers = result;
+			console.log('numbers are', numbers)
+			for (var i = numbers.length - 1; i >= 0; i--) {
+				twilio(numbers[i].contactNum, process.env.twilNumber, textBody);
+			}
+		});
+	});
 }
