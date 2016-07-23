@@ -17,7 +17,7 @@ module.exports.connectToDB = connectToDB;
 var orm = {
     //form data entry queries
     Users: function(userName, emailAddress, password, userType, callback) {
-        var queryString = 'INSERT INTO users (userName, emailAddress, password, userType) VALUES (?, ?, ?, ?)';
+        var queryString = 'INSERT INTO Users (userName, emailAddress, password, userType) VALUES (?, ?, ?, ?)';
         var vals = [userName, emailAddress, password, userType];
         connection.query(queryString, vals, function(err, result) {
             if (err) return callback(false, err);
@@ -125,7 +125,7 @@ var orm = {
         //Profile update forms
 
     updateUsers: function(userName, emailAddress, password, userId) {             
-        connection.query('UPDATE users SET userName = ?, emailAddress = ?, password = ? WHERE userID = ?',[userName, emailAddress, password, userId], function(err, result) {
+        connection.query('UPDATE Users SET userName = ?, emailAddress = ?, password = ? WHERE userID = ?',[userName, emailAddress, password, userId], function(err, result) {
            if(err) throw err;
             console.log(result);
         });
@@ -156,10 +156,10 @@ var orm = {
     allCorpUsers: function(callback) {
         
         // build the mysql query string
-        var queryString = 'SELECT corporateMembers.companyName, users.userName, users.emailAddress, corporateMembers.contactNum, corporateMembers.donationDesc ';
+        var queryString = 'SELECT corporateMembers.companyName, Users.userName, Users.emailAddress, corporateMembers.contactNum, corporateMembers.donationDesc ';
         queryString += 'FROM corporateMembers ';
-        queryString += 'LEFT JOIN users ';
-        queryString += 'ON users.userID=corporateMembers.userID ';
+        queryString += 'LEFT JOIN Users ';
+        queryString += 'ON Users.userID=corporateMembers.userID ';
         queryString += 'ORDER By corporateMembers.companyName;';
 
         this.connectionQuery(queryString, callback);
@@ -273,11 +273,11 @@ var orm = {
 
     memberProfile: function(user_id, callback) {
         
-        var queryString = 'SELECT users.userType, users.userName, users.emailAddress, members.contactNum, members.bloodType ';
-        queryString += 'FROM users ';
+        var queryString = 'SELECT Users.userType, Users.userName, Users.emailAddress, members.contactNum, members.bloodType ';
+        queryString += 'FROM Users ';
         queryString += 'LEFT JOIN members ';
-        queryString += 'ON users.userID = members.userID WHERE users.userId = ' + user_id + ' AND users.userType = 2 '
-        queryString += 'ORDER By users.username;';
+        queryString += 'ON Users.userID = members.userID WHERE Users.userId = ' + user_id + ' AND Users.userType = 2 '
+        queryString += 'ORDER By Users.username;';
 
         this.connectionQuery(queryString, callback);
 
@@ -286,11 +286,11 @@ var orm = {
 
     corpProfile: function(user_id, callback) {
         
-        var queryString = 'SELECT users.userType, corporateMembers.companyName, users.userName, users.emailAddress, users.password, corporateMembers.contactNum, corporateMembers.donationDesc ';
+        var queryString = 'SELECT Users.userType, corporateMembers.companyName, Users.userName, Users.emailAddress, Users.password, corporateMembers.contactNum, corporateMembers.donationDesc ';
         queryString += 'FROM corporateMembers ';
-        queryString += 'LEFT JOIN users ';
-        queryString += 'ON users.userID = corporateMembers.userID WHERE users.userID = ' + user_id + ' AND users.userType = 3 '
-        queryString += 'ORDER By users.username;';
+        queryString += 'LEFT JOIN Users ';
+        queryString += 'ON Users.userID = corporateMembers.userID WHERE Users.userID = ' + user_id + ' AND Users.userType = 3 '
+        queryString += 'ORDER By Users.username;';
 
         this.connectionQuery(queryString, callback);
 
@@ -299,11 +299,11 @@ var orm = {
     getNumbersBlood: function(bloodType, callback) {
         console.log(bloodType);
         // build the mysql query string
-        var queryString = 'SELECT users.userID, members.contactNum ';
-        queryString += 'FROM users ';
+        var queryString = 'SELECT Users.userID, members.contactNum ';
+        queryString += 'FROM Users ';
         queryString += 'LEFT JOIN members ';
-        queryString += 'ON users.userID = members.userID WHERE members.bloodType = ' + "'" + bloodType + "'" + ' AND users.userType = 4 '
-        queryString += 'ORDER By users.userID;';
+        queryString += 'ON Users.userID = members.userID WHERE members.bloodType = ' + "'" + bloodType + "'" + ' AND Users.userType = 4 '
+        queryString += 'ORDER By Users.userID;';
         console.log(queryString);
         this.connectionQuery(queryString, function(result){
             callback(result);
@@ -313,11 +313,11 @@ var orm = {
     getNumbers: function(callback) {
     
         // build the mysql query string
-        var queryString = 'SELECT users.userID, members.contactNum ';
-        queryString += 'FROM users ';
+        var queryString = 'SELECT Users.userID, members.contactNum ';
+        queryString += 'FROM Users ';
         queryString += 'LEFT JOIN members ';
-        queryString += 'ON users.userID = members.userID WHERE users.userType = 4 '
-        queryString += 'ORDER By users.userID;';
+        queryString += 'ON Users.userID = members.userID WHERE Users.userType = 4 '
+        queryString += 'ORDER By Users.userID;';
 
         this.connectionQuery(queryString, function(result){
             callback(result);
