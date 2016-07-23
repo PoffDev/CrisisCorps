@@ -7,7 +7,9 @@
 	
 	<div class = "About">
 		<h4>Sub Title/description</h4>
-		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+		<p>CrisisCorps was founded in 2016 in response to the tragic shootings that occurred at the Pulse nightclub in Orlando, FL. Our goal is to help cities mobilize response teams and volunteers in quicker, more efficient ways by being prepared before disaster strikes.</p> 
+		<p>When tragedy strikes, whatever the cause, we all feel the impact when our city, our homes, have been attacked. Police, paramedics, firefighters all have their roles to play, and it the past, the average citizen was on the sidelines looking for any opportunity to support.</p>
+		<p>risisCorps gives all of us a chance to step up and step in! When your friends and neighbors are in need, it is a way we can all band together to support our city, no matter your skill level or experience. Are you skilled at first aid? Are you good with a hammer and nails? Can you pass out water bottles and snacks? Can you be shoulder to cry on? This is where your city needs you!</p>
 	</div>
 
 </div>
