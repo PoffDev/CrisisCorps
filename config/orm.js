@@ -261,8 +261,8 @@ var orm = {
 
     memberTask: function(user_id, callback) {
 
-        var queryString = 'SELECT taskId, taskTitle, taskDescript, volsRemaining, contactName, availabletasks.contactNum, taskAddress, taskAddress2, taskCity, taskState, taskZip ';
-            queryString += 'FROM availabletasks ';
+        var queryString = 'SELECT taskId, taskTitle, taskDescript, volsRemaining, contactName, availableTasks.contactNum, taskAddress, taskAddress2, taskCity, taskState, taskZip ';
+            queryString += 'FROM availableTasks ';
             queryString += 'LEFT JOIN members ';
             queryString += 'ON members.userID = ' + user_id + ' ';
             queryString += 'WHERE availableTasks.taskID = members.activeTasks; ';
