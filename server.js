@@ -16,7 +16,7 @@ var orm = require('./config/orm.js')
 
 //Port
 var app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT;
 // var orm = require('./config/orm.js');
 
 // access to the public folder
