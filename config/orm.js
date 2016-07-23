@@ -81,25 +81,22 @@ var orm = {
 
         //Profile update forms
 
-    updateUsers: function(userName, emailAddress, password, userId) {
-        var queryString = 'UPDATE users SET userName = ?, emailAddress = ?, password = ?,  WHERE id = ?'[userName, emailAddress, password, userId];
-        connection.query(queryString, function(err, result) {
+    updateUsers: function(userName, emailAddress, password, userId) {             
+        connection.query('UPDATE users SET userName = ?, emailAddress = ?, password = ? WHERE userID = ?',[userName, emailAddress, password, userId], function(err, result) {
            if(err) throw err;
             console.log(result);
         });
     },
   
-    updateMembers: function(contactNum, bloodType, userId) {
-        var queryString = 'UPDATE members SET contactNum = ?, bloodType = ?, WHERE id = ?' [contactNumber, bloodType, userId];
-        connection.query(queryString, function(err, result){
+    updateMembers: function(userId, contactNum, bloodType) {
+        connection.query('UPDATE members SET contactNum = ?, bloodType = ? WHERE userID = ?',[contactNum, bloodType, userId], function(err, result) {
             if(err) throw err;
             console.log(result);
         });
     },
   
     updateCorporate: function(companyName, contactNum, donationDesc, userId){ 
-        var queryString = ' UPDATE corporateMembers SET companyName = ?, contactNum = ?, donationDesc = ?, WHERE id = ?,' [companyName, contactNum, donationDesc, userId];
-        connection.query(queryString, function(err, result) {
+        connection.query('UPDATE corporateMembers SET companyName = ?, contactNum = ?, donationDesc = ? WHERE userID = ?,' [companyName, contactNum, donationDesc, userId], function(err, result) {
             if (err) throw err;
             console.log(result);
         });
