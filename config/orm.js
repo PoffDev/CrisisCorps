@@ -69,7 +69,7 @@ var orm = {
         },
     
     ActiveCrisis: function(crisisName, crisisDesc){ 
-        var queryString = 'INSERT INTO ActiveCrisis (crisisName, crisisDesc) VALUES (?, ?)';
+        var queryString = 'INSERT INTO activeCrisis (crisisName, crisisDesc) VALUES (?, ?)';
         var vals = [crisisName, crisisDesc];
 
             connection.query(queryString, vals, function(err, result) {
@@ -328,7 +328,7 @@ var orm = {
         
         // build the mysql query string
         var queryString = 'SELECT * ';
-        queryString += 'FROM activecrisis;';
+        queryString += 'FROM activeCrisis;';
 
         this.connectionQuery(queryString, callback);
 
