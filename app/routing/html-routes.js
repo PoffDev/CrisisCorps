@@ -192,6 +192,7 @@ module.exports = function (app){
 				orm.totalNumMembers(function(total_membs) {
 					orm.totalVolPositions(function(vol_positions) {
 						orm.totalCompletedTasks(function(comp_tasks) {
+							console.log(comp_tasks[0]);
 							orm.totalTasks(function(tot_tasks) {
 								orm.dashboardTasksList(function(tasks_three) {
 									if (req.isAuthenticated()) {

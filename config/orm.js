@@ -212,8 +212,9 @@ var orm = {
     totalCompletedTasks: function(callback) {
         
         // build the mysql query string
-        var queryString = 'SELECT SUM(volsNeeded = 0) ';
-        queryString += 'FROM availableTasks;';
+        var queryString = 'SELECT COUNT(*) ';
+        queryString += 'FROM availableTasks ';
+        queryString += 'WHERE volsRemaining = 0;';
 
         this.connectionQuery(queryString, callback);
 
